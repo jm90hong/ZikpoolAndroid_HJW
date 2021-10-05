@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/zikpool_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:theme="@style/ToolBarStyle">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/toobar_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:background="@android:color/transparent"
+                android:ellipsize="end"
+                android:fontFamily="@font/ngfont"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#3e3a39"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+
+                <!--todo 버튼 세트 1-->
+                <ImageView
+                    android:id="@+id/go_my_btn"
+                    android:layout_width="24sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="17sp"
+                    android:src="@drawable/my_profile"
+                    android:clickable="true"
+                    android:visibility="gone"/>
+                <ImageView
+                    android:id="@+id/go_setting_btn"
+                    android:layout_width="23sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12sp"
+                    android:clickable="true"
+                    android:src="@drawable/gear_settings"
+                    android:visibility="gone"/>
+
+                <!--todo 버튼 세트 2 팔로우(백엔드 명: mark)-->
+                <ImageView
+                    android:id="@+id/mark_radio"
+                    android:layout_width="24sp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_marginEnd="12sp"
+                    android:src="@drawable/unmarked"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <!--액션바 하단에 border-bottom 주기-->
+    <!--<View-->
+    <!--android:background="#dedede"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="2dp" />-->
+    <WebView
+        android:id="@+id/xwalk_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </WebView>
+</LinearLayout>

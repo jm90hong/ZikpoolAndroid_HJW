@@ -1,0 +1,114 @@
+.add-ch-input-div{
+    display:flex;
+    wdith:100%;
+    height:44px;
+    align-items:center;
+    font-weight:700;
+    border-radius:5px;
+    padding:0 5px;
+    box-shadow: 0px 0px 4px 0px rgba(204,204,204,1);
+}
+
+.add-ch-url{
+    height:100%;
+    width:calc(100% - 45px);
+    outline:none;
+    border:none;
+
+}
+
+.add-ch-btn{
+    color:#999;
+    font-size:16px;
+    width:45px;
+
+}
+
+.ch-container{
+    width:100%;
+    height:30px;
+    margin-top:12px;
+}
+
+.one-added-ch-box{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color:#999;
+    font-size:13px;
+    font-weight:700;
+}
+
+.one-added-ch-box > span.url{
+    padding:2px 7px;
+    border:1px solid #999;
+    border-radius:50em;
+}
+
+.one-added-ch-box > i.del-ch{
+    font-size:16px;
+    color:#de1a1a;
+}
+
+#my-class-url{
+    border:none;
+    outline:none;
+    background:transparent;
+    width:calc(100% - 10px);
+    margin-top:2px;
+    font-size:15px;
+    color:#3e3a39;
+}
+
+
+.amc-container{
+    width:100%;
+    padding:25px 10px;
+    background:#fff;
+    font-weight:700;
+    position:relative;
+
+}
+
+.amc-sector{
+    display:flex;
+    flex-direction:column;
+}
+
+.amc-sector > .title{
+    color:#999;
+    font-size:12px;
+}
+
+.amc-sector > .content{
+    margin-top:2px;
+    color:#3e3a39;
+    font-size:15px;
+}
+
+
+.amc-circle-btn{
+    position:absolute;
+    right:14px;
+    width:50px;
+    height:50px;
+    background:#fad037;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#222;
+    border-radius:50%;
+    font-size:15px;
+}
+
+.amc-state-span{
+    border-radius:14px;
+}
+
+.copy-url-btn{
+    padding:2px 8px;
+    background:#fad037;
+    color:#fff;
+    border-radius:14px;
+}

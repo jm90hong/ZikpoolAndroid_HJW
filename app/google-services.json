@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "381001270792",
+    "firebase_url": "https://zikpool-stoudy509.firebaseio.com",
+    "project_id": "zikpool-stoudy509",
+    "storage_bucket": "zikpool-stoudy509.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381001270792:android:dcd37df3a8ebda87",
+        "android_client_info": {
+          "package_name": "zikpool.stoudy.com.zikpoolandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381001270792-qmqb9ctfl210dl86qdiicp7g6cm42nk9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zikpool.stoudy.com.zikpoolandroid",
+            "certificate_hash": "090734565b3a8178fabd265b4854fbd78b0924d3"
+          }
+        },
+        {
+          "client_id": "381001270792-33rtc0p0gum8u3jo5skdiorj9v84j42i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zikpool.stoudy.com.zikpoolandroid",
+            "certificate_hash": "32df26fb14fc2f0a7de1a90e1df85451fae51e9c"
+          }
+        },
+        {
+          "client_id": "381001270792-9bde3hg73dqeqs22t9vqp7u3hkfg5on5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zikpool.stoudy.com.zikpoolandroid",
+            "certificate_hash": "d630177bddf1b4c0a1fe06c6e1aeb71299f162d6"
+          }
+        },
+        {
+          "client_id": "381001270792-4s1p35f50cbqsev0m23m37fl4caipslj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zikpool.stoudy.com.zikpoolandroid",
+            "certificate_hash": "524be285ca33a7a67ee5c1041d11cde7bd70d87b"
+          }
+        },
+        {
+          "client_id": "381001270792-2kkt8ai33idelarnoftlmjubsaqmpb3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaM_CJ0yJQqzgVHmPXmBBvMyVOb-FImpw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381001270792-2kkt8ai33idelarnoftlmjubsaqmpb3m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-8533573452821472~4066711364"
+    }
+  ],
+  "configuration_version": "1"
+}

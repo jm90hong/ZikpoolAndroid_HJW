@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta charset="utf-8">
+
+        <!-- <meta name="format-detection" content="telephone=no"> -->
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/config.css"/>
+        <link rel="stylesheet" type="text/css" href="css/basic/zp-basic.css"/>
+        <link rel="stylesheet" type="text/css" href="css/room/room_initialize.css"/>
+        <title>직풀 과외방</title>
+    </head>
+
+    <body>
+      <div id="removeCon" style="position:fixed:top:0;left:0;height:300px;width:200px;border:2px solid blue;display:none;" data-flag-display="n"></div>
+      <div id="something-others-necessary" style="display:none;">
+      </div>
+
+      <div id="room-waiting-notice-container">
+          <div id="cancel-btn-berfore-zikpoolclass" class="r-loading-container">
+              <div class="r-loading"></div>
+              <div id="r-loading-text">학생 대기중</div>
+          </div>
+      </div>
+
+      <div id="room-confirm-notice-container">
+        <div>
+          <section class="room-notice-header borderRadius-top">
+            <font id="confirm-header-text"class="notice-font-big" style="color:#ffeb48;">전체 지우개</font>
+          </section>
+          <section class="room-notice-content" style="display:flex;justify-content:center;align-items:center;">
+            <font id="confirm-content-text" class="notice-font-small" style="color:#585858;">현재 캔버스를</br> 모두 삭제 하시겠습니까?</font>
+          </section>
+          <section class="room-notice-footer borderRadius-bottom">
+            <div id="room-confirm-yes" class="room-confirm-yes" data-which-command="removeAll">
+              <font class="notice-font-big"  style="color:#222;">확인</font>
+            </div>
+            <div id="room-confirm-no" class="room-confirm-no">
+              <font class="notice-font-big" style="color:#fff;">취소</font>
+            </div>
+          </section>
+        </div>
+      </div>
+
+
+      <nav class="header">
+        <div id="icon-menu" class="header-icon menu zik-not-clicked">
+          <img src="img/room/menu-b.png" style="pointer-events:none;width:65%;height:65%;"/>
+        </div>
+
+        <div id = "main-logo">
+          <img src="img/logo/zikpool-logo.png" style="height:90%;"/>
+        </div>
+
+        <div class="header-icon drag family zik-not-clicked" data-canvas-mode="panzoom">
+          <img src="img/room/drag-b.png" style="width:65%;height:65%;"/>
+        </div>
+        <div class="header-icon pen family zik-clicked" data-canvas-mode="pen">
+          <img src="img/room/pen-w.png" style="width:65%;height:65%;"/>
+        </div>
+        <div class="header-icon linepen family zik-not-clicked" data-canvas-mode="linepen">
+          <img src="img/room/linepen-b.png" style="width:65%;height:65%;"/>
+        </div>
+
+        <div id="icon-colorPicker" class="header-icon">
+          <div class="selected-color" style="background:rgba(255,0,0,1);"></div>
+          <nav id="colorPicker-dropdown" class="zik-hide" style="display:none;">
+            <div class="wrapper-oneColor">
+              <div class="oneColor" data-color="rgba(0,0,0" style="background:rgba(0,0,0,1);">
+              </div>
+            </div>
+            <div class="wrapper-oneColor">
+              <div class="oneColor" data-color="rgba(255,0,0" style="background:rgba(255,0,0,1);">
+              </div>
+            </div>
+            <div class="wrapper-oneColor">
+              <div class="oneColor" data-color="rgba(0,0,255" style="background:rgba(0,0,255,1);">
+              </div>
+            </div>
+            <div class="wrapper-oneColor">
+              <div class="oneColor" data-color="rgba(255,255,0" style="background:rgba(255,255,0,1);">
+              </div>
+            </div>
+            <div class="wrapper-oneColor">
+              <div class="oneColor" data-color="rgba(0,255,0" style="background:rgba(0,255,0,1);">
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="header-icon penWidth" style="flex-wrap:wrap;">
+          <div id="icon-penWidth" class="zik-not-clicked" style="width:100%;height:100%;">
+            <img src="img/room/penwidth-b.png" style="width:65%;height:65%;margin:17.5% auto;display:block;"/>
+          </div>
+          <nav id="penWidth-dropdown" class="zik-hide" style="display:none;">
+
+            <div class="wrapper-oneWidth zik-clicked" data-width="1">
+              <div class="oneWidth penWidth-1">
+              </div>
+            </div>
+            <div class="wrapper-oneWidth" data-width="2">
+              <div class="oneWidth penWidth-2">
+              </div>
+            </div>
+            <div class="wrapper-oneWidth" data-width="5">
+              <div class="oneWidth penWidth-3">
+              </div>
+            </div>
+            <div class="wrapper-oneWidth" data-width="15">
+              <div class="oneWidth penWidth-4">
+              </div>
+            </div>
+            <div class="wrapper-oneWidth" data-width="20">
+              <div class="oneWidth penWidth-5">
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="header-icon raserpointer family zik-not-clicked" data-canvas-mode="raserpointer">
+          <img src="img/room/laser-b.png" style="width:65%;height:65%;"/>
+        </div>
+        <div class="header-icon eraser family zik-not-clicked" data-canvas-mode="eraser">
+          <img src="img/room/eraser-b.png" style="width:65%;height:65%;"/>
+        </div>
+
+        <div class="header-icon eraseAll zik-not-clicked">
+          <font id="icon-eraseAll">ALL</font>
+        </div>
+
+        <div id="icon-file" class="header-icon file zik-not-clicked" data-slide-status="close"  style="float:right;">
+          <img src="img/room/file-b.png" style="pointer-events:none;width:65%;height:65%;"/>
+        </div>
+        <div id="icon-whiteboard" data-onoff="off" class="header-icon whiteboard zik-not-clicked" style="float:right;margin-right:3px;">
+          <img src="img/room/board-b.png" style="pointer-events:none;width:65%;height:65%;"/>
+        </div>
+
+      </nav>
+
+      <div class="room-container">
+          <div id="question-canvas-board-section" class="room-section">
+            <div id="question-canvas-board-wrapper" style="position:relative;width:100px;height:100px;">
+
+              <div id="raser-pointer-board-div" style="z-index:9999;background:transparent;pointer-events:none;" class="im-canvas">
+                <div id="raser-pointer-board" class="raser-pointer-board">
+                  <div id="raser-pointer-q" class="raser-pointer-ring im-raser-pointer"><div class="raser-pointer-center"></div></div>
+                </div>
+              </div>
+              <canvas id="question-drawing-canvas" class="question-canvas-board-class im-canvas" style="background:transparent;z-index:9998;"  width="100" height="100" ></canvas>
+              <canvas id="question-canvas-board" class="question-canvas-board-class im-canvas" style="background-size:contain;" width="100" height="100" ></canvas>
+              <canvas id="question-reception-canvas" class="question-canvas-board-class im-canvas" style="background:transparent;" width="100" height="100" ></canvas>
+
+            </div>
+          </div>
+          <div id="white-canvas-board-section" class="room-section" style="display:none;">
+            <!--<img id="go-next-page" class="arrow-in-page" style="position:fixed;bottom:0;right:0;z-index:9999;" src="css/room/img/roomimg/right_arrow.png" width="5%"/>-->
+            <!--<img id="go-previous-page" class="arrow-in-page" style="position:fixed;bottom:0;right:8%;z-index:9999;" src="css/room/img/roomimg/left_arrow.png" width="5%"/>-->
+            <!--<font id="white-index-label">1/5</font>-->
+
+            <div style="display:flex;width:115px;position:fixed;bottom:5px;left:5px;justify-content:space-between;z-index:9999;align-items:center;">
+              <div id="go-previous-page" class="room-btn-1 effect-1" style="width:30px;height:30px;border-radius:7px;font-size:20px;">
+                <i class="fas fa-caret-left"></i>
+              </div>
+              <font id="white-index-label" style="position:static;font-size:20px;">1/5</font>
+              <div id="go-next-page" class="room-btn-1 effect-1" style="width:30px;height:30px;border-radius:7px;font-size:20px;">
+                <i class="fas fa-caret-right"></i>
+              </div>
+            </div>
+            <div id="white-canvas-board-wrapper" style="position:relative;width:100px;height:100px;">
+              <div id="raser-pointer-w" class="raser-pointer-ring im-raser-pointer"><div class="raser-pointer-center"></div></div>
+              <canvas id="white-drawing-canvas"  class="white-canvas-board-class im-canvas" style="background:transparent;z-index:9998" width="100" height="100" ></canvas>
+              <canvas id="white-canvas-board"  class="white-canvas-board-class im-canvas" style="pointer-events:none;" width="100" height="100" ></canvas>
+              <canvas id="white-reception-canvas" class="white-canvas-board-class im-canvas" style="background:transparent;pointer-events:none" width="100" height="100" ></canvas>
+            </div>
+          </div>
+      </div>
+
+
+      <!-- Other Slider (menu, file) -->
+      <div id="menu-slide" data-slide-status="close" class="slideSetting">
+        <div id="menu-slide-top-cont">
+            <video id="localVideo"></video>
+            <video id="remoteVideo"></video>
+            <div class="ms-label-div">
+              <font>접속자 리스트</font>
+            </div>
+            <div class="user-list-div">
+              <span id="user-list-me">대기중...</span>
+              <span id="user-list-other">대기중...</span>
+            </div>
+            <div style="margin-top:10%;" class="ms-label-div">
+              <font>컨트롤 보드</font>
+            </div>
+            <div class="controller-wrapper-div">
+              <font>음소거</font>
+              <div id="sound-onoff-controller" data-onoff="on" class="sound-on">
+                  <font style="color:#fad037;">on</font>
+              </div>
+            </div>
+
+            <div class="controller-wrapper-div not-show-for-student">
+              <font>학생 펜사용</font>
+                <div id="student-pen-auth" data-pen-auth='no' class="pen-use-off">
+                    <font style="color:#fad037;">불가능</font>
+                </div>
+            </div>
+            <div class="icon-detail">
+                <div>
+                  <img src="css/room/img/roomimg/drag_1.png" width="10%">
+                  <font> : 드래그</font>
+                </div>
+                <div>
+                  <img src="css/room/img/roomimg/pen_1.png" width="10%">
+                  <font> : 볼펜</font>
+                </div>
+                <div>
+                  <img src="css/room/img/roomimg/linepen_1.png" width="10%">
+                  <font> : 형광펜</font>
+                </div>
+                <div>
+                  <img src="css/room/img/roomimg/penwidth_1.png" width="10%">
+                  <font> : 펜굵기 설정</font>
+                </div>
+                <div>
+                  <img src="css/room/img/roomimg/raserPointer_1.png" width="10%">
+                  <font> : 레이저 포인터</font>
+                </div>
+                <div>
+                  <img src="css/room/img/roomimg/eraser_1.png" width="10%">
+                  <font> : 지우개</font>
+                </div>
+                <div>
+                  <font>ALL</font>
+                  <font> : 전체 지우개</font>
+                </div>
+            </div>
+        </div>
+        <div id="menu-slide-bottom-cont">
+            <div align="right">
+              <div id="exit-room-btn" class="exit-room-btn">
+                <img src="img/room/poweroff.png" width="16%"/>
+                <font style="color:#fad037;margin-left:6%;">종료하기</font>
+              </div>
+            </div>
+        </div>
+      </div>
+
+
+      <div id="file-slide" data-slide-status="close"  class="slideSetting">
+        <font class="one-question-img-label" style="display:none;" data-label-order="0" >문제 사진</font>
+        <img class="one-question-img order0" style="display:none;" data-img-order="0" data-img-url="" src=""/>
+        <font class="one-question-img-label" style="display:none;" data-label-order="1">풀이 사진</font>
+        <img class="one-question-img order1" style="display:none;" data-img-order="1" data-img-url="" src=""/>
+        <font class="one-question-img-label" style="display:none;" data-label-order="2">해설지 사진</font>
+        <img class="one-question-img order0" style="display:none;" data-img-order="2" data-img-url="" src=""/>
+        <font class="one-question-img-label" style="display:none;" data-label-order="3">선생님 풀이사진-1</font>
+        <img class="one-question-img order0" style="display:none;" data-img-order="3" data-img-url="" src=""/>
+        <font class="one-question-img-label" style="display:none;" data-label-order="4">선생님 풀이사진-2</font>
+        <img class="one-question-img order0" style="display:none;" data-img-order="4" data-img-url="" src=""/>
+
+
+        <div style="display:none;">
+          <button id='console-btn'>console</button>
+          <button id='trigger-btn'>트리거</button>
+          <button id='trigger1-btn'>트리거1</button>
+        </div>
+      </div>
+      <!-- BackEnd part -->
+      <img id="backend-question-img" style="position:fixed;top:0;left;0;display:none;pointer-events:none;" src="https://www.stoudy.com/resources/img/main/mainImage_mod.jpg"/>
+
+
+      <!-- 오디오 권한 물어보기-->
+      <div id="ask-for-audioContext-window" class="black-translucent-window-container">
+        <div>
+          <div style="width:360px;background:#fff;font-size:14px;font-weight:700;" align="center">
+            <div style="padding:4px;color:#222;background:#f2f2f2;">
+              오디오 사용 권한 동의
+            </div>
+            <div style="padding:28px 25px 17px 25px;text-align:left;">
+              직풀 실시간 과외는 상대방과의 음성통신을 활용한 수업입니다.
+              원활한 진행을 위하여 디바이스 오디오 사용 권한에 동의하여 주십시오.
+            </div>
+            <div id="got-it-audioContext-btn" style="height:50px;display:flex;justify-content:center;align-items:center;color:#307afa;">
+              예, 동의합니다.
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--가이드 창-->
+      <div id="guide-in-page" style="display:none;position:fixed;background:rgba(0,0,0,0.7);width:100%;height:100%;top:0;left:0;z-index:9999;">
+        <img src="img/guide/room/room1.png" style="width:100%;height:calc(100% - 46px);"/>
+        <div style="width:100%;height:46px;background:transparent;display:flex;font-size:17px;font-weight:700;color:#fff;">
+          <div class="never-show-this-guide-btn" data-type="room" style="flex:1;display:flex;align-items:center;justify-content:center;">
+            다시 보지 않기
+          </div>
+          <div class="close-this-guide-btn" style="flex:1;display:flex;align-items:center;justify-content:center;">
+            닫기
+          </div>
+        </div>
+      </div>
+
+      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/socket.io.min.js"></script>
+      <script type="text/javascript" src="js/room/remove/fabric.min.js"></script>
+
+
+      <script type="text/javascript" src="js/config.js"></script>
+      <script type="text/javascript" src="js/room/zikpool-room/room_initialize.js"></script>
+      <script type="text/javascript" src="js/room/room_canvasPanZoom.js"></script>
+      <script type="text/javascript" src="js/room/rtc_part/room_auxiliary_canvas.js"></script>
+      <script type="text/javascript" src="js/room/rtc_part/room_canvas.js"></script>
+      <script type="text/javascript" src="js/room/rtc_part/room_white_canvas.js"></script>
+      <script type="text/javascript" src="js/room/zikpool-room/room_RTC.js"></script>
+      <script type="text/javascript" src="js/room/zikpool-room/room_notice.js"></script>
+      <script type="text/javascript" src="js/room/remove/consoleLog.js"></script>
+
+
+    </body>
+</html>

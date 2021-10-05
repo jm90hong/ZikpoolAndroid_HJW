@@ -1,0 +1,117 @@
+.sal-container{
+    width:100%;
+    height:calc(100% - 46px);
+    background:#fff;
+    color:#3e3a39;
+    font-weight:700;
+    overflow:scroll;
+}
+
+#request-my-income-to-exchange-btn{
+  width:100%;
+  height:46px;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  font-size:16px;
+  font-weight: 700;
+}
+
+.requirement-not-satisfied{
+    background:#dadada;
+    color:#8a8a8a;
+    pointer-events:none;
+}
+
+.requirement-satisfied{
+    background:#fad037;
+    color:#fff;
+    pointer-events:auto;
+}
+
+
+.sal-container > .top-wrapper{
+    width:100%;
+    padding:6vw 5vw 8vw 5vw;
+    background:#fad037;
+    border-radius:0 0 6vw 6vw;
+}
+
+.sal-container > .middle-wrapper{
+    width:100%;
+    padding:0px 5vw;
+    font-size:14px;
+}
+
+.sal-container > .middle-wrapper > div{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:18px;
+}
+
+.sal-container > .middle-wrapper > div >.ac-title{
+    color:#999;
+}
+
+.sal-container > .middle-wrapper > div >.ac-content{
+    margin-top:5px;
+    color:#3e3a39;
+    font-size:15px;
+}
+
+
+.sal-container .one-info-div{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+
+input.sal-input-style{
+    width:180px;
+    border:none;
+    border-bottom:1px solid #f2f2f2;
+    outline:none;
+    padding-bottom:5px;
+    font-size:19px;
+}
+
+
+
+
+
+#loading-window{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display:none;
+}
+#loading-window > div{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,0.7);
+    flex-direction:column;
+    color:#fff;
+    font-size:15px;
+    font-weight:700;
+}
+
+#teacher-understand-btn{
+    width:96px;
+    height:38px;
+    background:#fad037;
+    border-radius:6px;
+    color:#3e3a39;
+    font-size:16px;
+    font-weight:700;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+}

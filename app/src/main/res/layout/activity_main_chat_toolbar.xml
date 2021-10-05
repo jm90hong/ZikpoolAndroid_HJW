@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/zikpool_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:theme="@style/ToolBarStyle_white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/toobar_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:background="@android:color/transparent"
+                android:ellipsize="end"
+                android:fontFamily="@font/ngfont"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#3e3a39"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+                <TextView
+                    android:id="@+id/chat_state_textview"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text=""
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#de1a1a"
+                    android:visibility="gone"
+                    android:layout_marginEnd="7dp"
+                    >
+
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+    <!--액션바 하단에 border-bottom 주기-->
+    <!--<View-->
+    <!--android:background="#dedede"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="2dp" />-->
+    <WebView
+        android:id="@+id/xwalk_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </WebView>
+</LinearLayout>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+  <title>직풀::명문대생이 직접 풀어준다</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="img/header/wv-125.png" sizes="128x128">
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/config.css" />
+  <link rel="stylesheet" href="css/basic/zp-basic.css" />
+  <link rel="stylesheet" href="css/zikpool_huni.css" />
+  <link rel="stylesheet" href="css/header_tabUI.css" />
+
+
+  <style>
+        input{
+          outline: none;
+        }
+        textarea{
+          outline: none;
+          resize: none;
+        }
+        textarea::placeholder{
+          font-size: 10px;
+        }
+        input[type="radio"] {
+          display:none;
+        }
+        input[type=radio] + label{
+          display: inline-block;
+          cursor: pointer;
+          position: relative;
+          font-size: 13px;
+          margin-right: 5px;
+          border-radius: 50%;
+        }
+        input[type=radio] + label:before{
+          content: "";
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          position: absolute;
+          right: 10px;
+          background-color: #ccc;
+          border-radius: 2px;
+          box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+          margin-right: 5px;
+          border-radius: 50%;
+        }
+        input[type=radio]:checked + label:before{
+          content: "\2713";  /* 체크모양 */
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+          font-size: 15px;
+          font-weight:800;
+          color: #fff;
+          background:#008BE5;
+          text-align: center;
+          line-height: 15px;
+          margin-right: 5px;
+          border-radius: 50%;
+        }
+      </style>
+</head>
+
+<body onload="init();" style="background-color: #F6F6F6;">
+<!-- 정보 수정 페이지 -->
+<div class="slide_con" id="dedail_profile_page">
+  <!-- 내용 -->
+  <div class="add_screen" style="background-color: #fff;">
+    <div class="take1" style="position: absolute;top: 0px;left: 0px;width: 100%;height: 100%;padding-top: 20%;background-color: #fff;">
+      <div style="position: relative;width: 90%;margin: 0px auto;">
+        <div  style="width: 130px;margin: 0px auto;">
+          <img src="img/warning.png" style="width: 100%" />
+        </div>
+        <div style="position: relative;width: 90%;margin: 20% auto 0px;">
+          <span style="font-weight: bold;font-size: 20px;">회원탈퇴를 원하시면<br />비밀번호를 입력하시기 바랍니다.</span>
+        </div>
+        <div style="position: relative;width: 90%;margin: 30px auto 0px;">
+          <span><i class="fas fa-info-circle" style="color: red;"></i> 탈퇴 후에는 새로 회원가입을 하셔야<br/> &nbsp; 서비스 이용이 가능합니다.</span>
+        </div>
+        <div  style="position: relative;width: 90%;margin: 20% auto 0px;">
+          <div class="add_form_border">
+            <i class="fas fa-key gray_color_h" id="pw_icon"></i>
+            <input class="add_input" type="password" style="height: 40px;" id="pw" name="pw" autocomplete="off" placeholder="비밀번호를 입력해주세요." />
+            <i class="fas fa-times fa-1x" id="pw_input_del" style="display: none;color: #A6A6A6;"></i>
+          </div>
+          <span class="add_out" id="out_pw"></span>
+        </div>
+      </div>
+
+      <div class="add_btn">
+        <div class="submit_btn_fixed footer-btn-txt-1" id="take1_btn">확인 (1/3)</div>
+      </div>
+    </div>
+
+    <div class="take2" style="position: absolute;top: 0px;left: 0px;width: 100%;height: 100%;padding-top: 30px;background-color: #fff;display: none;">
+      <div style="position: relative;width: 90%;margin: 0px auto;border: 1px solid red;border-radius: 10px;padding: 10px">
+        <div style="position: absolute;left: calc(50% - 100px);top: -20px;width: 200px;margin: 5px auto;background-color: #fff;padding-left: 24px;">
+          <span style="font-size: 20px;font-weight: bold;"><i class="far fa-check-circle"></i> 확인해 주세요!</span>
+        </div>
+        <div style="margin: 20px 0px 10px;font-weight: bold;">
+          <span><i class="fas fa-check"></i> 회원정보 및 서비스이용 정보 처리</span>
+        </div>
+        <div style="font-size: 13px;padding-left: 5px;">
+          <span><i class="fas fa-angle-right"></i> 회원 탈퇴 즉시, <span style="color: red;">회원정보는 모두 삭제되고 재가입시에도 복원되지 않습니다.</span></span><br />
+          <span><i class="fas fa-angle-right"></i> 구글 아이디로 로그인을 이용 중인 회원은 회원 탈퇴 후, 구글에서 <span style="color: red;">외부 로그인 연결을 해제</span>하셔야 모든 개인정보가 삭제되며, 재가입시에도 다시 이용 가능합니다.</span><br />
+          <!--<span><i class="fas fa-angle-right"></i> 작성하신 게시물의 삭제를 원하실 때는 회원 탈퇴 전에 <span style="color: red;">작성하신 게시물을 삭제 후</span> 회원 탈퇴를 진행해주시길 바랍니다.</span><br />-->
+          <span><i class="fas fa-angle-right"></i> 회원 탈퇴시 보유하신 포인트 또는, 선생님의 활동점수는 모두 <span style="color: red;">환불되지 않으며, 복구되지 않습니다.</span></span><br />
+          <span><i class="fas fa-angle-right"></i> 선생님의 활동점수의 경우 탈퇴하기 전에 <span style="color: red;">급여 신청을 통하여 지급 완료된 후에</span> 탈퇴를 해주시기 바랍니다.</span>
+        </div>
+        <div style="margin: 10px 0px 5px;font-weight: bold;">
+          <span><i class="fas fa-check"></i> 유지 및 보관되는 정보</span>
+        </div>
+        <div style="font-size: 13px;padding-left: 5px;">
+          <span><i class="fas fa-angle-right"></i> 전자상거래 등에서의 소비자보호에 관한 법률 제6조에 의거 성명, 주소, 주민등록번호 등 거래의 주체를 식별할 수 있는 정보에 한하여 서비스 이용에 관한 동의를 철회한 경우에도 이를 보전할 수 있으며, 동법 시행령 제6조에 의거 다음과 같이 거래기록을 보관합니다.</span>
+        </div>
+        <div style="font-size: 13px;margin-top: 5px;padding-left: 10px;">
+          <spna><i class="fas fa-caret-right"></i> 삭제되지 않은 모든 게시글 및 문의글 기록</spna><br />
+          <spna><i class="fas fa-caret-right"></i> 급여 지급 증명을 위한 선생님의 개인 정보 및 거래 기록</spna><br />
+          <spna><i class="fas fa-caret-right"></i> 표시, 광고에 관한 기록</spna><br />
+          <spna><i class="fas fa-caret-right"></i> 계약 또는 청약철회 등에 관한 기록</spna><br />
+          <spna><i class="fas fa-caret-right"></i> 대금 결제 및 재화 등의 공급에 관한 기록</spna><br />
+          <spna><i class="fas fa-caret-right"></i> 소비자의 불만 또는 분쟁처리에 관한 기록</spna>
+        </div>
+      </div>
+
+      <div style="position: relative;margin: 30px 3vw 10px;" id="agree">
+        <img src="img/check-box-empty.png" style="width: 17px;" id="agreeImg" />
+        <span class="chk2" id="agreeText">위의 사항을 숙지하였으며, 이에 동의합니다.</span>
+      </div>
+
+      <div class="add_btn">
+        <div class="submit_btn_fixed footer-btn-txt-1" id="take2_btn">확인 (2/3)</div>
+      </div>
+      </di>
+    </div>
+
+    <div class="take3" style="position: absolute;top: 0px;left: 0px;width: 100%;height: 100%;padding-top: 30px;background-color: #fff;display: none;">
+      <div style="position: relative;width: 90%;margin: 0px auto;">
+        <div style="display: flex;">
+          <div style="font-size: 15vw;">
+            <i class="far fa-laugh"></i>
+          </div>
+          <div style="margin: 3vw;font-size: 5vw;font-weight: bold;">
+            <p>그동안 `직풀`을</p>
+            <p>이용해 주셔서 감사합니다.</p>
+          </div>
+        </div>
+        <div style="margin-top: 10px;font-size: 3vw;">
+          <p>탈퇴 사유를 알려주시면, 회원님의 소중한 의견을 받아</p>
+          <p>보다 나은 서비스를 할 수 있는 직풀이 되도록 노력하겠습니다.</p>
+        </div>
+        <div style="position: relative;width: 90%;margin: 7vw auto;">
+          <div class="btn btn-default withdrawalBtn" align="center" id="opinion1"><i class="fas fa-check" style="color: #008BE5;display: none;" id="opinionIcon1"></i> 콘텐츠 오류로 인한 불만족</div>
+          <div class="btn btn-default withdrawalBtn" align="center" id="opinion2"><i class="fas fa-check" style="color: #008BE5;display: none;" id="opinionIcon2"></i> 개인 정보 유출 우려</div>
+          <div class="btn btn-default withdrawalBtn" align="center" id="opinion3"><i class="fas fa-check" style="color: #008BE5;display: none;" id="opinionIcon3"></i> 원하는 콘텐츠 부족</div>
+          <div class="btn btn-default withdrawalBtn" align="center" id="opinion4"><i class="fas fa-check" style="color: #008BE5;display: none;" id="opinionIcon4"></i> 유료정보에 대한 가격 부담</div>
+          <div class="btn btn-default withdrawalBtn" align="center" id="opinion5"><i class="fas fa-check" style="color: #008BE5;display: none;" id="opinionIcon5"></i> 개인화 기능 불필요</div>
+          <div class="btn btn-default withdrawalBtn" align="center" id="opinion6"><i class="fas fa-check" style="color: #008BE5;display: none;" id="opinionIcon6"></i> 콘텐츠 내용 불만</div>
+          <div class="btn btn-default withdrawalBtn" align="center" id="opinion7"><i class="fas fa-check" style="color: #008BE5;display: none;" id="opinionIcon7"></i> 앱 사용빈도 낮음</div>
+          <div class="btn btn-default withdrawalBtn" align="center" id="opinion8"><i class="fas fa-check" style="color: #008BE5;display: none;" id="opinionIcon8"></i> 직접 작성</div>
+          <div >
+            <input type="text" class="withdrawalBtn" style="display: none;" id="opinion8Text" maxlength="100" />
+          </div>
+        </div>
+      </div>
+
+      <div class="add_btn">
+        <div class="submit_btn_fixed footer-btn-txt-1" id="take3_btn">회원 탈퇴하기 (3/3)</div>
+      </div>
+      </di>
+    </div>
+
+    <!--데이터 로딩중 창-->
+    <div id="loading-window" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;">
+      <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;width:100%;height:100%;">
+        <div id="loading-icon" class="zp-loader1 first-loading">Loading...</div>
+        <i id="complete-icon" class="far fa-check-circle" style="display:none;font-size:60px;color:#ffeb48;margin-bottom:15px;"></i>
+        <div id="loading-text-1" style="color:#fff;font-size:14px;font-weight:700;" align="center">
+          회원 탈퇴 처리 중...
+        </div>
+        <div id="loading-text-2" style="color:#fff;font-size:14px;font-weight:600;margin-top:6px;">
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- script Start -->
+    <script type="text/javascript" src="js/crypto-js.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
+
+
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/ksh/zikpool_funtion_h.js"></script>
+    <script type="text/javascript" src="js/ksh/member_withdrawal.js"></script>
+
+    <script type="text/javascript">
+
+    </script>
+
+</body>
+</html>

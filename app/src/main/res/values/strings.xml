@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">직풀</string>
+
+    <string name="zikpoolchat_start_zikpool">직풀시작하기</string>
+    <string name="zikpoolchat_report"><b>신고하기</b></string>
+    <string name="zikpoolchat_pause"><b>일시정지</b></string>
+
+    <string name="facebook_app_id">400482187293770</string>
+    <string name="fb_login_protocol_scheme">fb400482187293770</string>
+
+</resources>

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+
+    <title>직풀::명문대생이 직접 풀어준다</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="img/header/wv-125.png" sizes="128x128">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="css/config.css"/>
+    <link rel="stylesheet" type="text/css" href="css/zikpool_huni.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/header_tabUI.css" />
+
+    <link rel="stylesheet" type="text/css" href="css/my-que-ans-zik-box-style.css" />
+    <link rel="stylesheet" type="text/css" href="css/basic/zp-basic.css" />
+    <link rel="stylesheet" type="text/css" href="css/basic/zp-button-style.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/zikpool-font-control.css" />
+    <link rel="stylesheet" type="text/css" href="css/zikpool/question-list.css" />
+
+    <style>
+        .swiper-pagination-bullet {
+           width: 25%;
+           height: auto;
+           opacity: 1;
+           border-radius: 0px;
+           color:#999999;
+           background: #fff;
+         }
+         .swiper-pagination-bullet-active {
+           color:#000;
+           background: #fff;
+         }
+         .swiper-scrollbar-drag{
+           border:none;
+           border-radius:50em;
+           background:#484848;
+         }
+
+         .block{
+           padding:.25rem 0;
+           margin:.25rem 0;
+           background: #00ccff;
+           border:1px solid #111;
+           border-radius:3px;
+         }
+
+         .controls{
+           margin-top:100%;
+         }
+         img {
+           max-width: 100%; /* This rule is very important, please do not ignore this! */
+         }
+
+
+
+
+
+         #left_menu_screen {
+    position: fixed;
+    left0;
+    top:0;
+    z-index:9999;
+    width: 100%;
+    height: 100%;
+    background:transparent;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+#left_menu_screen_LN {
+    position: fixed;
+    left0;
+    top:0;
+    z-index:9999;
+    width: 100%;
+    height: 100%;
+    background:transparent;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+.m-slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+
+.m-slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}
+
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
+
+
+</style>
+
+</head>
+
+<body onload="init();">
+<!--todo 상단 부모 콘테이너 -->
+<div class="main-top-parent-container">
+    <!--todo 홈 p1-->
+    <div class="main-top-child-container" style="position:relative;" data-page="p1">
+
+        <div class="header-bar-in-main" style="background:#fad037;">
+            <div class="h-bar-1">
+                <div class="left_menu_btn" id="left_menu_btn">
+                    <img class="" src="img/main/main-menu-w.png" height="22px" style="margin-left:5px;"/>
+                    <span id="new-mail-sign-icon" style="display:none;position:absolute;top:0;right:-5px;width:8px;height:8px;background:#FF4E39;border-radius:50%;"></span>
+                </div>
+            </div>
+            <div id="main-logo-img" style="background:transparent;pointer-events:none;position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                <img src="img/logo/zikpool-logo-white.png" height="38px" style="margin-top:8px;"/>
+            </div>
+
+            <div class="h-bar-2">
+                <!--<img id="main-logo-img" src="img/logo/zikpool-logo.png" height="36px" style="margin-left:6px;"/>-->
+                <div id="searching-voca-input-cont" class="h-bar-search-wrapper" style="display:none;">
+                    <input id="searching-voca-input" placeholder="미분, 영어독해"/>
+                    <img id="reset-word-searching-question-btn" src="img/header/sf-cancel.png"  style="position:absolute;top:10px;right:10px;display:none;"  width="13px"/>
+                </div>
+            </div>
+            <div class="h-bar-3">
+                <img id="search_category_btn"  src="img/main/main-filter-w.png" height="22px" style="margin-right:6px;"/>
+                <span id="cancel-searching-btn" style="display:none;margin-right:14px;font-weight:700;color:#fff;font-size:16px;">취소</span>
+                <img id="start-searching-voca-btn"  data-mode="normal" src="img/main/main-search-w.png" height="22px" style="margin-right:14px;"/>
+            </div>
+        </div>
+
+        <div class="main-question-list-container">
+            <div id="content1" class="container-fluid" style="overflow:auto;width:100%;height:100%;padding:0 1%;">
+                <!--<div class="col-xs-6 col-sm-4 main-one-question-space">-->
+                <!--<div class="one-question-container">-->
+                <!--<div class="oqc-1th">-->
+                <!--<img src="img/test-img/t3.jpg"/>-->
+                <!--<div class="selected-bg dp-f">-->
+                <!--<i class="far fa-check-circle m-ql-selected-icon"></i>-->
+                <!--</div>-->
+                <!--<span class="answering-cont dp-f">-->
+                <!--<div class="on-air-icon m-icon-size-1"></div>-->
+                <!--<span class="main-font-xs">1명 답변중</span>-->
+                <!--</span>-->
+                <!--</div>-->
+                <!--<div class="oqc-2th">-->
+                <!--<div>-->
+                <!--<span class="m-ql-state-cont main-font-xs waiting">-->
+                <!--<span class="m-ql-state waiting">대기중</span>-->
+                <!--<i class="fas fa-exclamation-circle" style="color:#de1a1a;"></i>-->
+                <!--</span>-->
+                <!--<span class="m-ql-point-cont main-font-xs">-->
+                <!--<img src="img/main/zikpool-point-icon-gray.png" class="m-icon-size-1"/>-->
+                <!--<span class="m-ql-point">1200</span>-->
+                <!--</span>-->
+                <!--</div>-->
+
+                <!--<div class="m-ql-title-cont">-->
+                <!--<span class="m-ql-title main-font-l">미분적분학문제</span>-->
+                <!--<span class="m-ql-subject main-font-xs">#수학</span>-->
+                <!--</div>-->
+                <!--<div class="m-ql-content main-font-s substring">안녕하세요. 사마왕이일어난 일이 궁금하네요 그리고</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="main-uploading-loader">-->
+                <!--<div class="zp-loader3"></div>-->
+                <!--</div>-->
+
+            </div>
+        </div>
+    </div>
+    <!--todo 진행중 p2-->
+    <div class="main-top-child-container" style="display:none;" data-page="p2">
+        <div class="main-page-title">
+            <span>나의 진행</span>
+        </div>
+        <div class="main-page-container">
+            <div style="width:100%;height:100%;background:#fff;padding-top:10px;">
+                <div style="width:100%;height:52px;display:flex;font-size:12px;font-weight:500;padding:3px 0 1px 0;">
+                    <div class="my-qa-sel-btn" data-type="myq" style="flex:1;height:100%;display:flex;justify-content:center;align-items:center;flex-direction: column;border-right:1px solid #fff;">
+                        <i class="fas fa-question-circle" style="color:#3e3a39;font-size:20px;"></i>
+                        <div style="padding-top:2px;color:#3e3a39;font-weight:700;">
+                            <span>나의 질문</span>
+                            <span>(</span>
+                            <span id="my-q-cnt-in-tab2">0</span>
+                            <span>)</span>
+                        </div>
+                    </div>
+                    <div class="my-qa-sel-btn" data-type="mya" style="flex:1;height:100%;display:flex;justify-content:center;align-items:center;flex-direction: column;">
+                        <!--<img src="img/header/answer-icon-in-tab-menu.png" height="55%"/>-->
+                        <i class="fas fa-lightbulb" style="font-size:20px;color:#999;"></i>
+                        <div style="padding-top:2px;color:#999;font-weight:700;">
+                            <span>나의 답변</span>
+                            <span>(</span>
+                            <span id="my-a-cnt-in-tab2">0</span>
+                            <span>)</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="width:100%;height:2px;display:flex;">
+                    <div class="my-qa-sel-bar" data-type="myq" style="flex:1;height:100%;background:#3e3a39;"></div>
+                    <div class="my-qa-sel-bar" data-type="mya" style="flex:1;height:100%;background:#fff;"></div>
+                </div>
+
+                <div id="my-question-in-progress-cont" class="my-qa-in-progress" data-type="myq" >
+                    <div class="there-is-not-anything-in-container" data-type="q">
+                        <img src="img/zikpool_logo_gray.png"/>
+                    </div>
+
+                    <!--<div class="my-qa-box-container my-question-list-box" style="display:none;">-->
+                    <!--<div>-->
+                    <!--<div class="img-cont to-question-detail">-->
+                    <!--<img src="img/question/20150216_114547_HDR.jpg"/>-->
+                    <!--<div class="my-q-not-read"></div>-->
+                    <!--</div>-->
+
+                    <!--<div class="info-cont" align="left">-->
+                    <!--<div class="info-div">-->
+                    <!--<div class="info-1">-->
+                    <!--<span class="my-title">미분적분학독해</span>-->
+                    <!--<div class="my-state">답변대기중</div>-->
+                    <!--</div>-->
+                    <!--<div class="info-2">-->
+                    <!--<span>고1 | 수학 | 질문포인트 1100</span>-->
+                    <!--</div>-->
+                    <!--<div class="info-3 substring">-->
+                    <!--미분계수에서 기울기를 가너 공식이 ...-->
+                    <!--</div>-->
+                    <!--<div class="info-4">-->
+                    <!--<span>-->
+                    <!--<span>답변</span>-->
+                    <!--<span class="my-ans-sum">2</span>-->
+                    <!--</span>-->
+
+                    <!--<span>-->
+                    <!--<span>등록일</span>-->
+                    <!--<span>2019-01-23 17:20</span>-->
+                    <!--</span>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="my-btn-div">-->
+                    <!--<div class="my-btn">-->
+                    <!--<i class="fas fa-check"></i>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                </div>
+
+                <div id="my-answer-in-progress-cont" class="my-qa-in-progress" data-type="mya"  style="display:none;">
+                    <div class="there-is-not-anything-in-container" data-type="a">
+                        <img src="img/zikpool_logo_gray.png"/>
+                    </div>
+
+                    <!--<div class="my-qa-box-container my-answer-list-box" style="display:none;">-->
+                        <!--<div>-->
+                            <!--<div class="img-cont to-question-detail">-->
+                                <!--<img src="img/question/20150216_114547_HDR.jpg"/>-->
+                                <!--<div class="my-q-not-read"></div>-->
+                            <!--</div>-->
+
+                            <!--<div class="info-cont" align="left">-->
+                                <!--<div class="info-div">-->
+                                    <!--<div class="info-1">-->
+                                    <!--<span class="my-title">미분적분학독해</span>-->
+                                    <!--<span class="my-state">답변등록완료</span>-->
+                                    <!--</div>-->
+                                    <!--<div class="info-2">-->
+                                    <!--<span>고1 | 수학 | 질문포인트 1100</span>-->
+                                    <!--</div>-->
+                                    <!--<div class="info-3 substring">-->
+                                    <!--<span class="my-stu-nickname">가나다라1422</span>미분계수에서 기울기를 가너 공식이 ...-->
+                                    <!--</div>-->
+                                    <!--<div class="info-4">-->
+                                    <!--<span>-->
+                                    <!--<span>답변</span>-->
+                                    <!--<span class="my-ans-sum">2</span>-->
+                                    <!--</span>-->
+
+                                    <!--<span>-->
+                                    <!--<span>답변등록일</span>-->
+                                    <!--<span>2019-01-23 17:20</span>-->
+                                    <!--</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="my-btn-div">-->
+                                <!--<div class="my-btn">-->
+                                <!--<i class="fas fa-check"></i>-->
+                                <!--</div>-->
+                                <!--<div class="my-btn">-->
+                                <!--<i class="fas fa-pen"></i>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!--todo 직풀채팅 p3-->
+    <div class="main-top-child-container" style="display:none;" data-page="p3">
+        <div class="main-page-title">
+            <span>직풀 채팅</span>
+        </div>
+        <div class="main-page-container">
+            <div style="width:100%;height:100%;background:#fff;">
+                <div id="my-zikpoolchat-in-progress-cont" style="width:100%;height:100%;padding-top:20px;;overflow:scroll;">
+                    <div class="there-is-not-anything-in-container" data-type="zc">
+                        <img src="img/zikpool_logo_gray.png"/>
+                    </div>
+
+                    <!--<div class="my-zc-box-container" style="display:none;">-->
+                        <!--<div>-->
+                            <!--<div class="img-cont">-->
+                                <!--<img src="img/question/20150216_114547_HDR.jpg" />-->
+                                <!--<div class="zc-ans-link-icon zc blink-1"></div>-->
+                            <!--</div>-->
+                            <!--<div class="info-cont">-->
+                                <!--<div class="info-div">-->
+                                    <!--<div class="info-1">-->
+                                    <!--<span>-->
+                                        <!--<span class="my-partner-nickname">hjm1422</span>-->
+                                        <!--<span class="my-partner-job">학생</span>-->
+                                    <!--</span>-->
+                                    <!--<div class="my-zc-not-read not-read-cnt-is-zero">-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="info-2">-->
+                                    <!--<span>중학교영어독해</span>-->
+                                    <!--<span>#중3</span>-->
+                                    <!--<span>#영어</span>-->
+                                    <!--<span>#1000포인트</span>-->
+                                    <!--</div>-->
+                <!---->
+                                    <!--<div class="info-3">-->
+                                    <!--<div class="msg">-->
+                                    <!--선생님 안녕하세요.-->
+                                    <!--</div>-->
+                <!---->
+                                    <!--<span class="msg-date">1월 24일</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--todo 선생님들 p4-->
+    <div class="main-top-child-container" style="display:none;" data-page="p4">
+        <div class="header-bar-in-main" style="display:flex;">
+            <div class="h-bar-1" style="width:88px;">
+                <span style="font-size:18px;font-weight:700;color:#000;margin-left:9px;">선생님들</span>
+            </div>
+            <div class="h-bar-2" style="left:80px;width:calc(100vw - 158px);">
+                <div id="search-teacher-input-cont" class="h-bar-search-wrapper" style="display:none;">
+                    <input id="search-teacher-input" placeholder="서울대학교,부산대학교"/>
+                    <img id="cancel-searching-teacher-btn" src="img/header/sf-cancel.png"  style="position:absolute;top:10px;right:10px;display:none;"  width="13px"/>
+                </div>
+            </div>
+            <div class="h-bar-3" style="width:80px;">
+                <span id="cancel-search-teacher-list-btn" style="display:none;margin-right:6px;font-weight:700;color:#222;font-size:16px;">취소</span>
+                <img id="start-search-teacher-btn"  data-mode="normal" src="img/main/main-search.png" height="24px" style="margin-right:14px;"/>
+            </div>
+        </div>
+        <div class="main-page-container">
+            <div class="all-teacher-list" id="all-teacher-list">
+                <div class="all-teacher-list-section" id="all-teacher-list-section1" style="width:100%;">
+
+                </div>
+
+                <div class="all-teacher-list-section" id="all-teacher-list-section2" style="width:100%;">
+
+                </div>
+                <!--<div class="one-teacher-info-box">-->
+                <!--<div>-->
+                <!--<div class="teacher-info-wrapper" style="display:flex;height:100%;">-->
+                <!--<div class="teacher-image-box">-->
+                <!--<img class="teacher-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDnuRSeeyPve7KwDvJJ6OBzj3gyghwLcE2z9kZeYBOyZavh3mw"/>-->
+                <!--</div>-->
+                <!--<div class="teacher-info-box">-->
+                <!--<div class="nick">jm555</div>-->
+                <!--<div class="uni-major">-->
+                <!--<span>#서울과학기술대학교</span>-->
+                <!--<span>#기계시스템디자인공학과</span>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="status-login-wrapper">-->
+                <!--<span style="color:#04D229;font-size:12px;font-weight:500;">접속중</span>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<!--todo 하단 메뉴 네비게이션-->
+<div class="main-bottom-nav-container" style="border-top:1px solid #f2f2f2">
+    <div class="one-mbn-btn-css one-mbn-btn selected" data-page="p1">
+        <span>
+            <img src="img/main/bottom-nav/m-home-checked.png"/>
+        </span>
+        <span>홈</span>
+    </div>
+    <div class="one-mbn-btn-css one-mbn-btn un-selected" data-page="p2">
+        <span>
+            <img src="img/main/bottom-nav/m-myqa.png"/>
+            <div class="main-tab-notreadcnt not-read-cnt-is-zero" data-type="q" data-not-read-cnt="0">0</div>
+        </span>
+        <span>나의 진행</span>
+    </div>
+    <div class="one-mbn-btn-css one-mbn-btn un-selected" data-page="p3">
+        <span>
+            <img src="img/main/bottom-nav/m-zc.png"/>
+            <div class="main-tab-notreadcnt not-read-cnt-is-zero" data-type="z" data-not-read-cnt="0">0</div>
+        </span>
+        <span>직풀채팅</span>
+    </div>
+    <div class="one-mbn-btn-css one-mbn-btn un-selected" data-page="p4">
+        <span>
+            <img src="img/main/bottom-nav/m-teachers.png" />
+        </span>
+        <span>선생님들</span>
+    </div>
+
+    <div id="go-to-add-question" class="one-mbn-btn-css" style="color:#aaa;"><!--todo 질문하기 버튼-->
+        <span style="height:31px;">
+                <img src="img/main/bottom-nav/m-add-q.png" style="position:absolute;top:0;left:0"/>
+                <img id="go-to-add-question-icon-chk" src="img/main/bottom-nav/m-add-q-checked.png" style="position:absolute;top:0;left:0"/>
+        </span>
+        <span id="go-to-add-question-btn-txt">질문하기</span>
+    </div>
+</div>
+
+
+
+
+<div id="back-for-swiper" style="display:none;position:fixed;width:100vw;height:100vh;top:0;left:0;background:rgba(0,0,0,0.5);z-index:9999;"></div>
+<!-- todo 좌측 매뉴 슬라이드 로그인 상태 -->
+<div id="left_menu_screen">
+    <div class="swiper-container swiper-login">
+        <div class="swiper-wrapper" style="background:transparent">
+            <div class="swiper-slide" style="background:transparent">
+                <div id="left-menu-login-cont" class="left_menu_screen left_screen" style="padding-bottom:10px;;width:300px;display:block;border:1px solid #ccc;background:#ffffff;font-size:15px;color:#585858;overflow:scroll;">
+                    <div class="profile">
+                        <div class="close-btn-cont" style="width:100%;padding:6px 8px 0 0;height:30px;" align="right">
+                            <div class="left_menu_close">
+                                <i class="fas fa-arrow-left close_btn" style="color:#222;font-size:20px;"></i>
+                            </div>
+                        </div>
+                        <div style="display:flex;width:100%;height:120px;">
+                            <div class="user-info-go-btn" style="width:35%;height:100%;">
+                                <div style="width:100%;" align="center">
+                                    <img class="profile_img" width="66px" height="66px" id="profile_img" />
+                                </div>
+                                <span class="type_st" style="display:none;margin-top:6px;padding:1px 8px 0px 7px;border-radius:5px;font-size:11px;background:#fff;color:#fad037;font-weight:700;font-size:15px;"></span>
+                            </div>
+                            <div class="user-info-go-btn" style="width:65%;height:100%;" align="left">
+                                <nav style="width:100%;color:#222;font-size:16px;font-weight:700;">
+                                    <span id="left_nic"></span>
+                                </nav>
+                                <nav style="width:100%;color:#898989;font-size:14px;">
+                                    <span id="left_id"></span>
+                                </nav>
+                                <div class="teacher-uni-maj-cont" style="margin-top:5px;width:100%;">
+                                    <nav style="width:100%;color:#585858;font-size:10px;font-weight:700;">
+                                        <span id="left_con_mt"></span>
+                                    </nav>
+                                    <!-- <nav style="width:100%;color:#585858;font-size:10px;font-weight:700;">
+                                      <span id="left_major">기계시스템디자인공학과</span>
+                                    </nav> -->
+                                </div>
+
+                                <!--<nav style="width:100%;padding-right:10px;" align="right">-->
+                                <!--<span id="user_info_go" style="display:inline-block;margin-top:6px;padding:1px 8px 0px 7px;border-radius:5px;border:1px solid #222;font-size:13px;background:#fff;color:#222;font-weight:600;"><i class="fas fa-plus"></i> 프로필</span>-->
+                                <!--</nav>-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 정보 및 서비스 메뉴 영역 -->
+                    <div class="main-menu-label-wrapper">
+                        <nav>
+                            <div class="label-content">
+                                <span id="left_mem_type" class="type_st">학생</span>
+                            </div>
+                            <div class="label-name">
+                                <span>등급</span>
+                            </div>
+                        </nav>
+                        <nav>
+                            <div class="label-content">
+                                <span id="left_cnt_qa_ing" class="main-left-menu-number-label" data-value="0">0</span>
+                                <span style="font-size:9px;margin-top:5px;"> 개</span>
+                            </div>
+                            <div class="label-name">
+                                <span>진행중 질문</span>
+                            </div>
+                        </nav>
+                        <nav>
+                            <div class="label-content">
+                                <span id="left_cnt_z_ing" class="main-left-menu-number-label" data-value="0">0</span>
+                                <span style="font-size:9px;margin-top:5px;"> 개</span>
+                            </div>
+                            <div class="label-name">
+                                <span>진행중 과외</span>
+                            </div>
+                        </nav>
+                    </div>
+
+
+                    <div class="main-menu-label-wrapper" style="margin-top:8px;">
+                        <nav>
+                            <div class="label-content">
+                                <img src="img/icons/zikpool_point_icon.png" width="14px"/>
+                                <span id="left_point" class="point-in-header" style="color:#3e3a39;margin-left:3px;" data-value="0">0</span>
+                            </div>
+                            <div class="label-name">
+                                <span>포인트</span>
+                            </div>
+                        </nav>
+                        <nav>
+                            <div class="label-content">
+                                <img src="img/icons/zikpool_cash_icon.png" width="14px"/>
+                                <span id="left_cash" class="cash-in-header" style="color:#3e3a39;margin-left:3px;" data-value="0">0</span>
+                            </div>
+                            <div class="label-name">
+                                <span>캐시</span>
+                            </div>
+                        </nav>
+                        <nav>
+                            <div class="label-content">
+                                <span id="left_income" class="income-in-header" style="color:#3e3a39;" data-value="0">0</span>
+                                <span style="color:#e3a39;">점</span>
+                            </div>
+                            <div class="label-name">
+                                <span>활동 점수</span>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="main-menu-label-wrapper-2" style="border-top:1px solid #e5e5e5;">
+                        <div>바로가기</div>
+                        <div class="menu-content-box">
+                            <div>
+                                <span class="l-icon">
+                                    <i class="fas fa-share-alt"></i>
+                                </span>
+
+                                <span id="go-to-open-zikpool" class="l-text">오픈(open) 직풀</span>
+                                <!--<span style="border-radius:50em;margin-left:2px;padding:2px 5px;background:#307afa;color:#fff;font-size:10px;">오픈서비스</span>-->
+                                <div style="font-weight:700;display:flex;justify-content:center;align-items:center;width:30px;height:16px;border-radius:50em;margin-left:2px;background:#fad037;color:#3e3a39;font-size:10px;">무료</div>
+                                <span style="display:none;margin-left:28px;font-size:13px;font-weight:700;color:#000;">
+                                    <span>이용권 </span>
+                                    <span class="oz-use-txt" style="color:#307afa;">0</span>
+                                    <span style="color:#307afa;"> 개</span>
+                                </span>
+                            </div>
+                            <div>
+                                <span class="l-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                                <span id="go-to-payment-webview" class="l-text">포인트 충전</span>
+                            </div>
+                            <div>
+                                <span class="l-icon">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </span>
+                                <span id="go-to-notice" class="l-text">공지 / 이벤트 알림</span>
+                            </div>
+                            <div>
+                                <span class="l-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <span class="l-text" id="go-to-mail-box">나의 우편함</span>
+                                <div class="not-read-icon">
+                                    <span class="mail-box-not-read-in-header" id="mail-box-not-read-cnt" style="background:transparent;">0</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="l-icon">
+                                    <i class="fas fa-cog"></i>
+                                </span>
+                                <span id="go-to-setting" class="l-text">환경설정</span>
+                            </div>
+                            <div>
+                                <span class="l-icon">
+                                    <i class="fas fa-compass"></i>
+                                </span>
+                                <span id="go-to-information" class="l-text">이용안내</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="main-menu-label-wrapper-2">
+                        <div>기타</div>
+                        <div class="menu-content-box">
+                            <div>
+                                <span id="go-to-support" class="l-text">문의하기</span>
+                            </div>
+                            <div>
+                                <span id="logout-btn" class="l-text">로그아웃</span>
+                            </div>
+                            <div>
+                                <span class="l-text">직풀버전</span>
+                                <span class="l-text zikpool-app-version-name-txt" style="margin-left:15px;">v0.0.0.0</span>
+                            </div>
+                            <div>
+                                <span class="l-text">e-mail</span>
+                                <span class="l-text" style="margin-left:15px;">zikpool.com@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="left_menu_close" style="top:0;right:0;width:calc(100% - 300px);height:100%;background:transparent;z-index:9999;">
+                </div>
+
+            </div>
+
+            <div class="swiper-slide" style="width:100%;height:100%;background:transparent"></div>
+        </div>
+    </div>
+</div>
+
+<!--todo 좌측 매뉴 슬라이드 로그아웃 상태 -->
+<div class="left_menu_screen left_screen" id="left_menu_screen_LN">
+    <div class="swiper-container swiper-logout" style="background:transparent;position:fixed;top:0;left:0;height:100%;width:100%;display:block;">
+        <div class="swiper-wrapper" style="background:transparent">
+            <div class="swiper-slide" style="background:transparent">
+                <div id="left-menu-logout-cont" style="width:300px;height:100%;background:#fff;">
+                    <div class="close-btn-cont" style="width:100%;height:30px;position:relative;" align="right">
+                        <div class="left_menu_close">
+                            <i class="fas fa-arrow-left" style="color:#222;font-size:20px;"></i>
+                        </div>
+                    </div>
+                    <div style="width:100%;margin-top:100px" align="center">
+                        <img src="img/logo/zikpool-logo.png" style="height:55px;"/>
+                    </div>
+                    <form id="login-form-post">
+                        <div style="width:100%;height:45px;padding:0 8px;margin-top:40px;">
+                            <input class="zp-basic-input-class-1" type="email" id="id" autocomplete="off" name="id"  placeholder="아이디(이메일주소)"/>
+                        </div>
+
+                        <div style="width:100%;height:45px;padding:0 8px;margin-top:18px;">
+                            <input class="zp-basic-input-class-1" type="password" id="pw" autocomplete="off" name="pw"  placeholder="비밀번호"/>
+                        </div>
+                        <input class="input_screen" type="text" id="deviceID"  name="deviceID" hidden="true" />
+                    </form>
+                    <div style="width:100%;padding:0 8px;margin-top:18px;" align="center">
+                        <div id="login-btn" style="border-radius:6px;width:100%;height:46px;background:#222;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;">
+                            <span>로그인</span>
+                        </div>
+                    </div>
+
+                    <div style="width:100%;margin-top:12px;font-weight:700;color:#999;font-size:13px;" align="center">
+                        <span id="my_search">회원정보 찾기</span>
+                        <span style="margin-left:8px">|</span>
+                        <span id="add_member" style="margin-left:8px">회원가입</span>
+                    </div>
+
+                    <div style="width:100%;padding:0 8px;margin-top:18px;" align="center">
+                        <div class="start-google-login-btn" style="border-radius:6px;width:100%;height:46px;background:#307afa;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;">
+                            <img src="img/main/google_button_icon.png" style="height:20px;margin-right:8px;"/>
+                            <span>구글계정으로 로그인</span>
+                        </div>
+                    </div>
+
+                <div class="left_menu_close" style="top:0;right:0;width:calc(100% - 300px);height:100%;background:transparent;z-index:9999;">
+                </div>
+            </div><!-- s1-->
+
+
+
+        </div>
+        <!-- s2 -->
+        <div class="swiper-slide" style="width:100vw;height:100vh;background:transparent;" ></div>
+    </div>
+  </div>
+</div>
+
+<!--메인 팝업창 -->
+<div id="main-popup-window" class="black-translucent-window-container">
+    <div>
+        <div style="width:300px;height:420px;background:transparent;">
+            <img id="main-popup-img" src="" data-type="normal" data-idx="0" style="width:100%;height:370px;"/>
+            <div style="height:50px;display:flex;color:#fff;font-size:16px;align-items:center;">
+                <div class="close-popup-btn" data-type="forever" style="flex:1;display:flex;justify-content:center;align-items:center;height:70%;border-right:1px solid #fff;">
+                    다시보지않기
+                </div>
+                <div class="close-popup-btn" data-type="temp" style="flex:1;display:flex;justify-content:center;align-items:center;height:70%;">
+                    닫기
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--데이터 로딩중 창-->
+<div id="main-data-loading-wall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;">
+    <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;width:100%;height:100%;">
+        <div id="loading-icon" class="zp-loader1 first-loading">Loading...</div>
+        <i id="complete-icon" class="far fa-check-circle" style="display:none;font-size:60px;color:#ffeb48;margin-bottom:15px;"></i>
+        <div id="loading-text-1" style="color:#fff;font-size:14px;font-weight:700;" align="center">
+            데이터 불러오는 중...
+        </div>
+        <div id="loading-text-2" style="color:#fff;font-size:14px;font-weight:600;margin-top:6px;">
+
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="js/crypto-js.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/socket.io.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-storage.js"></script>
+
+
+
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/push-firebase/zikpool-push-notice-config.js"></script>
+<script type="text/javascript" src="js/push-firebase/zikpool-firebase-config.js"></script>
+<script type="text/javascript" src="js/push-firebase/zikpool-firebase-FIRESTORE-config.js"></script>
+<script type="text/javascript" src="js/ksh/zikpool_funtion_h.js"></script>
+<script type="text/javascript" src="js/ksh/login_check.js"></script>
+
+<script type="text/javascript" src="js/util/resize-base64.js"></script>
+<script type="text/javascript" src="js/util/zp_image.js"></script>
+<script type="text/javascript" src="js/handler/handler-1.js"></script>
+<script type="text/javascript" src="js/hjm/my-QA-in-progress.js"></script>
+<script type="text/javascript" src="js/ksh/header_h.js"></script>
+<script type="text/javascript" src="js/point/point-payment.js"></script>
+
+<script type="text/javascript" src="js/hjm/timesince.js"></script>
+<script type="text/javascript" src="js/hjm/questionlist.js"></script>
+<script type="text/javascript" src="js/hjm/teacher-list.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+</script>
+
+
+
+</body>
+</html>

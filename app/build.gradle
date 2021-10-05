@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        release {
+            keyAlias 'zikpool'
+            keyPassword 'dkwjTl!ghl40wjqtlwnqTj!'
+            storeFile file('C:/Users/user/Desktop/android_key_file/zikpool.jks')
+            storePassword 'dkwjTl!ghl40wjqtlwnqTj!'
+        }
+    }
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "zikpool.stoudy.com.zikpoolandroid"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 89
+        versionName "2.0.0.3"
+        multiDexEnabled true
+        ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+//        debug {
+
+//            // 프로가드 활성화
+//            minifyEnabled false
+//
+//            // 릴리즈 빌드에서 사용하는 프로가드 설정을 동일하게 추가합니다.
+//            // 기본 프로가드 설정
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            // 디버그 빌드를 위한 프로가드 설정
+//            proguardFile 'proguard-debug.pro'
+//
+//
+//        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            useProguard true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+repositories {
+    maven {
+        url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2'
+    }
+
+}
+
+
+//configurations.all {
+//    resolutionStrategy {
+//        force 'com.android.support:support-v4:28.0.0'
+//    }
+//}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    //todo api 28.0.0 을 구동하기 위한 보충 라이브러리
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:customtabs:28.0.0'
+    implementation 'com.android.support:support-media-compat:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:exifinterface:28.0.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
+    implementation 'me.leolin:ShortcutBadger:1.1.22@aar'
+
+    //implementation 'org.xwalk:xwalk_core_library:23.53.589.4'
+
+    //todo 카카오 api
+    implementation group: 'com.kakao.sdk', name: 'kakaotalk', version: '1.25.0'
+    implementation 'com.kakao.sdk:usermgmt:1.25.0'
+    implementation group: 'com.kakao.sdk', name: 'plusfriend', version: '1.25.0'
+    implementation 'com.kakao.sdk:kakaolink:1.25.0'
+
+
+
+    //todo firebase
+    implementation 'com.google.firebase:firebase-core:17.3.0'
+    implementation 'com.firebaseui:firebase-ui-auth:4.0.0'
+    implementation'com.google.firebase:firebase-auth:19.3.0'
+    implementation 'com.google.firebase:firebase-messaging:20.1.4'
+    implementation 'com.google.firebase:firebase-database:19.2.1'
+
+    implementation 'com.google.android.gms:play-services-flags:17.0.0'
+    implementation 'com.google.android.gms:play-services-ads:19.0.1'
+
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    implementation 'com.github.bootpay:client_android_java:2.1.1'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'org.jsoup:jsoup:1.11.2'
+
+
+    //todo facebook SDK
+    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+}
+
+apply plugin:'com.google.gms.google-services'

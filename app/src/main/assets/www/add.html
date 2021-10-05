@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <title>직풀::명문대생이 직접 풀어준다</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="img/header/wv-125.png" sizes="128x128">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="css/config.css" />
+    <link rel="stylesheet" href="css/basic/zp-basic.css" />
+    <link rel="stylesheet" href="css/basic/zp-button-style.css" />
+    <link rel="stylesheet" href="css/zikpool_huni.css"/>
+
+    <style>
+        .tmp-add-btn-1{
+            width:60px;height:30px;background:#3e3a39;
+            color:#fff;font-size:12px;font-weight:700;
+            display:flex;justify-content:center;align-items:center;
+            margin-left:8px;border-radius:5px;
+        }
+    </style>
+</head>
+
+<body onload="init();">
+<!-- 상위 페이지 -->
+<div class="slide_con" id="info" style="background-color: #fff;display: block;border-left: none;">
+
+    <!-- 회원가입 폼 -->
+    <div class="add_screen" style="padding:0 5%;">
+        <form class="add_form_screen" onsubmit="return false;">
+            <input id="adding-member-idx" type="hidden" name="member_idx"/>
+
+            <!-- 아이디(이메일) -->
+            <div class="zp-basic-input-title-1" style="margin-top:20px;">
+                <span>아이디</span>
+            </div>
+            <div style="width:100%;height:45px;margin-top:10px;display:flex;justify-content:center;align-items:center;">
+                <input class="zp-basic-input-class-1" style="width:calc(100% - 68px);" type="email" id="id" autocomplete="off" name="id"  placeholder="아이디(이메일)" required/>
+                <span id="email-overlap-check-btn" class="tmp-add-btn-1">중복확인</span>
+                <span id="email-cer-check-btn" class="tmp-add-btn-1" style="background:#fad037;display:none;">인증하기</span>
+                <span id="email-cer-ok-icon" class="tmp-add-btn-1" style="background:#008be5;pointer-events:none;display:none;">인증완료</span>
+            </div>
+
+
+            <!-- 인증번호 -->
+            <div id="email-cer-container" style="width:100%;margin-top:20px;display:none;">
+                <div class="zp-basic-input-title-1">
+                    <span>인증번호</span>
+                </div>
+                <div style="width:100%;height:45px;margin-top:10px;">
+                    <input class="zp-basic-input-class-1" type="number" id="email_cer_num" maxlength="6" autocomplete="off" name="email_cer_num"  placeholder="인증번호 입력(이메일에서 확인)" required/>
+                </div>
+            </div>
+
+            <!-- 비빌번호 -->
+            <div class="zp-basic-input-title-1" style="margin-top:20px;">
+                <span>비빌번호</span>
+            </div>
+            <div style="width:100%;height:45px;margin-top:10px;">
+                <input class="zp-basic-input-class-1 pw-chk" type="password" id="pw1" autocomplete="off" placeholder="영문, 숫자, 특수문자 포함" required/>
+            </div>
+            <div style="width:100%;height:45px;margin-top:6px;">
+                <input class="zp-basic-input-class-1 pw-chk" type="password" id="pw"  autocomplete="off" name="pw"  placeholder="비밀번호 확인" required/>
+            </div>
+
+
+            <!-- 닉네임 -->
+            <div class="zp-basic-input-title-1" style="margin-top:20px;">
+                <span>닉네임</span>
+            </div>
+            <div style="width:100%;height:45px;margin-top:10px;display:flex;justify-content:center;align-items:center;">
+                <input class="zp-basic-input-class-1" style="width:calc(100% - 68px);" type="text" id="nickname" autocomplete="off" name="nickname"  placeholder="닉네임 입력" required/>
+                <span id="nickname-overlap-check-btn" class="tmp-add-btn-1">중복확인</span>
+            </div>
+
+            <!-- 생년월일 -->
+            <div class="zp-basic-input-title-1" style="margin-top:20px;">
+                <span>생년월일</span>
+            </div>
+            <div style="width:100%;height:45px;margin-top:10px;">
+                <input class="zp-basic-input-class-1" type="number" maxlength="8" id="age" autocomplete="off" name="age"  placeholder="예) 20020531" required/>
+            </div>
+
+            <!--성별-->
+            <div id="sex-cont" class="zp-basic-input-title-1" style="margin-top:20px;">
+                <span>성별</span>
+            </div>
+            <div style="width:100%;margin-top:10px;display:flex;">
+                <div style="flex:1;" align="center">
+                    <input class="inp-rdo sex-radio" id="sex_m" type="radio" name="sex" value="M" style="display:none;"/>
+                    <label class="rdo" for="sex_m">
+                    <span>
+                        <div>
+                            <div></div>
+                        </div>
+                    </span>
+                        <span>남자</span>
+                    </label>
+                </div>
+                <div style="flex:1;" align="center">
+                    <input class="inp-rdo sex-radio" id="sex_w" type="radio" name="sex" value="W" style="display:none;"/>
+                    <label class="rdo" for="sex_w">
+                    <span>
+                        <div>
+                            <div></div>
+                        </div>
+                    </span>
+                        <span>여자</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- (선택) 추천인 -->
+            <div class="zp-basic-input-title-1" style="margin-top:20px;">
+                <span>(선택) 추천인</span>
+            </div>
+            <div style="width:100%;height:45px;margin-top:10px;display:flex;justify-content:center;align-items:center;">
+                <input class="zp-basic-input-class-1" style="width:calc(100% - 68px);" type="text" id="reco_nickname" autocomplete="off"  placeholder="추천 닉네임 입력" required/>
+                <input class="" type="text" id="real_reco_nickname" name="real_reco_nickname" style="display:none;" />
+                <span id="reco-nickname-check-btn" class="tmp-add-btn-1">확인하기</span>
+            </div>
+
+
+            <hr/>
+
+            <!-- 약관동의 -->
+            <div class="zp-basic-input-title-1" style="margin-top:15px;">
+                <span>약관동의</span>
+            </div>
+
+            <div style="width:100%;margin-top:12px;font-size:15px;color:#999;font-weight:700;">
+                <div id="confirm-zikpool-prov-btn" style="display:flex;"  data-type='n'>
+                    <div style="width:10px;height:10px;position:relative;">
+                        <i class="far fa-check-square zp-prov-icon-n" style="position:absolute;left:0;top:2px;"></i>
+                        <i class="fas fa-check-square zp-prov-icon-y" style="position:absolute;left:0;top:2px;opacity:0;color:#3e3a39;"></i>
+                    </div>
+
+                    <span style="margin-left:15px;">모두동의(필수)</span>
+                </div>
+            </div>
+            <div style="font-weight:700;width:100%;margin-top:5px;font-size:14px;color:#999;border-top:1px solid #f2f2f2;padding-top:8px;padding-left:2%;margin-bottom:30px;">
+                <div>
+                    <div style="display:flex;">
+                        <div style="width:10px;height:10px;position:relative;">
+                            <i class="far fa-check-square zp-prov-icon-n" style="position:absolute;left:0;top:2px;"></i>
+                            <i class="fas fa-check-square zp-prov-icon-y" style="position:absolute;left:0;top:2px;opacity:0;color:#3e3a39;"></i>
+                        </div>
+                        <span id="service1_form" style="margin-left:15px;color:#3e3a39;border-bottom:1px solid #3e3a39;">
+                            <font style="color:blue">[필수]</font>
+                            직풀 이용약관
+                        </span>
+                    </div>
+                </div>
+
+                <div style="margin-top:10px;">
+                    <div style="display:flex;">
+                        <div style="width:10px;height:10px;position:relative;">
+                            <i class="far fa-check-square zp-prov-icon-n" style="position:absolute;left:0;top:2px;"></i>
+                            <i class="fas fa-check-square zp-prov-icon-y" style="position:absolute;left:0;top:2px;opacity:0;color:#3e3a39;"></i>
+                        </div>
+                        <span id="service2_form" style="margin-left:15px;color:#3e3a39;border-bottom:1px solid #3e3a39;">
+                            <font style="color:blue">[필수]</font>
+                            개인정보처리방침
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- 이용약관, 개인정보수집 동의 -->
+            <!--<div style="width:100%" align="center">-->
+                <!--<div class="add_form_chk">-->
+                    <!--<input type="checkbox" id="total_chk" required />-->
+                    <!--<span class="chk1" id="service1_form"> 이용약관</span>,-->
+                    <!--<span class="chk1" id="service2_form"> 개인정보처리방침</span>-->
+                    <!--<label class="total_chk" for="total_chk">-->
+                        <!--<span class="chk2">에 모두 동의 (필수)</span>-->
+                    <!--</label>-->
+                    <!--<br />-->
+                    <!--<span class="fs10p"> ※ 이메일 인증을 위해 아이디에 정확한 이메일 주소를 입력해주시기 바랍니다.</span>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <div class="add_btn" type="submit" id="final-member-add-btn" >
+                <div class="submit_btn_fixed footer-btn-txt-1">가입하기</div>
+            </div>
+        </form>
+    </div>
+
+
+    <!--데이터 로딩중 창-->
+    <div id="loading-wall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;">
+        <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;width:100%;height:100%;">
+            <div id="loading-icon" class="zp-loader1 first-loading">Loading...</div>
+            <i id="complete-icon" class="far fa-check-circle" style="display:none;font-size:60px;color:#ffeb48;margin-bottom:15px;"></i>
+            <div id="loading-text-1" style="color:#fff;font-size:14px;font-weight:700;" align="center">
+                인증메일 발송 중 ...
+            </div>
+            <div id="loading-text-2" style="color:#fff;font-size:14px;font-weight:600;margin-top:6px;">
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/ksh/add_h.js"></script>
+
+</body>
+</html>

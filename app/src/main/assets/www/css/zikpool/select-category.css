@@ -1,0 +1,33 @@
+div.select-btn{
+      width:74px;
+      height:32px;
+      background:#fff;
+      border:1px solid #aeaeae;
+      border-radius:5px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:#aeaeae;
+      font-weight:600;
+      margin:0 6px;
+      font-size:12px;
+  }
+
+  div.select-btn.y{
+     color:#fff;
+     background:#3e3a39;
+  }
+  div.select-btn.n{
+      color:#aeaeae;
+      background:#fff;
+  }
+
+
+  .is-selected{
+     color:#fff;
+     background:#484848;
+  }
+  .is-not-selected{
+      color:#aeaeae;
+      background:#fff;
+  }

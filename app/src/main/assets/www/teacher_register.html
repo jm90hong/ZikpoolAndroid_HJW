@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+  <title>직풀::명문대생이 직접 풀어준다</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="img/header/wv-125.png" sizes="128x128">
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/config.css" />
+  <link rel="stylesheet" href="css/basic/zp-basic.css" />
+  <link rel="stylesheet" href="css/zikpool_huni.css" />
+  <link rel="stylesheet" href="css/zikpool/add-question.css" />
+  <link rel="stylesheet" href="css/zikpool/teacher-register.css" />
+
+  <style>
+
+  </style>
+</head>
+
+<body onload="init();" style="background-color:#fff;">
+<!-- 선생님 승격 신청 페이지 -->
+<div style="width:100%;height:calc(100% - 46px);">
+
+  <!-- 내용 -->
+  <div class="add_screen" style="height:100%;background-color:#fff;padding:0 5%;">
+    <form class="add_form_screen tr-container" id="teacher_register_send" onsubmit="return false;">
+      <!-- 멤버 idx -->
+      <input id="teacher_register_member_idx" name="teacher_register_member_idx" style="display: none;" />
+
+
+      <!-- todo 이름 -->
+      <div class="zp-basic-input-title-1" style="margin-top:20px;">
+        <span><font class="zp-essential">* </font>이름</span>
+      </div>
+      <div style="width:100%;height:45px;margin-top:10px;">
+        <input class="zp-basic-input-class-1 kickspecial basic-info-input" data-allowed-lang="kor" type="text" id="name" maxlength="6" autocomplete="off" name="name"  placeholder="이름(본명)" required/>
+      </div>
+
+      <!-- todo 연락처 -->
+      <div class="zp-basic-input-title-1" style="margin-top:20px;">
+        <span><font class="zp-essential">* </font>연락처</span>
+      </div>
+      <div style="width:100%;height:45px;margin-top:10px;">
+        <input class="zp-basic-input-class-1 onlynum basic-info-input" type="number" id="tel" maxlength="11" autocomplete="off" name="tel"  placeholder="010xxxxyyyy (- 제외)" required/>
+      </div>
+
+
+      <!-- todo 주소 -->
+      <div class="zp-basic-input-title-1" style="margin-top:20px;">
+        <span><font class="zp-essential">* </font>주소</span>
+      </div>
+      <div style="width:100%;height:45px;margin-top:10px;">
+        <input class="zp-basic-input-class-1 onlynum basic-info-input" type="text" id="addr" autocomplete="off" name="addr"  placeholder="주소" readonly required/>
+      </div>
+
+      <!-- todo 상세주소 -->
+      <div class="zp-basic-input-title-1" style="margin-top:20px;">
+        <span>(선택) 상세주소</span>
+      </div>
+      <div style="width:100%;height:45px;margin-top:10px;">
+        <input class="zp-basic-input-class-1 onlynum add-detail-info-input" data-allowed-lang="kor_eng_num" type="text" id="addr_detail" autocomplete="off" name="addr"  placeholder="상세주소" required/>
+      </div>
+
+      <!-- todo 대학교 -->
+      <div class="zp-basic-input-title-1" style="margin-top:20px;">
+        <span><font class="zp-essential">* </font>대학교</span>
+      </div>
+      <div style="width:100%;height:45px;margin-top:10px;">
+        <input class="zp-basic-input-class-1 kickspecial basic-info-input" data-allowed-lang="kor_eng_num" type="text" id="uni" placeholder="재학/졸업 대학교" autocomplete="off" readonly equired/>
+      </div>
+
+      <!-- todo 전공 -->
+      <div class="zp-basic-input-title-1" style="margin-top:20px;">
+        <span><font class="zp-essential">* </font>전공</span>
+      </div>
+      <div style="width:100%;height:45px;margin-top:10px;">
+        <input class="zp-basic-input-class-1 kickspecial basic-info-input" data-allowed-lang="kor_eng" type="text" id="major" autocomplete="off" name="major"  placeholder="전공명을 정확히 기재 (기계 X, 기계공학과 O)" required/>
+      </div>
+
+      <!-- todo 자기소개 -->
+      <div class="zp-basic-input-title-1" style="margin-top:20px;display:flex;justify-content:space-between;">
+        <span><font class="zp-essential">* </font>자기소개</span>
+        <span style="color:#3e3a39;">
+            <font id="comment_len" style="color:#ff4e39;">0</font>
+            <font> / 300</font>
+        </span>
+      </div>
+
+      <div style="margin-top:10px;width:100%;height:24vh;">
+        <textarea id="comment" class="zp-basic-textarea-class-1 basic-info-input" data-allowed-lang="kor_eng_num_special" onpaste="return false;" placeholder="자기소개 및 지원동기를 적어주세요.&#13;&#10;( 150자 이상, 특수문자 불가능, 붙여넣기 불가능)"></textarea>
+      </div>
+
+
+      <!-- todo 경력사항 -->
+      <div class="zp-basic-input-title-1" style="margin-top:20px;display:flex;justify-content:space-between;">
+        <span><font class="zp-essential">* </font>경력사항</span>
+        <span style="color:#3e3a39;">
+            <font id="career_len" style="color:#ff4e39;">0</font>
+            <font> / 150</font>
+        </span>
+      </div>
+
+      <div style="margin-top:10px;width:100%;height:24vh;">
+        <textarea id="career" class="zp-basic-textarea-class-1 basic-info-input" data-allowed-lang="all" onpaste="return false;" placeholder="예) 과외경험 혹은 자신있는 과목( 20자 이상)&#13;&#10;수능 국어,수학 2등급&#13;&#10;괴외 경험 : 1년 / 없음&#13;&#10;자신있는 과목 : 국어,수학,영어 등&#13;&#10;수업스타일 : 꼼꼼하게 풀어드립니다."></textarea>
+      </div>
+
+
+
+      <!--todo 학생증 사진 -->
+      <div class="zp-basic-input-title-1" style="margin-top:20px;">
+        <span><font class="zp-essential">* </font>학생증 사진</span>
+      </div>
+
+      <div class="my-certi-img-div" id="upload-my-certi-btn">
+        <img src="img/teacher/certi-upload-btn-img.png" height="35%"/>
+        <p style="color:#FF4E39;font-size:12px;font-weight:700;">
+          ※ 이름, 대학교, 전공을 제외한 항목<br/>( 본인사진, 학번, 카드번호 등 )은<br/> 블라인드 처리하여 찍어주세요.
+        </p>
+      </div>
+
+
+
+      <!--todo 선생님 신청 조항-->
+        <div style="width:90%;margin:30px auto 60px auto;padding:2% 1% 2% 2%;border:1px solid #e1e1e1;border-radius:20px;text-align:center;">
+          <font style="font-weight:700;color:#585858;font-size:3.3vw;">직풀선생님 신청에 관하여</font>
+          <div style="margin-top:3%;wdith:100%;color:#585858;" align="left">
+            <nav class="provision-nav">
+              <font class="provision-number">[선생님 승인 과정] </font>
+              <div class="provision-content-wrapper">
+                <p class="provision-content" style="color:#3e3a39;font-weight:700;">
+                  [1] 앱에서 선생님 신청<br/>
+                  [2] 본인 확인 인증(직접 전화통화로 확인)<br/>
+                  [3] 인증 확인 후, 선생님 승인 및 활동
+                </p>
+              </div>
+            </nav>
+            <nav class="provision-nav">
+              <font class="provision-number">[본인확인 인증]</font>
+              <div class="provision-content-wrapper">
+                <font class="provision-content">
+                  직풀선생님 승인 과정에서 신청자의 본인인증은 정확한 본인 확인을 위해 직풀 운영팀에서 직접 전화통화를 하여 확인합니다.<br/>
+                  (발신번호 : 직풀선생님 관리 담당자 010-4737-4042 / 010-9936-1422)
+                </font>
+              </div>
+            </nav>
+            <nav class="provision-nav">
+              <font class="provision-number">[타인의 정보 도용에 대한 책임]</font>
+              <div class="provision-content-wrapper">
+                <font class="provision-content" style="color:#de1a1a;">
+                  직풀선생님 신청과정 중 타인의 이름 및 전화번호 혹은 학생증 사진을 도용하였을 경우, 신청자 본인에게 직풀 이용 및 법적으로 불이익이 발생할 수 있습니다.
+                  반드시 본인의 정보를 기입하여 주시길 바랍니다.
+                </font>
+              </div>
+            </nav>
+            <nav class="provision-nav">
+              <font class="provision-number">[학생증 사진 제출] </font>
+              <div class="provision-content-wrapper">
+                <font class="provision-content">
+                  '신청자'의 학교 및 전공의 정확한 사실확인을 위해 '직풀'에서는 1차 직풀선생님 신청 시에 학생증 사진으로 확인을 진행합니다.
+                   '신청자' 본인의 성함, 대학교, 전공은 반드시 신청서에 기입한 내용과 일치해야 하며 그 외의 내용(본인사진, 학번, 학생증 겸용 카드번호)은
+                   블라인드 처리(종이,테이프로 가림 혹은 그림판에서 작업)하여 제출해주시길 바랍니다.
+                </font>
+              </div>
+            </nav>
+            <nav class="provision-nav">
+              <font class="provision-number">[직풀선생님의 활동점수 및 소득] </font>
+              <div class="provision-content-wrapper">
+                <font class="provision-content">
+                  '직풀선생님'은 '학생'의 문제를 풀어주고 등록된 질문 포인트의 일정 부분을 활동점수로 얻게 됩니다.
+                  활동점수는 원화로 급여신청이 가능하며 급여신청시 '직풀'에서 수수료 33%(선생님 사업소득 3.3% 및 이체수수료 포함)
+                  를 공제하여 입력한 계좌로 입급을 진행합니다.
+                </font>
+              </div>
+            </nav>
+            <nav class="provision-nav">
+              <font class="provision-number">[기타 문의 사항] </font>
+              <div class="provision-content-wrapper">
+                <font class="provision-content">
+                  위의 조항 및 기타 내용에 대한 문의 사항은 직풀선생님 관리 담당자와 연락 / 앱에서 '문의하기' / zikpool.com@gmail.com 으로
+                  문의해주시길 바랍니다.
+                </font>
+              </div>
+            </nav>
+            <nav class="provision-nav">
+              <font class="provision-number">[직풀선생님 신청에 관한 동의] </font>
+              <div class="provision-content-wrapper">
+                <font class="provision-content">
+                  '신청자'는 위의 모든 조항을 충분히 인지한 후에 직풀선생님을 신청하는 것에 동의합니다.
+                </font>
+              </div>
+            </nav>
+
+          </div>
+        </div>
+
+
+      <!--최종 신청하기 버튼-->
+
+    </form>
+  </div>
+</div>
+<div class="add_btn" type="submit" id="teacher_register_add_btn" >
+  <div class="submit_btn_fixed footer-btn-txt-1">위 내용으로 신청하기</div>
+</div>
+
+
+<!--데이터 로딩중 창-->
+<div id="upload-loading-wall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;">
+  <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;width:100%;height:100%;">
+    <div id="loading-icon" class="zp-loader1 first-loading">Loading...</div>
+    <i id="complete-icon" class="far fa-check-circle" style="display:none;font-size:60px;color:#ffeb48;margin-bottom:15px;"></i>
+    <div id="loading-text-1" style="color:#fff;font-size:14px;font-weight:700;" align="center">
+      선생님 신청서 발송 중 ...<br/>
+      잠시만 기다려 주세요
+    </div>
+  </div>
+</div>
+
+
+<!-- script Start -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-storage.js"></script>
+
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/ksh/zikpool_funtion_h.js"></script>
+<script type="text/javascript" src="js/ksh/teacher_register.js"></script>
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>

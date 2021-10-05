@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <title>직풀::명문대생이 직접 풀어준다</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="img/header/wv-125.png" sizes="128x128">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/config.css" />
+    <link rel="stylesheet" href="css/basic/zp-basic.css" />
+    <link rel="stylesheet" href="css/zikpool-font-control.css" />
+    <link rel="stylesheet" href="css/zikpool/add-question.css" />
+    <link rel="stylesheet" href="css/zikpool/salary.css" />
+    <style type="text/css">
+    @media (max-width:768px){
+        .sal-font-income-label{
+            font-size:9.5vw;
+        }
+        .sal-font-income{
+            font-size:4.0vw;
+        }
+        .sal-font-text-1{
+            font-size:3.5vw;
+        }
+        .sal-font-text-2{
+            font-size:3.5vw;
+        }
+    }
+
+    @media (min-width:768px){
+        .sal-font-income-label{
+            font-size:9vw;
+        }
+
+        .sal-font-income{
+            font-size:3.5vw;
+        }
+
+        .sal-font-text-1{
+            font-size:2.9vw;
+        }
+         .sal-font-text-2{
+            font-size:3.0vw;
+        }
+
+    }
+
+  </style>
+</head>
+
+<body onload="init();">
+<div class="sal-container zik-font-s-4">
+    <!--todo 최상단 정보-->
+    <div class="top-wrapper">
+        <div class="msg-div">
+            <span class="zik-font-s-8">
+                <span class="holder"></span>
+                선생님 안녕하세요!
+            </span>
+        </div>
+        <div class="one-info-div" style="margin-top:4vw;">
+            <span  style="color:#fff;">나의 활동점수</span>
+            <span>
+                <span id="my-income-number" class="zik-font-5-5">0</span>
+                <span>점</span>
+            </span>
+        </div>
+        <div class="one-info-div" style="margin-top:4vw;">
+            <span style="color:#fff;">선생님 인증</span>
+            <span>
+                <i class="fas fa-check-circle"></i>
+                <span>인증완료</span>
+            </span>
+        </div>
+        <div class="one-info-div" style="margin-top:4vw;align-items:flex-start;">
+            <span style="color:#fff;">필수 자료</span>
+
+            <span id="request-ny-y" style="display:none;">
+                <span style="display:flex;flex-direction:column;">
+                    <span>
+                        <i class="fas fa-check-circle"></i>
+                        <span>제출완료</span>
+                    </span>
+                    <span class="call-tea-req-web-page" style="color:#008be5;margin-left:2px;font-size:12px;border-bottom:1px solid #008be5;margin-top:3px;">자료변경방법</span>
+                </span>
+            </span>
+            <span id="request-ny-n" style="display:none;">
+                <span style="display:flex;flex-direction:column;">
+                    <span>
+                        <i class="far fa-times-circle"></i>
+                        <span>미제출</span>
+                    </span>
+                    <span class="call-tea-req-web-page" style="color:#008be5;margin-left:2px;font-size:12px;border-bottom:1px solid #008be5;margin-top:3px;">제출방법보기</span>
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="middle-wrapper">
+        <div>
+            <div>예금주(선생님) 정보</div>
+        </div>
+        <div>
+            <span class="ac-title">예금주명</span>
+            <span class="ac-content holder">---</span>
+        </div>
+
+        <div>
+            <span class="ac-title">연락처</span>
+            <span id="tel" class="ac-content">---</span>
+        </div>
+
+        <div>
+            <span class="ac-title">은행명</span>
+            <span id="bank" class="ac-content">미제출</span>
+        </div>
+
+        <div>
+            <span class="ac-title">계좌번호</span>
+            <span id="account-number" class="ac-content">미제출</span>
+        </div>
+
+    </div>
+
+    <div class="middle-wrapper">
+        <div>
+            <div style="margin-top:20px;">신청 활동점수</div>
+        </div>
+        <div>
+            <span>
+            <input type="number" id="income-to-krw" placeholder="신청 활동점수 입력" class="sal-input-style"/>
+            <span>점</span>
+            </span>
+        </div>
+        <div>
+            <span class="ac-title">입금받으실 금액</span>
+            <span id="salary-in-krw" class="ac-content" style="color:#008be5;font-size:19px;">0 원</span>
+        </div>
+    </div>
+
+    <div style="width:100%;height:100%;margin-top:10%;" align="center">
+        <div style="width:98%;padding:2% 5%;border:0.3vw solid #d1d1d1;border-radius:20px;">
+            <font style="font-weight:700;color:#222;font-size:3.5vw;">급여신청시 주의사항</font>
+            <div style="margin-top:3%;wdith:100%;color:#585858;" align="left">
+                <nav class="provision-nav">
+                    <font class="provision-number">[1] </font>
+                    <div class="provision-content-wrapper">
+                        <font class="provision-content">활동점수 <b>10,000점 이상</b>부터 급여로 신청이 가능합니다.</font>
+                    </div>
+                </nav>
+                <nav class="provision-nav">
+                    <font class="provision-number">[2] </font>
+                    <div class="provision-content-wrapper">
+                        <font class="provision-content">급여를 받을 본의 계좌의 <b>예금주명(본인), 은행명, 계좌번호 및 연락처</b>를 반드시 확인 후에 급여 신청을 해주십시오.</font>
+                    </div>
+                </nav>
+                <nav class="provision-nav">
+                    <font class="provision-number">[3] </font>
+                    <div class="provision-content-wrapper">
+                        <font class="provision-content">급여신청은 <b>매월 2분기로 나누어 분기당 1회</b> 신청이 가능합니다. 매월 1일 ~ 15일: 1분기 / 매월 16일 ~ 말일: 2분기</font>
+                    </div>
+                </nav>
+                <nav class="provision-nav">
+                    <font class="provision-number">[4] </font>
+                    <div class="provision-content-wrapper">
+                        <font class="provision-content"> <font style="color:#585858;">입금되는 금액은 계좌이체 수수료 500원이 공제되어 입금됩니다.</font> </font>
+                    </div>
+                </nav>
+                <nav class="provision-nav">
+                    <font class="provision-number">[5] </font>
+                    <div class="provision-content-wrapper">
+                        <font class="provision-content" style="color:#585858"><b>급여를 신청한 선생님은 본사(스투디)에서 입금을 하게 됩니다. 본사는 국세청에 사업소득을 신고할 의무를 가지며, 이때 선생님의 본명 및 주민번호로 신고를 하게 됩니다. [소득세법 제21조제1항, 145조, 164조에 의거]</b></font>
+                    </div>
+                </nav>
+                <nav class="provision-nav">
+                    <font class="provision-number">[6] </font>
+                    <div class="provision-content-wrapper">
+                        <font class="provision-content"> 선생님의 소득에 대한 세금신고 및 기타 유사한 사항에 대해서 본사는 관여 및 책임을 지지 않습니다.</font>
+                    </div>
+                </nav>
+
+                <!--<nav class="provision-nav">-->
+                <!--<font class="provision-number">[5] </font>-->
+                <!--<div class="provision-content-wrapper">-->
+                <!--<font class="provision-content"> 조항5</font>-->
+                <!--</div>-->
+                <!--</nav>-->
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div id="request-my-income-to-exchange-btn" class="requirement-not-satisfied">
+    <span>급여 신청하기</span>
+</div>
+
+
+<div id="loading-window">
+    <div>
+        <div class="zp-loader1 first-loading">Loading...</div>
+        <span id="loading-text" class="first-loading">급여 신청 중 ...</span>
+
+        <!--최종 완료 버튼 (선생님이 누르는 버튼)-->
+        <div class="seccond-loading" style="width:100%;display:none;" align="center">
+            <div id="final-text-after-loading"  style="width:100%;color:#fff;" align="center">
+            </div>
+            <div id="teacher-understand-btn">
+                확인
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.animateNumber.min.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/hjm/salary.js"></script>
+
+
+</body>
+
+</html>

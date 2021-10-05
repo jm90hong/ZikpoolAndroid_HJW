@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+  <title>직풀::명문대생이 직접 풀어준다</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="img/header/wv-125.png" sizes="128x128">
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="css/config.css" />
+  <link rel="stylesheet" href="css/basic/zp-basic.css" />
+  <link rel="stylesheet" href="css/basic/zp-button-style.css" />
+  <link rel="stylesheet" href="css/zikpool/question-detail.css" />
+
+  <style>
+
+  </style>
+</head>
+
+<body onload="init();">
+<div style="width:100%;height:calc(100% - 46px);padding:10px 30px 0 30px;font-size:14px;overflow:scroll;">
+  <div class="provision-with-mid-dot">
+    <div style="display:flex;width:100%;margin-bottom:10px;">
+      <div style="width:20px;">
+        <img src="img/icons/mid-dot.png" style="width:4px;"/>
+      </div>
+      <div style="width:calc(100% - 20px);text-align:left;padding:0 10px 0 0;word-break:normal;">
+        <font class="important-word-1">'오픈(open) 직풀'</font>은 직풀의 회원이면 누구나 이용할 수 있는 실시간 1:1 모바일 커뮤니케이션 서비스 입니다.
+      </div>
+    </div>
+
+    <div style="display:flex;width:100%;margin-bottom:10px;">
+      <div style="width:20px;">
+        <img src="img/icons/mid-dot.png" style="width:4px;"/>
+      </div>
+      <div style="width:calc(100% - 20px);text-align:left;padding:0 2% 0 0;word-break:normal;">
+        하단의 <font class="important-word-1">'오픈직풀 시작하기'</font> 버튼을 누르면 '카카오톡&#174;' 을 통하여 상대방에게 오픈 직풀 참가하기 메세지가 전송됩니다.
+      </div>
+    </div>
+
+    <div style="display:flex;width:100%;margin-bottom:10px;">
+      <div style="width:20px;">
+        <img src="img/icons/mid-dot.png" style="width:4px;"/>
+      </div>
+      <div style="width:calc(100% - 20px);text-align:left;padding:0 2% 0 0;word-break:normal;">
+        <font class="important-word-1">개설자 및 참가자 모두 카카오톡의 템플릿 메세지에 있는 '오픈직풀 참가하기' 버튼을 눌러야 오픈직풀에 참가 할 수 있습니다.</font>
+      </div>
+    </div>
+
+    <div style="display:flex;width:100%;margin-bottom:10px;">
+      <div style="width:20px;">
+        <img src="img/icons/mid-dot.png" style="width:4px;"/>
+      </div>
+      <div style="width:calc(100% - 20px);text-align:left;padding:0 2% 0 0;word-break:normal;">
+        오픈 직풀에서 업로드 할 수 있는 사진은 최대 <font class="important-word-1">3장</font>이며, 이용제한 시간은 <font class="important-word-1">12분</font>입니다. (종료 후 다시 재시작 가능)
+      </div>
+    </div>
+
+    <div style="display:flex;width:100%;margin-bottom:10px;">
+      <div style="width:20px;">
+        <img src="img/icons/mid-dot.png" style="width:4px;"/>
+      </div>
+      <div style="width:calc(100% - 20px);text-align:left;padding:0 2% 0 0;word-break:normal;">
+        오픈 직풀에서 공유한 질문, 답변 사진들은 오픈직풀 종료와 함께 <font class="important-word-1">즉시 삭제</font>됩니다.
+      </div>
+    </div>
+
+    <div style="display:flex;width:100%;margin-bottom:10px;">
+      <div style="width:20px;">
+        <img src="img/icons/mid-dot.png" style="width:4px;"/>
+      </div>
+      <div style="width:calc(100% - 20px);text-align:left;padding:0 2% 0 0;word-break:normal;">
+         원활환 통신을 위하여 <font class="important-word-1">wifi / LTE(4G) / 5G</font> 의 네트워크 환경을 권장합니다.
+      </div>
+    </div>
+
+    <div style="display:flex;width:100%;margin-bottom:10px;">
+      <div style="width:20px;">
+        <img src="img/icons/mid-dot.png" style="width:4px;"/>
+      </div>
+      <div style="width:calc(100% - 20px);text-align:left;padding:0 2% 0 0;word-break:normal;">
+        기타 문의 사항 및 오류 및 버그 문제는<br/>
+        [1] 1대1 문의하기<br/>
+        [2] 카카오 플러스 친구 문의<br/>
+        [3] zikpool.com@gmail.com<br/>
+        으로 문의해주십시오.
+      </div>
+    </div>
+  </div>
+
+  <!--todo 오픈직풀 이용권 정보-->
+  <div style="padding:10px 0 0 0;font-size:14px;font-weight:700;">
+    <div style="font-size:15px;">
+       나의 오픈직풀 이용권
+      <font style="margin-left:60px;color:#000;font-weight:700;font-size:15px;">
+        <font class="oz-use-txt">0</font>
+        <font> 개</font>
+      </font>
+      <span style="display:block;text-align:left;font-size:10px;color:#8a8a8a8;font-weight:500">
+        이용권을 획득하려면 광고를 시청해주세요.
+        <span id="start-rewarded-ad-btn" style="color:#008be5;border-bottom:1px solid #008be5;font-size:13px;margin-left:5px;font-weight:700;">
+          광고 보고 이용권 얻기
+        </span>
+      </span>
+
+    </div>
+  </div>
+
+
+  <!--todo 서버 선택 라디오 박스-->
+  <div style="padding:10px 0 0 0;font-size:14px;font-weight:700;">
+    <div style="font-size:15px;">
+      오픈직풀 서버 선택<font style="margin-left:5px;color:#8a8a8a;font-weight:500;font-size:11px;">(상대방과 연결을 위한 통신서버)</font>
+      <span style="display:block;text-align:left;font-size:10px;color:#de1a1a;font-weight:500">초기에 음성연결이 실패하면 재시작을 해주시길 바랍니다.</span>
+    </div>
+    <div style="display:flex;margin-top:20px;">
+      <div style="flex:1;" align="center">
+        <input class="inp-rdo sel-open-server-radio" id="label-server1" type="radio" name="sel-open-server" value="server1" style="display:none;" checked/>
+        <label class="rdo" for="label-server1">
+            <span>
+                <div>
+                     <div></div>
+                </div>
+            </span><span>오픈 서버-1</span>
+        </label>
+      </div>
+
+      <div style="flex:1;" align="center">
+        <input class="inp-rdo sel-open-server-radio" id="label-server2" type="radio" name="sel-open-server" value="server2" style="display:none;"/>
+        <label class="rdo" for="label-server2">
+            <span>
+                <div>
+                    <div></div>
+                </div>
+            </span><span>오픈 서버-2</span>
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+
+  <footer class="zp1-footer-btn-container" style="background:#fad037;color:#fff;">
+    <div id="start-open-zikpool-room-btn" class="footer-btn">
+      오픈 직풀 개설하기
+    </div>
+  </footer>
+</div>
+
+
+<!--데이터 로딩중 창-->
+<div id="loading-wall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;">
+  <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;width:100%;height:100%;">
+    <div id="loading-icon" class="zp-loader1 first-loading">Loading...</div>
+    <i id="complete-icon" class="far fa-check-circle" style="display:none;font-size:60px;color:#ffeb48;margin-bottom:15px;"></i>
+    <div id="loading-text-1" style="color:#fff;font-size:14px;font-weight:700;" align="center">
+      광고 로딩 중...
+    </div>
+    <div id="loading-text-2" style="color:#fff;font-size:14px;font-weight:600;margin-top:6px;">
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/hjm/open-zikpool.js"></script>
+
+</body>
+</html>

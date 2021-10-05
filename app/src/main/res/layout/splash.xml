@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/zikpool_splash_icon" />
+
+<!--<TextView-->
+        <!--android:id="@+id/myVersionNameTxt"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="146dp"-->
+        <!--android:gravity="center"-->
+        <!--android:textSize="20dp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="#222222"-->
+        <!--android:text="" />-->
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/re1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_centerVertical="true">-->
+     <!--<RelativeLayout-->
+         <!--android:layout_width="match_parent"-->
+         <!--android:layout_height="wrap_content"-->
+         <!--&gt;-->
+         <!--<ProgressBar-->
+             <!--android:layout_width="50dp"-->
+             <!--android:layout_height="50dp"-->
+             <!--android:theme="@style/ProgressBarCircleSplash"-->
+             <!--android:layout_centerInParent="true"/>-->
+     <!--</RelativeLayout>-->
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="60dp"-->
+            <!--android:gravity="center"-->
+            <!--android:textColor="#222222"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="16dp"-->
+            <!--android:text="버전 체크중 ..."/>-->
+    <!--</RelativeLayout>-->
+
+
+    <!--<ImageView-->
+        <!--android:layout_width="120dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:src="@drawable/zikpool_logo_main" />-->
+</RelativeLayout>

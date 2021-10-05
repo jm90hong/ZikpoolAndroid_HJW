@@ -1,0 +1,48 @@
+.tr-writing-longtext-container{
+    width:90%;
+    margin:0 auto;
+}
+
+.tr-writing-longtext-container > .first-div{
+   width:100%;
+   height:20px;
+   display:flex;
+   align-items:center;
+   position:relative;
+}
+
+textarea.comment_textarea{
+    width:100%;
+    height:24vh;
+    border:1px solid #a6a6a6;
+}
+
+textarea.career_textarea{
+    width:100%;
+    height:20vh;
+    border:1px solid #a6a6a6;
+}
+
+.tr-certi-img-container{
+    width:90%;
+    margin:0 auto;
+}
+
+.tr-certi-img-container > .first-div{
+     width:100%;
+     height:25px;
+     display:flex;
+     align-items:center;
+     color:#8e8e8e;
+}
+
+div.my-certi-img-div{
+    width:100%;
+    height:29vh;
+    background:#f8f8f8;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    margin-top:10px;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="format-detection" content="telephone=no">
+      <meta name="msapplication-tap-highlight" content="no">
+      <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+      <title>직풀::명문대생이 직접 풀어준다</title>
+
+      <!-- favicon -->
+      <link rel="icon" href="img/header/wv-125.png" sizes="128x128">
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/config.css" />
+      <link rel="stylesheet" href="css/basic/zp-basic.css" />
+      <link rel="stylesheet" href="css/basic/zp-button-style.css" />
+      <link rel="stylesheet" href="css/zikpool_huni.css" />
+      <link rel="stylesheet" href="css/header_tabUI.css" />
+
+
+      <style>
+        .tmp-add-btn-1{
+            width:60px;height:30px;background:#3e3a39;
+            color:#fff;font-size:12px;font-weight:700;
+            display:flex;justify-content:center;align-items:center;
+            margin-left:8px;border-radius:5px;
+        }
+      </style>
+    </head>
+
+    <body onload="init();">
+      <!-- 정보 수정 페이지 -->
+      <div class="slide_con" id="dedail_profile_page">
+        <!-- 내용 -->
+        <div class="add_screen" style="background:#fff;padding:0 5%;">
+          <form class="add_form_screen" onsubmit="return false;">
+
+            <!-- 아이디(이메일) -->
+            <div class="zp-basic-input-title-1" style="margin-top:20px;">
+              <span>아이디</span>
+            </div>
+            <div style="width:100%;height:45px;margin-top:10px;display:flex;justify-content:center;align-items:center;">
+              <input class="zp-basic-input-class-1" style="width:calc(100% - 68px);" type="email" id="id" autocomplete="off" name="id"  placeholder="아이디(이메일)" readonly/>
+              <span id="email-cer-ok-icon" class="tmp-add-btn-1" style="background:#008be5;pointer-events:none;">인증완료</span>
+            </div>
+
+
+
+            <!-- 비빌번호 -->
+            <div class="zp-basic-input-title-1" style="margin-top:20px;">
+              <span>비빌번호</span>
+            </div>
+            <div style="width:100%;height:45px;margin-top:10px;">
+              <input class="zp-basic-input-class-1 pw-chk" type="password" id="pw1" autocomplete="off" placeholder="영문, 숫자, 특수문자 포함" required/>
+            </div>
+            <div style="width:100%;height:45px;margin-top:6px;">
+              <input class="zp-basic-input-class-1 pw-chk" type="password" id="pw"  autocomplete="off" name="pw"  placeholder="비밀번호 확인" required/>
+            </div>
+
+
+
+            <!-- 생년월일 -->
+            <div class="zp-basic-input-title-1" style="margin-top:20px;">
+              <span>생년월일</span>
+            </div>
+            <div style="width:100%;height:45px;margin-top:10px;">
+              <input class="zp-basic-input-class-1" type="number" maxlength="8" id="age" autocomplete="off" name="age"  placeholder="예) 20020531" required/>
+            </div>
+
+            <!--성별-->
+            <div id="sex-cont" class="zp-basic-input-title-1" style="margin-top:20px;">
+              <span>성별</span>
+            </div>
+            <div style="width:100%;margin-top:10px;display:flex;">
+              <div style="flex:1;" align="center">
+                <input class="inp-rdo sex-radio" id="sex_m" type="radio" name="sex" value="M" style="display:none;"/>
+                <label class="rdo" for="sex_m">
+                    <span>
+                        <div>
+                            <div></div>
+                        </div>
+                    </span>
+                  <span>남자</span>
+                </label>
+              </div>
+              <div style="flex:1;" align="center">
+                <input class="inp-rdo sex-radio" id="sex_w" type="radio" name="sex" value="W" style="display:none;"/>
+                <label class="rdo" for="sex_w">
+                    <span>
+                        <div>
+                            <div></div>
+                        </div>
+                    </span>
+                  <span>여자</span>
+                </label>
+              </div>
+            </div>
+
+
+            <div class="add_btn" type="submit" id="final-member-edit-btn" >
+              <div class="submit_btn_fixed" style="font-size:16px;">수정하기</div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+
+      <!-- script Start -->
+      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+      <script type="text/javascript" src="js/config.js"></script>
+      <script type="text/javascript" src="js/ksh/zikpool_funtion_h.js"></script>
+      <script type="text/javascript" src="js/ksh/my_edit.js"></script>
+
+      <script type="text/javascript">
+
+      </script>
+
+    </body>
+</html>

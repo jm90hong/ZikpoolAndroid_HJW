@@ -1,0 +1,414 @@
+.important-word-1{
+    color:#307AFA;
+}
+#question-detail-page-container{
+    height:100%;
+    width:100%;
+    overflow:scroll;
+    background:#f2f2f2;
+    padding-bottom:21px;
+}
+img.question-img{
+  width:100%;
+  max-height:45vh;
+  object-fit:cover;
+}
+
+.question-info-container{
+  width:100%;
+  padding:20px 5px 0 5px;
+
+}
+
+#title{
+  font-family:ns;
+  font-size:26px;
+  font-weight:700;
+  color:#000000;
+  display:inline-block;
+}
+
+.label-lys-tag{
+  flex:1;
+  display:flex;
+  height:100%;
+  justify-content:center;
+  border-right:solid 1px #aeaeae;
+  font-size:15px;
+  font-weight:600;
+  color:#222222;
+  align-items: center;
+  flex-direction:column;
+}
+
+.label-lys-tag > .one-lys-tag{
+    background:#f2f2f2;
+    color:#858585;
+    margin-bottom:8px;
+    font-size:11px;
+    padding:1px 5px;
+    border-radius:4px;
+}
+
+
+.other-info-tag{
+  padding:3px 6px;
+  background:#fad037;
+  color:#222;
+  font-size:12px;
+  border-radius:4px;
+  font-weight:600;
+
+}
+
+.question-content-container{
+    width:100%;
+    padding:9px 3% 10px 3%;
+    margin-top:1px;
+    border-top:1px solid #dedede;
+    border-bottom:1px solid #dedede;
+    background:#fff;
+}
+
+.student-image-nick-div{
+    display:flex;
+    align-items:center;
+    color:#484848;
+    font-size:15px;
+    font-weight:600;
+}
+
+img.qd-member-image{
+    width:24px;
+    height:24px;
+    object-fit:cover;
+    margin-right:4px;
+    border-radius:50em;
+}
+
+.stu-content-wrapper{
+    width:100%;
+    padding-top:10px;
+}
+
+#content{
+    width:91%;
+    padding:7px;
+    background:#f7f7f7;
+    color:#000;
+    font-size:14px;
+    font-weight:500;
+    border-radius:8px;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.other-picture-container{
+    width:100%;
+    padding-top:12px;
+    color:#222;
+    font-size:15px;
+    font-weight:700;
+}
+
+.one-other-picture-div{
+    position:relative;
+    margin-left:9px;
+
+}
+.other-q-picture-img{
+    width:95px;
+    height:95px;
+    object-fit:cover;
+}
+.black-pic-tag{
+    position:absolute;
+    left:0;
+    bottom:0;
+    padding:3px 11px 3px 3px;
+    background:#222;
+    color:#fad037;
+    font-weight:700;
+    font-size:13px;
+    border-radius:0 50em 50em 0;
+}
+
+
+#all-answers-container{
+    width:100%;
+    background:transparent;
+    margin-top:1px;
+}
+
+div.one-answer-container{
+    position:relative;
+    width:100%;
+    border-top:1px solid #dedede;
+    border-bottom:1px solid #dedede;
+    padding:9px 0 10px 0;
+    margin-bottom:20px;
+    background:#fff;
+}
+
+.answer-written-date{
+    position:absolute;
+    top:15px;
+    right:3px;
+    font-size:10px;
+    color:#999999;
+}
+.teacher-image-nick-div{
+    display:flex;
+    width:100%;
+    padding:0 4px 0 3%;
+    align-items:center;
+}
+.tea-uni-major-wrapper{
+    height:45px;
+    color:#484848;
+    display:flex;
+    font-size:13px;
+    flex-direction:column;
+    justify-content:center;
+}
+img.teacher-image{
+    width:38px;
+    height:38px;
+    object-fit:cover;
+    margin-right:4px;
+    border-radius:50em;
+}
+
+.bigger-answer-image-div{
+    width:100%;
+    position:relative;
+    margin-top:10px;
+}
+
+.bigger-answer-image-div > img{
+    width:100%;
+    max-height:45vh;
+    object-fit:cover;
+}
+
+.bigger-answer-image-div > .icon-in-answer-img-container {
+    display:flex;
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,0.66);
+    flex-direction:column;
+    color:#fad037;
+    font-weight:700;
+    font-size:5.5vw;
+    pointer-events:none;
+}
+
+
+.icon-in-answer-img-container .get-cash-btn{
+    background:#fad307;
+    display:flex;
+    color:#3e3a39;
+    padding:3px 8px;
+    font-size:14px;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    margin-top:5px;
+    font-weight:700;
+}
+
+.reply-container{
+    display:flex;
+    width:80%;
+    font-size:14px;
+    color:#fff;
+    font-weight:500;
+    justify-content:center;
+    text-align:center;
+    align-items:flex-start;
+}
+
+
+.reply-container > img.reply-icon{
+    width:22px;
+    display:block;
+    margin-right:5px;
+}
+
+.reply-container > .reply-content{
+    text-align:left;
+    padding-top:8px;
+    display:block;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    max-width:100%;
+}
+
+.show-reply-btn-cont{
+    width:100%;
+    margin-top:10px;
+    text-align:center;
+}
+
+.show-reply-btn-cont > span{
+    font-size:14px;
+    color:#fff;
+    border-bottom:1px solid #fff;
+    padding-bottom:1px;
+    pointer-events:auto;
+}
+
+.show-reply-btn-cont > span:hover{
+    color:#008be5;
+    border-bottom:1px solid #008be5;
+}
+
+
+.answer-content{
+    width:100%;
+    margin-top:15px;
+    padding:7px;
+    background:#f7f7f7;
+    color:#000;
+    font-size:14px;
+    font-weight:500;
+    border-radius:8px;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.no-other-picture-text{
+    margin-left:5px;
+    font-size:11px;
+    color:#999;
+    font-weight:600;
+}
+
+.answer-info-table{
+    width:100%;
+    font-size:13px;
+}
+
+.answer-info-table > div{
+    display:flex;
+    margin-top:4px;
+}
+
+.one-ans-info-title{
+    width:80px;
+    color:#999;
+    font-size:12px;
+}
+
+
+.color-green{
+  color:#04D229;
+}
+
+.btns-of-one-answer{
+    display:flex;
+    width:100%;
+    height:45px;
+    margin-top:20px;
+    justyfy-content:center;
+}
+
+.btns-of-one-answer > div{
+    flex:1;
+    padding:0 7px;
+    display:flex;
+    justify-content:center;
+}
+
+.zp-black-white-btn1{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+    font-size:14px;
+    border-radius:5px;
+    background:#fff;
+    color:#484848;
+    border:1px solid #aeaeae;
+}
+
+.zp-black-white-btn1 >i {
+    margin-right:4px;
+}
+
+
+.btn-click-effect1:active{
+    border:1px solid #484848;
+    background:#fbfbfb;
+}
+
+.footer-btn-for-teacher{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:46px;
+    background:transparent;
+}
+
+.footer-btn-for-teacher > div {
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    background:rgba(0,0,0,0.72);
+}
+
+.call-add-answer-page-btn{
+    display:flex;
+    flex:45;
+    align-items:center;
+    justify-content:center;
+    background:#fad037;
+    border-radius:8px;
+    color:#222;
+    font-size:14px;
+    font-weight:700;
+    height:36px;
+}
+
+.pnt-y:active{
+    background:#000;
+}
+
+
+
+.zp-popup-window{
+    background:rgba(0,0,0,0.7);
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+
+}
+
+.zp-popup-window > div {
+    width:310px;
+    height:442px;
+    position:relative;
+    background:#fff;
+    border-radius:10px;
+    margin:7% auto 0 auto;
+}
+
+.provision-with-mid-dot {
+    width:100%;
+    margin-top:20px;
+    font-size:13px;
+    font-weight:500;
+    color:#000;
+}

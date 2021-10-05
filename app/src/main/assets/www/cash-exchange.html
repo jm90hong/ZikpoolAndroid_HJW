@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <title>캐시 전환</title>
+
+    <!-- favicon -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/config.css" />
+    <link rel="stylesheet" href="css/basic/zp-basic.css" />
+    <link rel="stylesheet" href="css/zikpool-font-control.css" />
+    <link rel="stylesheet" href="css/history-list.css" />
+    <link rel="stylesheet" href="css/zikpool/cash-exchange.css" />
+    <style type="text/css">
+
+
+    </style>
+</head>
+
+<body onload="init();">
+    <div class="slide_con" style="width:100%;height:100%;background:#fff;padding-top:20px;">
+        <div class="zp-basic-two-tab-container">
+            <div class="two-tab" data-index="1">
+                <div class="title">
+                    <span>기프트샵</span>
+                </div>
+                <div class="line"></div>
+            </div>
+
+            <div class="two-tab" data-index="2">
+                <div class="title" style="color:#c5c5c5;">
+                    <span>포인트로 전환</span>
+                </div>
+                <div class="line" style="background:#fff"></div>
+            </div>
+        </div>
+
+        <div id="gift-tab" data-index="1" class="history-list-container tab-page" style="height:calc(100% - 50px);padding-left:6px;padding-right:5px;">
+            <div>
+                <div style="width:100%;margin-top:30px;font-weight:700;" align="center">
+                    <div>
+                        <span style="color:#000;">나의 보유 캐시</span>
+                    </div>
+                    <div style="margin-top:8px;">
+                    <span style="display:flex;align-items:center;justify-content:center;">
+                        <img src="img/icons/zikpool_cash_icon.png" width="22px"/>
+                        <span class="my-cash" style="font-size:24px;color:#3e3a39;margin-left:7px;">0</span>
+                    </span>
+                    </div>
+                </div>
+                <div style="font-weight:700;color:#000;margin-top:20px;">
+                    상품 리스트
+                </div>
+            </div>
+
+            <div id="list-of-all-gift" style="height:calc(100% - 132px);overflow:scroll;">
+            </div>
+        </div>
+
+        <div id="point-tab" data-index="2" class="history-list-container tab-page" style="display:none;height:calc(100% - 50px);padding-left:6px;padding-right:5px;">
+            <div>
+                <div style="width:100%;margin-top:30px;font-weight:700;" align="center">
+                    <div>
+                        <span style="color:#000;">나의 보유 캐시</span>
+                    </div>
+                    <div style="margin-top:8px;">
+                    <span style="display:flex;align-items:center;justify-content:center;">
+                        <img src="img/icons/zikpool_cash_icon.png" width="22px"/>
+                        <span class="my-cash" style="font-size:24px;color:#3e3a39;margin-left:7px;">0</span>
+                    </span>
+                    </div>
+                </div>
+                <div style="font-weight:700;color:#000;margin-top:40px;" align="center">
+                    <div style="color:#3e3a39;font-size:16px;">포인트로 전환할 캐시</div>
+                    <div style="color:#999;font-size:13px;">500 캐시부터 전환 가능</div>
+                </div>
+
+                <div style="font-size:17px;font-weight:700;margin-top:20px;display:flex;justify-content:center;align-items:center;color:#3e3a39;" align="center">
+                    <img  src="img/icons/zikpool_cash_icon.png" width="24px"/>
+                    <span style="margin-left:6px;">캐시</span>
+                    <input id="cash-input" type="number" class="cash-input"/>
+                </div>
+                <div style="font-size:20px;font-weight:700;margin:10px 0;" align="center">
+                    <i class="fas fa-chevron-down" style="color:#3e3a39;"></i>
+                </div>
+                <div style="font-size:17px;font-weight:700;display:flex;justify-content:center;align-items:center;color:#3e3a39;" align="center">
+                    <img  src="img/icons/zikpool_point_icon.png" width="24px"/>
+                    <span style="margin-left:6px;">포인트</span>
+                    <span id="res-point" class="res-point">5000</span>
+                </div>
+                <div id="change-cash-to-point-btn" class="change-cash-to-point-btn">
+                    포인트로 전환하기
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--데이터 로딩중 창-->
+    <div id="loading-wall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;">
+        <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;width:100%;height:100%;">
+            <div id="loading-icon" class="zp-loader1 first-loading">Loading...</div>
+            <i id="complete-icon" class="far fa-check-circle" style="display:none;font-size:60px;color:#ffeb48;margin-bottom:15px;"></i>
+            <div id="loading-text-1" style="color:#fff;font-size:14px;font-weight:700;" align="center">
+                처리중 ...
+            </div>
+            <div id="loading-text-2" style="color:#fff;font-size:14px;font-weight:600;margin-top:6px;">
+
+            </div>
+        </div>
+    </div>
+
+
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.animateNumber.min.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/hjm/cash-exchange.js"></script>
+
+
+</body>
+
+</html>

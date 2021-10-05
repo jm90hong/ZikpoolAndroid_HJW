@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="format-detection" content="telephone=no">
+      <meta name="msapplication-tap-highlight" content="no">
+      <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+      <title>직풀::명문대생이 직접 풀어준다</title>
+
+      <!-- favicon -->
+      <link rel="icon" href="img/header/wv-125.png" sizes="128x128">
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+
+      <link rel="stylesheet" href="css/config.css" />
+      <link rel="stylesheet" href="css/basic/zp-basic.css" />
+      <link rel="stylesheet" href="css/zikpool_huni.css" />
+      <link rel="stylesheet" href="css/zikpool/question-detail.css" />
+      <link rel="stylesheet" href="css/zikpool-font-control.css" />
+      <link rel="stylesheet" href="css/zikpool/add-question.css" />
+      <style>
+
+
+      </style>
+
+    </head>
+
+    <body onload="init()">
+    <div id="question-detail-page-container">
+        <div class="question-all-container" style="width:100%;background:#fff;padding-bottom:34px;border-bottom:1px solid #dedede;" align="center">
+          <div style="position:relative;">
+            <img id="question-img" class="question-img q-m-b-img" data-type="q" src="img/question/loading_icon.png"/>
+            <span class="black-pic-tag">질문사진</span>
+          </div>
+          <div class="question-info-container">
+            <div style="width:100%;display:flex;flex-direction:column;align-items:center;">
+              <span id="title">----</span>
+              <span id="reg-date" style="color:#aeaeae;font-size:12px;">등록일 0000-00-00 00:00</span>
+            </div>
+            <div style="width:100%;margin-top:5px;" align="center">
+              <span id="left-time"  class="other-info-tag">남은시간 로딩중...</span>
+              <span id="answer-cnt" class="other-info-tag">----</span>
+              <span id="q-selected-ny" class="other-info-tag">----</span>
+            </div>
+          </div>
+
+          <div style="width:94%;height:60px;margin-top:15px;display:flex;border-top:1px solid #dadada;padding-top:20px;">
+            <div class="label-lys-tag">
+              <span class="one-lys-tag">학교</span>
+              <span id="level">----</span>
+            </div>
+            <div class="label-lys-tag">
+              <span class="one-lys-tag">학년</span>
+              <span id="year">---</span>
+            </div>
+            <div class="label-lys-tag">
+              <span class="one-lys-tag">과목</span>
+              <span id="subject">----</span>
+            </div>
+            <div class="label-lys-tag" style="border:0;">
+              <span class="one-lys-tag">질문포인트</span>
+              <span id="q-point" style="">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="color:#585858;font-size:14px;font-weight:700;;margin-top:18px;margin-left:5px;">질문내용</div>
+
+        <div class="question-content-container">
+          <div class="student-image-nick-div">
+            <span class="go-to-mem-profile" data-member-idx="0" data-member-nickname="">
+              <img id="student-image" class="qd-member-image" src=""/>
+              <span id="student-nickname">----</span>
+            </span>
+          </div>
+
+          <div class="stu-content-wrapper" align="center">
+            <div id="content">
+
+            </div>
+          </div>
+
+          <div id="other-picture-container" class="other-picture-container" style="display:none;">
+            <div style="margin-bottom:5px;">추가사진</div>
+            <div id="other-picture-wrapper" class="other-picture-wrapper" style="width:100%;display:flex;">
+
+            </div>
+          </div>
+
+        </div>
+
+        <div id="zikpool-teacher-answer-tag-name" style="display:none;color:#585858;font-size:14px;font-weight:700;;margin-top:18px;margin-left:5px;">직풀선생님 답변</div>
+
+        <div id="all-answers-container">
+
+          <div class="one-answer-container" data-answer-idx="0" style="display:none;">
+            <div class="answer-written-date">2019-01-13 17:00</div>
+            <div class="teacher-image-nick-div">
+              <img class="teacher-image" src="img/question/loading_icon.png"/>
+              <div class="tea-uni-major-wrapper">
+                <span class="teacher-nickname" style="font-weight:600;">홍정민1422 선생님</span>
+                <span class="teacher-uni-major" style="color:#999;font-size:11px;">서울과학기술대학교 | 기계시스템디자인공학과</span>
+              </div>
+            </div>
+            <div class="bigger-answer-image-div">
+              <img src="img/ad/zad3.png" style="min-height:150px;"/>
+              <div class="icon-in-answer-img-container" align="center">
+                <div style="width:100%;"><i class="far fa-check-circle" style="margin-right:2%;margin-bottom:9px;"></i>답변채택</div>
+                <div class="reply-container" >
+                  <img class="reply-icon" src="img/icons/left-quote-mark.png"/>
+                  <div class="reply-content">
+                    ----
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+
+            </div>
+            <div style="width:100%;padding:0 3%;" align="center">
+              <div class="answer-content">
+                ----
+              </div>
+            </div>
+            <div class="other-picture-container" style="padding:12px 3% 0 3%;">
+              <div style="width:100%;display:flex;">
+                <div style="display:flex;flex:45;flex-direction:column;">
+                  <div style="margin-bottom:5px;">추가사진</div>
+                  <div class="other-picture-wrapper">
+                    <!--<div class="one-other-picture-div">-->
+                    <!--<img class="other-q-picture-img"  src="img/question/loading_icon.png"/>-->
+                    <!--<span class="black-pic-tag">답변보충</span>-->
+                    <!--</div>-->
+                    <span class="no-other-picture-text">사진이 없습니다.</span>
+                  </div>
+                </div>
+
+
+                <div style="flex:55;">
+                  <div style="margin-bottom:5px;width:100%;">답변정보</div>
+                  <div class="answer-info-table">
+                    <div>
+                      <div class="one-ans-info-title">상태</div>
+                      <div class="color-green">정상</div>
+                    </div>
+
+                    <div>
+                      <div class="one-ans-info-title">채택여부</div>
+                      <div>미채택</div>
+                    </div>
+
+                    <div>
+                      <div class="one-ans-info-title">직풀</div>
+                      <div>가능</div>
+                    </div>
+
+                    <div>
+                      <div class="one-ans-info-title">직풀포인트</div>
+                      <div>500</div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="btns-of-one-answer" style="display:none;">
+              <div>
+                <div class="zp-black-white-btn1 a-answer-btn btn-click-effect1" data-type="select" >
+                  <i class="fas fa-check"></i><span>답변채택</span>
+                </div>
+              </div>
+              <div>
+                <div class="zp-black-white-btn1 a-answer-btn btn-click-effect1" data-type="register">
+                  <i class="far fa-edit"></i><span>직풀신청</span>
+                </div>
+              </div>
+              <div>
+                <div class="zp-black-white-btn1 a-answer-btn btn-click-effect1" data-type="report">
+                  <i class="fas fa-exclamation-circle"></i><span>신고하기</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+      <footer id="footer-control-box-for-teacher" class="footer-btn-for-teacher" style="display:none;">
+        <div>
+          <div id="left-time-in-footer" class="substring" style="flex:55;color:#fff;font-size:13px;font-weight:700;" align="center">
+            남은시간 계산중..
+          </div>
+          <div id="call-add-answer-page-btn" class="call-add-answer-page-btn pnt-y">
+            <i class="fas fa-plus" style="margin-right:4px;"></i>답변등록하기
+          </div>
+        </div>
+      </footer>
+
+
+
+
+      <!-- 답변 채택하기 -->
+      <div id="select-answer-window" class="zp-popup-window qd-popup-window" data-type="select" style="display:none;" align="center">
+        <div align="center">
+          <div style="width:100%;padding:20px 4% 0 4%;" align="center">
+            <div style="width:100%;text-align:left;display:flex;">
+              <span class="aq-fill-label">
+                <font class="zp-essential">*</font> 후기 작성
+                <font id="warn-for-reply" style="display:none;color:#de1a1a;font-size:10px;font-weight:500;"> 특수문자는 사용할 수 없습니다</font>
+              </span>
+              <span style="margin-left:auto;"><font id="len-of-reply" style="color:#008be5;">0</font> / 150</span>
+            </div>
+            <textarea id="reply" class="aq-fill-textarea-type1" style="height:110px;" placeholder="답변 후기를 작성해주세요."></textarea>
+          </div>
+
+          <div class="provision-with-mid-dot">
+            <div style="display:flex;width:100%;margin-bottom:8px;">
+              <div style="width:10%;">
+                <img src="img/icons/mid-dot.png" style="width:4px;"/>
+              </div>
+              <div style="width:90%;text-align:left;padding:0 10px 0 0;word-break:normal;">
+                  답변을 채택하면 질문포인트는 선생님에게 적립이되며 해당 질문과 답변 과정은 <font class="important-word-1">종료 ('진행중 질문' 의 '완료하기')</font> 가 됩니다.
+              </div>
+            </div>
+
+            <div style="display:flex;width:100%;margin-bottom:8px;">
+              <div style="width:10%;">
+                <img src="img/icons/mid-dot.png" style="width:4px;"/>
+              </div>
+              <div style="width:90%;text-align:left;padding:0 2% 0 0;word-break:normal;">
+                답변 채택시 질문 보증 포인트<font class="important-word-1">100 포인트</font>를 다시 돌려받게 됩니다.
+              </div>
+            </div>
+
+            <div style="display:flex;width:100%;margin-bottom:8px;">
+              <div style="width:10%;">
+                <img src="img/icons/mid-dot.png" style="width:4px;"/>
+              </div>
+              <div style="width:90%;text-align:left;padding:0 2% 0 0;word-break:normal;">
+                작성한 후기글은 선생님 및 답변에 대한 <font class="important-word-1">기초 평가</font>로 사용됩니다.
+              </div>
+            </div>
+
+            <div style="display:flex;width:100%;margin-bottom:8px;">
+              <div style="width:10%;">
+                <img src="img/icons/mid-dot.png" style="width:4px;"/>
+              </div>
+              <div style="width:90%;text-align:left;padding:0 2% 0 0;word-break:normal;">
+                답변에 대한 추가 실시간 과외가 필요한 경우 '답변채택' 이 아닌 <font class="important-word-1">'직풀신청'</font>을 해주세요.
+              </div>
+            </div>
+
+          </div>
+
+          <div class="zp-black-white-btn1 final-btn-for-student btn-click-effect1" data-type="select" style="position:absolute;bottom:10px;left:5%;height:45px;width:90%;">
+            <i class="fas fa-check"></i><span>답변 채택하기</span>
+          </div>
+        </div>
+      </div>
+
+      <!--직풀 신청-->
+      <div id="register-zikpool-window" class="zp-popup-window qd-popup-window" data-type="register" style="display:none;" align="center">
+        <div align="center">
+          <div style="width:100%;padding:20px 4% 0 4%;" align="center">
+            <div style="width:100%;text-align:left;display:flex;">
+              <span class="aq-fill-label" style="display:flex;align-items:center;">
+                <img src="img/logo/zikpool-logo.png" style="display:inline-block;width:25px;margin-right:5px;"/>직풀 실시간 과외 신청
+              </span>
+            </div>
+
+            <div class="teacher-image-nick-div" style="margin-top:20px;">
+              <img id="reg-zik-teacher-image" class="teacher-image" src="img/question/loading_icon.png" style="width:50px;height:50px;"/>
+              <div class="tea-uni-major-wrapper" style="text-align:left;">
+                <span id="reg-zik-teacher-nickname" class="teacher-nickname" style="font-weight:600;">없음</span>
+                <span id="reg-zik-teacher-uni" class="teacher-uni-major" style="color:#999;font-size:11px;">없음</span>
+                <span id="reg-zik-teacher-major" class="teacher-uni-major" style="color:#999;font-size:11px;">없음</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="provision-with-mid-dot">
+            <div style="display:flex;width:100%;margin-bottom:8px;">
+              <div style="width:10%;">
+                <img src="img/icons/mid-dot.png" style="width:4px;"/>
+              </div>
+              <div style="width:90%;text-align:left;padding:0 10px 0 0;word-break:normal;">
+                직풀 실시간 과외는 사진 답변에 대한 보충 및 심화 단계의 설명이 필요한 경우
+                답변한 선생님이 직접 <font class="important-word-1">실시간 모바일 과외</font> (음성 + 전자칠판)로 설명을 해주는 서비스입니다.
+              </div>
+            </div>
+
+            <div style="display:flex;width:100%;margin-bottom:8px;">
+              <div style="width:10%;">
+                <img src="img/icons/mid-dot.png" style="width:4px;"/>
+              </div>
+              <div style="width:90%;text-align:left;padding:0 2% 0 0;word-break:normal;">
+                과외 신청을 하는 즉시 메인화면의 <font class="important-word-1">'직풀 채팅'</font> 에 채팅방이 만들어지며 선생님과
+                채팅을 하면서 실시간 과외를 진행합니다.
+              </div>
+            </div>
+            <div style="display:flex;width:100%;margin-bottom:8px;">
+              <div style="width:10%;">
+                <img src="img/icons/mid-dot.png" style="width:4px;"/>
+              </div>
+              <div style="width:90%;text-align:left;padding:0 2% 0 0;word-break:normal;">
+                과외 신청시 선생님이 제시한 포인트 만큼 포인트가 <font class="important-word-1">차감</font>됩니다.
+              </div>
+            </div>
+            <div style="display:flex;width:100%;margin-bottom:8px;">
+              <div style="width:10%;">
+                <img src="img/icons/mid-dot.png" style="width:4px;"/>
+              </div>
+              <div style="width:90%;text-align:left;padding:0 2% 0 0;word-break:normal;">
+                직풀을 할 수 있는 직풀 채팅의 유효 기간은 <font class="important-word-1">2일</font> 입니다.
+              </div>
+            </div>
+
+          </div>
+
+          <div class="zp-black-white-btn1 final-btn-for-student btn-click-effect1" data-type="register" style="position:absolute;bottom:10px;left:5%;height:45px;width:90%;">
+            <i class="far fa-edit"></i><span> 과외 신청하기</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="detail-of-reply-window" class="black-translucent-window-container qd-popup-window">
+        <div>
+          <div style="margin-top:-20%;padding:10px;background:#fff;">
+            <div style="display:flex;justify-content:space-between;font-size:18px;font-weight:700;color:#000;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid #f2f2f2;">
+              <span>답변 후기</span>
+              <span id="close-detail-of-reply-wind-btn">
+                <i class="fas fa-times"></i>
+              </span>
+
+            </div>
+            <div id="d-o-r-w-content" class="detail-of-text-div1">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!--가이드 창-->
+      <div id="guide-in-page" style="display:none;position:fixed;background:rgba(0,0,0,0.7);width:100%;height:100%;top:0;left:0;z-index:9999;">
+        <img src="img/guide/question-detail/qd1.png" style="width:100%;height:calc(100% - 46px);"/>
+        <div style="width:100%;height:46px;background:transparent;display:flex;font-size:17px;font-weight:700;color:#fff;">
+          <div class="never-show-this-guide-btn" data-type="question_detail" style="flex:1;display:flex;align-items:center;justify-content:center;">
+            다시 보지 않기
+          </div>
+          <div class="close-this-guide-btn" style="flex:1;display:flex;align-items:center;justify-content:center;">
+            닫기
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div id="upload-loading-wall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;">
+        <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;width:100%;height:100%;">
+          <div id="loading-icon" class="zp-loader1 first-loading">Loading...</div>
+          <i id="complete-icon" class="far fa-check-circle" style="display:none;font-size:60px;color:#ffeb48;margin-bottom:15px;"></i>
+          <div id="loading-text-1" style="color:#fff;font-size:14px;font-weight:700;">
+            답변 채택 중 ...
+          </div>
+          <div id="loading-text-2" style="color:#fff;font-size:14px;font-weight:600;margin-top:6px;">
+
+          </div>
+        </div>
+      </div>
+</div>
+
+      <!-- <script type="text/javascript" src="cordova.js"></script> -->
+      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/socket.io.min.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-storage.js"></script>
+
+      <script type="text/javascript" src="js/config.js"></script>
+      <script type="text/javascript" src="js/hjm/timesince.js"></script>
+      <script type="text/javascript" src="js/hjm/questiondetail.js"></script>
+      <script type="text/javascript" src="js/go-follow-loading.js"></script>
+      <!-- <script type="text/javascript" src="js/hjm/questioncomment.js"></script> -->
+
+    </body>
+
+</html>

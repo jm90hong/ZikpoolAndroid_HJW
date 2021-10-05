@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="mainColor">#307afa</color>
+    <color name="subColor_1">#3e3a39</color>
+
+    <color name="colorPrimary">#fad037</color>
+    <color name="colorPrimaryDark">#fad037</color>
+    <color name="colorAccent">#fad037</color>
+
+    <color name="refresh_1">#307afa</color>
+    <color name="refresh_2">#FFE400</color>
+    <color name="refresh_3">#0054FF</color>
+    <color name="refresh_4">#000000</color>
+
+
+
+</resources>

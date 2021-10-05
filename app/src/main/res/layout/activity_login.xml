@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#fad037"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<ImageView-->
+        <!--android:id="@+id/top_imageview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@+id/zikpoolGoogleLoginBtn"-->
+        <!--android:paddingBottom="5dp"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/i4"-->
+        <!--android:visibility="gone"/>-->
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:id="@+id/zikpoolGoogleLoginBtn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/zikpoolLoginBtn"
+        android:layout_gravity="center"
+        android:background="@drawable/intro_btn_google"
+        android:gravity="center"
+        android:layout_marginBottom="7dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="38dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="0dp"
+            android:src="@drawable/google_button_icon" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:text="구글계정으로 시작하기"
+            android:textColor="#ffffff"
+            android:clickable="false"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/zikpoolKakaoLoginBtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_above="@+id/zikpoolLoginBtn"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:background="#ffeb00"-->
+    <!--android:layout_marginBottom="5dp"-->
+    <!--android:gravity="center"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="30dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_marginRight="10dp"-->
+    <!--android:src="@drawable/kakao_button_icon" />-->
+
+    <!--<Button-->
+    <!--android:clickable="false"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="55dp"-->
+    <!--android:background="@null"-->
+    <!--android:text="카카오계정으로 시작하기"-->
+    <!--android:textColor="#222222"-->
+    <!--android:textSize="18sp"-->
+    <!--android:textStyle="bold" />-->
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:id="@+id/zikpoolLoginBtn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/goWithoutLoginBtn"
+        android:layout_gravity="center"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/intro_btn_zikpool_1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/zikpool_simple_logo" />
+
+        <Button
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="직풀 회원가입"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:id="@+id/goWithoutLoginBtn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:background="@drawable/intro_btn_zikpool_1"
+        android:layout_marginBottom="7dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/intro_right_arrow" />
+
+        <Button
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="직풀 바로가기"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <com.kakao.usermgmt.LoginButton
+        android:id="@+id/realKakaoLoginBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:visibility="gone"/>
+</RelativeLayout>

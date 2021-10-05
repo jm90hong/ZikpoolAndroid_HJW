@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="zikpool.stoudy.com.zikpoolandroid">
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+
+    <application
+        tools:replace="android:allowBackup"
+        android:hardwareAccelerated="true"
+        android:name="zikpool.stoudy.com.app.App"
+        android:allowBackup="false"
+        android:icon="@mipmap/zikpool_app_icon_o"
+        android:roundIcon="@mipmap/zikpool_app_icon_o"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <activity
+            android:name="zikpool.stoudy.com.util.SplashActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/AppTheme.StatusBar_main"
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="zikpool" android:host="zikpoolandroid"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8533573452821472~4066711364"/>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/zikpool_simple_logo" />
+        <meta-data
+            tools:replace="android:value"
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+
+
+
+        <activity android:name=".KakaoSignUpActivity"/>
+
+        <activity
+            android:exported="false"
+            android:name=".PointPaymentWebviewActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:exported="false"
+            android:name=".SalaryActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_main"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity
+            android:exported="false"
+            android:name=".GiftImageActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".CashExchangeActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:exported="false"
+            android:name=".WebPageActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity
+            android:name=".OpenZikpoolActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_main"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+
+        <activity
+            android:name=".TeacherClassRoomActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_main"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="zikpool" android:host="trc"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:exported="false"
+            android:name=".ReportAnsOrZCActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".IntroduceActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_main"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".HeaderActivity"
+            android:theme="@style/AppTheme.StatusBar_main"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".AddActivity"
+            android:launchMode = "singleTask"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:exported="false"
+            android:name=".MailBoxActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".MailBoxDetailActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".AddQuestionActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".AddAnswerActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".InformationActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".MySearchActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:exported="false"
+            android:name=".SearchFilterActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+        android:exported="false"
+        android:name=".NoticeActivity"
+        android:theme="@style/AppTheme.StatusBar_sub"
+        android:configChanges="orientation"
+        android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".NoticeDetailActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity
+            android:exported="false"
+            android:name=".QuestionDetailActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".SettingActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".UserInfoActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".ZikpoolChatActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:exported="false"
+            android:name=".ZikpoolRoomActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_main"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".OpenZikpoolRoomActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_main"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/kakao_scheme"
+                    android:host="@string/kakaolink_host" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:exported="false"
+            android:name=".PracticeZikpoolActivity"
+            android:theme="@style/AppTheme.StatusBar_main"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".CameraActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".Camera2ndActivity"
+            android:launchMode = "singleTop"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:launchMode = "singleTop"
+            android:name=".ImageAndCropActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".ImageSlideAuxActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".JustViewActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".GuideActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".SupportActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:exported="false"
+            android:name=".CompanyActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity
+            android:exported="false"
+            android:name=".AdminMyClassChannel"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".MakeClass"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".SelfintroActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:exported="false"
+            android:name=".CareerActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:exported="false"
+            android:name=".MyprofileActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".PointhisActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity
+            android:exported="false"
+            android:name=".CashHisActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".EditProfileMsgActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".TeacherRegisterActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".MyeditActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:exported="false"
+            android:name=".SelectLevelSubjectActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity
+            android:exported="false"
+            android:name=".OtherUserInfoActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".IncomeHisActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".SnsLoginChkActivity"
+            android:theme="@style/AppTheme.StatusBar_main"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".AddressPostActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:exported="false"
+            android:name=".SelectUniversityActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity
+            android:name=".MemberWithdrawalActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".GuideDetailActivity"
+            android:theme="@style/AppTheme.StatusBar_sub"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <service
+            android:name="zikpool.stoudy.com.service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!--<service-->
+            <!--android:name="zikpool.stoudy.com.service.MyFirebaseInstanceIdService">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.google.firebase.INSTANCE_ID_EVENT" />-->
+            <!--</intent-filter>-->
+        <!--</service>-->
+    </application>
+
+</manifest>

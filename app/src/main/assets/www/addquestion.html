@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="format-detection" content="telephone=no">
+      <meta name="msapplication-tap-highlight" content="no">
+      <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+      <title>직풀::명문대생이 직접 풀어준다</title>
+
+      <!-- favicon -->
+      <link rel="icon" href="img/header/wv-125.png" sizes="128x128">
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <link rel="stylesheet" href="css/jquery-ui.min.css" />
+      <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+      <link rel="stylesheet" href="css/basic/zp-basic.css" />
+      <link rel="stylesheet" href="css/config.css" />
+      <link rel="stylesheet" href="css/zikpool/add-question.css" />
+
+      <style type="text/css">
+
+      </style>
+    </head>
+
+    <body onload="init();">
+        <div class="aq-slide-bar-container" style="">
+          <span class="aq-slide-bar-tag" data-slide-idx="0" style="color:#222;font-weight:700;">사전안내</span>
+          <hr>
+          <span class="aq-slide-bar-tag" data-slide-idx="1">사진등록</span>
+          <hr>
+          <span class="aq-slide-bar-tag" data-slide-idx="2">내용등록</span>
+          <hr>
+          <span class="aq-slide-bar-tag" data-slide-idx="3">등록하기</span>
+        </div>
+
+        <div class="swiper-container aq-swiper-container">
+            <div class="hidden-div-for-upload-server" style="display:none;">
+                <input type="hidden" class="fire-url" data-type="q"  value="" />
+                <input type="hidden" class="fire-url" data-type="m"  value="" />
+                <input type="hidden" class="fire-url" data-type="b"  value="" />
+
+                <input type="hidden" class="fire-name" data-type="q"  value="" />
+                <input type="hidden" class="fire-name" data-type="m"  value="" />
+                <input type="hidden" class="fire-name" data-type="b"  value="" />
+            </div>
+           <!--Additional required wrapper -->
+          <div class="swiper-wrapper aq-swiper-wrapper" style="width:100%;height:100%;">
+            <!-- Slides -->
+            <div class="swiper-slide aq-swiper-slide" style="background:#fff;" data-slide-idx="0" data-slide-name="provision" align="center">
+
+                <div style="width:100%;padding-top:2%;">
+                  <!-- 추가할 내용 -->
+                  <div style="width:96%;padding:4%;border:1px solid #ccc;border-radius:20px;background:#fff;">
+                    <font style="font-weight:700;color:#222;font-size:3.5vw;">질문등록 전에</font>
+                    <div style="margin-top:3%;wdith:100%;color:#222;" align="left">
+                      <nav class="provision-nav">
+                        <font class="provision-number">[1] </font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content"> 사진, 질문, 내용을 정확히 기입했는지 확인해주세요.</font>
+                        </div>
+                      </nav>
+                      <nav class="provision-nav">
+                        <font class="provision-number">[2] </font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content"> 반드시 문제와 관련된 사진, 글만 올려주세요. <font style="color:#de1a1a;">불법적인 혹은 질문 외의 사진, 글(음란, 게임, 도박, 연애 상담 등)을 등록 시 영구 회원 탈퇴 및 법적 조치가 이루어질 수 있습니다.</font></font>
+                        </div>
+                      </nav>
+                      <nav class="provision-nav">
+                        <font class="provision-number">[3] </font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content"> 문제 등록 시 지출하는 포인트는 학원, 과외 수업을 받을 때 수강비를 지급하는 것처럼 선생님들이 문제를 풀어주는 과정에 대한 소정의 수고비로 지급이 됩니다.</font>
+                        </div>
+                      </nav>
+                      <nav class="provision-nav">
+                        <font class="provision-number">[4] </font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content"> 문제에 등록된 포인트는 질문 등록 시 차감이 됩니다. 2일(48시간) 이내에 답변이 없으면 자동으로 질문 포인트는 환불이 됩니다.</font>
+                        </div>
+                      </nav>
+                      <nav class="provision-nav">
+                        <font class="provision-number">[5] </font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content" style="font-weight:700;"> 질문 포인트에는 완료 보상포인트(100포인트)이 포함되어있습니다. 유효기간내에 '채택하기', '과외신청' 버튼을 누르면 보상포인트가 학생에게 지급됩니다.</font>
+                        </div>
+                      </nav>
+                      <nav class="provision-nav">
+                        <font class="provision-number">[6] </font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content">선생님의 사진답변에 대한 보충 및 심화 설명이 필요하면 실시간 과외로 수업을 받을 수 있습니다.(선생님이 제시한 과외포인트 필요)</font>
+                        </div>
+                      </nav>
+
+                    </div>
+
+                    <font style="font-weight:700;color:#222;font-size:3.5vw;">캐시적립 방법</font>
+                    <div style="margin-top:3%;wdith:100%;color:#222;" align="left">
+                      <nav class="provision-nav">
+                        <font class="provision-number">*</font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content">질문에 대한 답변을 다른 회원이 보는 경우, 광고를 시청해야 하며 광고 시청 완료후 자동으로 캐시가 적립됩니다.</font>
+                        </div>
+                      </nav>
+                    </div>
+
+                  </div>
+                </div>
+
+            </div>
+            <div class="swiper-slide aq-swiper-slide" style="padding-bottom:30px;" data-slide-idx="1" data-slide-name="image" align="center">
+
+                <div class="aq-picture-label-wrapper" align="left">
+                  <font class="aq-fill-label"><font class="zp-essential">*</font> 문제 사진</font>
+                  <span class="aq-delete-picture aq-click-effect2" data-type="q">
+                    <img src="img/icons/image-delete-icon.png" style="width:11px;margin-left:5px;"/>
+                    <span>사진삭제</span>
+                  </span>
+                </div>
+                <div id="preview-question-img" data-base64-str="" class="aq-image-container aq-click-effect1">
+                  <i class="fas fa-plus" style="margin-right:5px;"></i><span>문제사진 추가</span>
+                </div>
+                <font style="font-size:3vw;margin-top:2px;color:#FF4E39;"><b>※ 문제 사진은 반드시 찍어주세요.</b></font>
+
+
+                <div class="aq-picture-label-wrapper" style="margin-top:17px;" align="left">
+                  <font class="aq-fill-label">나의풀이 사진 (선택)</font>
+                  <div class="aq-delete-picture aq-click-effect2" data-type="m">
+                    <img src="img/icons/image-delete-icon.png" style="width:11px;margin-left:4px;"/>
+                    <span>사진삭제</span>
+                  </div>
+                </div>
+                <div id="preview-my-solution-img" data-base64-str="" class="aq-image-container aq-click-effect1">
+                  <i class="fas fa-plus" style="margin-right:5px;"></i><span>나의풀이사진 추가</span>
+                </div>
+
+
+                <div class="aq-picture-label-wrapper" style="margin-top:17px;" align="left">
+                  <font class="aq-fill-label">해설지 사진 (선택)</font>
+                  <span class="aq-delete-picture aq-click-effect2" data-type="b">
+                    <img src="img/icons/image-delete-icon.png" style="width:11px;margin-left:4px;"/>
+                    <span>사진삭제</span>
+                  </span>
+                </div>
+                <div id="preview-book-solution-img" data-base64-str="" class="aq-image-container aq-click-effect1">
+                  <i class="fas fa-plus" style="margin-right:5px;"></i><span>해설지사진 추가</span>
+                </div>
+
+            </div>
+            <div class="swiper-slide aq-swiper-slide" data-slide-idx="2" data-slide-name="content" align="center">
+
+              <div style="width:85%;">
+                <div style="width:100%;text-align:left;margin-bottom:4px;">
+                  <span class="aq-fill-label"><font class="zp-essential">*</font> 학년 / 과목</span>
+                </div>
+                <div id="call-level-subject-act" class="aq-fill-div-type1 aq-click-effect1">
+                  <span id="my-level-year-subject" data-level="n" data-year="n" data-subject="n">학년,과목을 선택해주세요.</span>
+                  <i class="fas fa-chevron-right" style="margin-left:auto;"></i>
+                </div>
+
+
+                <div style="width:100%;margin-top:20px;text-align:left;display:flex;">
+                    <span class="aq-fill-label">
+                      <font class="zp-essential">*</font> 과목 단원
+                      <font id="warn-for-title" style="display:none;color:#de1a1a;font-size:10px;font-weight:500;"> 특수문자는 사용할 수 없습니다</font>
+                    </span>
+                    <span style="margin-left:auto;"><font id="len-of-title" style="color:#008be5;">0</font> / 7</span>
+                </div>
+                <input id="title" class="aq-fill-input-type1"   placeholder="과목단원을 입력해주세요. ex) 미분적분,영어독해"/>
+
+
+
+                <div style="width:100%;margin-top:17px;text-align:left;display:flex;">
+                  <span class="aq-fill-label">
+                    <font class="zp-essential">*</font> 질문 내용
+                    <font id="warn-for-content" style="display:none;color:#de1a1a;font-size:10px;font-weight:500;"> 특수문자는 사용할 수 없습니다</font>
+                  </span>
+                  <span style="margin-left:auto;"><font id="len-of-content" style="color:#008be5;">0</font> / 250</span>
+                </div>
+                <textarea id="content" class="aq-fill-textarea-type1" placeholder="질문 내용과 정답을 적어주세요."></textarea>
+              </div>
+
+              <div class="div-for-keyboard">
+              </div>
+            </div>
+
+            <div class="swiper-slide aq-swiper-slide" data-slide-idx="3" data-slide-name="point" align="center">
+              <div style="width:85%;">
+                <div style="width:100%;text-align:left;margin-bottom:20px;">
+                  <span class="aq-fill-label"><font class="zp-essential">*</font> 질문포인트</span>
+                  <span style="color:#999;font-size:11px;font-weight:500;"> (답변채택 혹은 과외신청시 100 포인트 보상)</span>
+                </div>
+
+
+                <div class="aq-choose-point-wrapper">
+                  <div class="updown-point-btn aq-click-effect2" data-type="down">
+                    <i class="fas fa-minus"></i>
+                  </div>
+
+                  <div style="display:flex;align-items:center;">
+                    <img src="img/icons/zikpool_point_icon.png" style="width:19px;margin-right:5px;"/>
+                    <font id="q-point"  data-q-point="600" style="font-size:22px;font-weight:600;color:#3e3a39;"></font>
+                  </div>
+
+                  <div class="updown-point-btn aq-click-effect2" data-type="up">
+                    <i class="fas fa-plus"></i>
+                  </div>
+                </div>
+
+                <div style="width:100;100%;margin-top:30px;text-align:left;display:flex;margin-bottom:20px;">
+                    <span class="aq-fill-label">
+                      <font class="zp-essential">*</font> 프로필에서 나의 질문 공개
+                    </span>
+                </div>
+
+                <div class="selecting-long-choose-radio-cont" align="center">
+                  <div class="one-long-radio public-ny-radio" data-type="y" style="color:#fff;background:#3e3a39;border:0;">
+                    친구들과 같이 공유할게요.
+                  </div>
+                  <div class="one-long-radio public-ny-radio" data-type="n">
+                    저만 보고 싶어요.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <footer style="width:100%;height:46px;left:0;bottom:0;position:fixed;font-size:16px;font-weight:700;">
+          <div class="aq-footer-btn next-slide-btn yellow-footer-btn pnt-y" data-type="first">
+            <font>다음</font>
+          </div>
+
+          <div class="aq-footer-btn aq-two-btn-all-container" data-type="middle" style="display:none;">
+            <div class="prev-slide-btn black-footer-btn" style="flex:1;">
+              이전
+            </div>
+            <div class="next-slide-btn yellow-footer-btn pnt-y" style="flex:1;">
+              다음
+            </div>
+          </div>
+
+          <div class="aq-footer-btn aq-two-btn-all-container" data-type="final" style="display:none;">
+            <div class="prev-slide-btn black-footer-btn" style="flex:35;">
+                이전
+            </div>
+            <div id="upload-question-btn" class="yellow-footer-btn pnt-y" style="flex:65;">
+                질문 등록하기
+            </div>
+          </div>
+        </footer>
+
+
+
+
+      <div id="upload-loading-wall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;">
+        <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;width:100%;height:100%;">
+          <div id="loading-icon" class="zp-loader1 first-loading">Loading...</div>
+          <i id="complete-icon" class="far fa-check-circle" style="display:none;font-size:60px;color:#fad037;margin-bottom:15px;"></i>
+          <div id="loading-text-1" style="color:#fff;font-size:14px;font-weight:700;">
+            질문 등록 중 ...
+          </div>
+          <div id="loading-text-2" style="color:#fff;font-size:14px;font-weight:700;margin-top:6px;">
+            잠시만 기다려주세요.
+        </div>
+        </div>
+      </div>
+
+      <!-- <script type="text/javascript" src="cordova.js"></script> -->
+      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/swiper.min.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-storage.js"></script>
+      <script type="text/javascript" src="js/config.js"></script>
+      <script type="text/javascript" src="js/hjm/add-question.js"></script>
+
+
+    </body>
+</html>

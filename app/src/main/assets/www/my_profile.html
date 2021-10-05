@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+  <title>직풀::명문대생이 직접 풀어준다</title>
+
+  <!-- favicon -->
+  <!--<link rel="icon" href="img/header/wv-125.png" sizes="128x128">-->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/config.css" />
+  <link rel="stylesheet" href="css/basic/zp-basic.css" />
+  <link rel="stylesheet" href="css/zikpool_huni.css" />
+  <link rel="stylesheet" href="css/zikpool/profile.css" />
+
+
+  <style>
+
+  </style>
+</head>
+
+<body onload="init();" style="background-color: #F6F6F6;">
+<!--하위 페이지 profile 수정 페이지 -->
+<div class="slide_con" id="profile_page" style="background:#fff;">
+  <div class="add_screen" style="width:100%;height:100%;font-weight:700;overflow:scroll;padding-bottom:30px;">
+    <form class="" id="app_semiprofile_update" onsubmit="return false;">
+      <input id="input_member_idx" name="member_idx" style="display:none;"/>
+      <input id="input_sex" style="display:none;" />
+
+      <div class="my-prof-top-container">
+        <div style="width:100%;" align="center">
+          <!--사진-->
+          <div class="my-prof-img-wrapper">
+            <img class="img-prof" width="100%" height="100%" id="my-prof-img" />
+            <div id="img-loading-icon" class="zp-loader4" style="display:none;position:absolute;top:16px;left:18px;">Loading...</div>
+            <div class="img-camera-circle">
+              <img src="img/icons/camera-white.png" class="img-camera" width="56%" height="56%" id="call-img-ask-btn"/>
+            </div>
+          </div>
+
+          <!--닉네임-->
+          <div style="margin-top:10px;color:#3e3a39;font-size:16px;font-weight:900;">
+            <span id="nickname">----</span>
+            <span id="my-tr-state" style="color:#fad037;font-size:13px;margin-left:5px;display:none">심사중</span>
+          </div>
+
+          <!--프로필 메세지-->
+          <div style="margin-top:6px;color:#999;font-size:12px;font-weight:700;">
+            <span id="condition-mt" class="my-prof-condition-mt">----</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="my-prof-info-container" align="center">
+        <div>
+          <span>등급</span>
+          <span id="type" style="font-size:16px;">학생</span>
+        </div>
+        <div>
+          <span>포인트</span>
+          <span style="font-size:16px;">
+            <img src="img/icons/zikpool_point_icon.png" width="16px"/>
+            <span id="point">0</span>
+          </span>
+        </div>
+        <div>
+          <span>캐시</span>
+          <span style="font-size:16px;">
+            <img src="img/icons/zikpool_cash_icon.png" width="16px"/>
+            <span id="cash">0</span>
+          </span>
+        </div>
+        <div>
+          <span>활동 점수</span>
+          <span style="font-size:16px;">
+            <span id="income">0</span>
+            <span>점</span>
+          </span>
+        </div>
+      </div>
+
+      <div style="width:100%;height:10px;background:#f2f2f2;margin-top:30px;"></div>
+
+      <div class="zp-list-nav-container">
+
+        <div id="go-to-make-kakao-ch" class="tea-show" style="display:none;">
+          <span>
+            <img src="img/my-profile/admin-ch.png" style="width:15px;margin-right:5px;"/>
+            <font>나의 과외채널 관리</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+
+        <div id="go-to-point-his" class="stu-show">
+          <span>
+            <img src="img/my-profile/order.png" style="width:14px;margin-right:5px;"/>
+            <font>포인트 내역</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+
+        <div id="go-to-cash-his" class="stu-show">
+          <span>
+            <img src="img/my-profile/list.png" style="width:14px;margin-right:5px;"/>
+            <font>캐시 내역</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+
+        <div id="go-to-cash-ex" class="stu-show">
+          <span>
+            <img src="img/my-profile/gift.png" style="width:14px;margin-right:5px;"/>
+            <font>캐시 사용하기</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+
+        <div id="go-to-income-his" class="tea-show" style="display:none;">
+          <span>
+            <img src="img/my-profile/running.png" style="width:14px;margin-right:5px;"/>
+            <font>활동 내역</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+
+
+        <div id="go-to-sal" class="tea-show" style="display:none;">
+          <span>
+            <img src="img/my-profile/wallet.png" style="width:14px;margin-right:5px;"/>
+            <font>급여 신청</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+
+        <div id="go-to-my-edit" class="stu-show">
+          <span>
+            <img src="img/my-profile/edit.png" style="width:14px;margin-right:5px;"/>
+            <font>내 정보 수정</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+
+        <div id="go-to-tea-reg" class="tr-show-n" style="display:none;">
+          <span>
+            <img src="img/my-profile/reg-tea.png" style="width:14px;margin-right:5px;"/>
+            <font>선생님 신청</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+        <div id="go-to-tea-reg-re" class="tr-show-r" style="display:none;">
+          <span>
+            <img src="img/my-profile/reg-tea.png" style="width:14px;margin-right:5px;"/>
+            <font>선생님 재신청</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+        <div id="go-to-tea-edit" class="tea-show" style="display:none;">
+          <span>
+            <img src="img/my-profile/tr-edit.png" style="width:14px;margin-right:5px;"/>
+            <font>선생님 정보 수정</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+        <div id="go-to-tea-manual" class="tea-show" style="display:none;">
+          <span>
+            <img src="img/my-profile/tr-manual.png" style="width:14px;margin-right:5px;"/>
+            <font>선생님 이용 메뉴얼</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+
+        <div id="go-to-setting" class="stu-show">
+          <span>
+            <img src="img/header/settings.png" style="width:14px;margin-right:5px;"/>
+            <font>환경설정</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+
+        <div id="go-to-mem-withdrawal" class="stu-show">
+          <span>
+            <img src="img/my-profile/withdrawal.png" style="width:14px;margin-right:5px;"/>
+            <font>회원탈퇴</font>
+          </span>
+          <span>
+            <img src="img/icons/arrow-point-to-right.png" style="width:14px;"/>
+          </span>
+        </div>
+
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<!--사진 찰영 / 초기화 확인 창-->
+<div id="img-ask-window" style="display:none;position:fixed;width:100%;height:100%;top:0;left:0;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;">
+  <div style="width:260px;height:90px;background:#fff;border-radius:10px;color:#3e3a39;font-size:14px;font-weight:700;" align="center">
+    <div id="call-camera-btn" style="width:95%;height:50%;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #eaeaea;">
+        <span>사진 촬영</span>
+    </div>
+    <div id="make-img-def-btn" style="width:95%;height:50%;display:flex;align-items:center;justify-content:center;">
+      <span>기본이미지</span>
+    </div>
+  </div>
+</div>
+
+
+
+<!--데이터 로딩중 창-->
+<div id="loading-wall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;">
+  <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;width:100%;height:100%;">
+    <div id="loading-icon" class="zp-loader1 first-loading">Loading...</div>
+    <i id="complete-icon" class="far fa-check-circle" style="display:none;font-size:60px;color:#ffeb48;margin-bottom:15px;"></i>
+    <div id="loading-text-1" style="color:#fff;font-size:14px;font-weight:700;" align="center">
+      정보 수정 중...
+    </div>
+    <div id="loading-text-2" style="color:#fff;font-size:14px;font-weight:600;margin-top:6px;">
+
+    </div>
+  </div>
+</div>
+
+<!-- script Start -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="js/crypto-js.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-storage.js"></script>
+
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/ksh/zikpool_funtion_h.js"></script>
+<script type="text/javascript" src="js/ksh/my_profile.js"></script>
+
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>

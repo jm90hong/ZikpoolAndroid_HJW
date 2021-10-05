@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- <meta name="format-detection" content="telephone=no"> -->
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/config.css" />
+  <link rel="stylesheet" href="css/basic/zp-basic.css" />
+  <link rel="stylesheet" href="css/basic/zp-button-style.css"/>
+  <link rel="stylesheet" href="css/zikpool-font-control.css"/>
+  <link rel="stylesheet" href="css/zikpool/select-category.css"/>
+
+</head>
+
+<style type="text/css">
+
+</style>
+<body onload="init();" style="background:#fff;">
+    <div style="width:100%;height:calc(100% - 46px);" align="center">
+        <div style="width:90%;max-width:420px;padding-top:20px;color:#222;height:100%;overflow:scroll;" align="center">
+
+          <!--학교 선택-->
+          <div style="width:100%;font-weight:700;" align="center">
+            학교
+          </div>
+          <div style="width:100%;margin-top:8px;display:flex;justify-content:center;" >
+            <div class="select-btn n level-radio" data-value="초등학교" data-selected="n">
+              초등학교
+            </div>
+            <div class="select-btn n level-radio" data-value="중학교" data-selected="n">
+              중학교
+            </div>
+            <div class="select-btn n level-radio" data-value="고등학교" data-selected="n">
+              고등학교
+            </div>
+            <div class="select-btn n level-radio" data-value="전공/자격증" data-selected="n">
+              전공/자격증
+            </div>
+          </div>
+
+          <!--과목 선택-->
+          <div style="width:100%;font-weight:700;margin-top:25px;" align="center">
+            과목 / 분야
+          </div>
+          <div style="width:100%;margin-top:8px;display:flex;justify-content:center;" >
+            <div class="select-btn n subject-radio" data-value="국어" data-selected="n">
+              국어
+            </div>
+            <div class="select-btn n subject-radio" data-value="영어" data-selected="n">
+              영어
+            </div>
+            <div class="select-btn n subject-radio" data-value="수학" data-selected="n">
+              수학
+            </div>
+          </div>
+          <div style="width:100%;margin-top:8px;display:flex;justify-content:center;" >
+            <div class="select-btn n subject-radio" data-value="과학" data-selected="n">
+              과학
+            </div>
+            <div class="select-btn n subject-radio" data-value="사회" data-selected="n">
+              사회
+            </div>
+            <div class="select-btn n subject-radio" data-value="대학전공" data-selected="n">
+              대학전공
+            </div>
+          </div>
+          <div style="width:100%;margin-top:8px;display:flex;justify-content:center;" >
+            <div class="select-btn n subject-radio" data-value="어학" data-selected="n">
+              어학
+            </div>
+            <div class="select-btn n subject-radio" data-value="자격증" data-selected="n">
+              자격증
+            </div>
+            <div class="select-btn n subject-radio" data-value="기타" data-selected="n">
+              기타
+            </div>
+          </div>
+
+          <div style="width:100%;font-weight:700;margin-top:25px;" align="center">
+            답변채택여부
+          </div>
+          <div style="width:100%;margin-top:8px;display:flex;justify-content:center;" >
+            <div class="select-btn n payment-radio" data-value="payment" data-selected="n">
+              채택
+            </div>
+            <div class="select-btn n payment-radio" data-value="payment-not" data-selected="n">
+              미채택
+            </div>
+          </div>
+
+
+          <!--정렬 기준-->
+          <div style="width:100%;font-weight:700;margin-top:25px;" align="center">
+            정렬기준
+          </div>
+          <div style="width:100%;margin-top:8px;display:flex;justify-content:center;" >
+            <div class="select-btn n order-radio" data-value="new" data-selected="n">
+              최신순
+            </div>
+            <div class="select-btn n order-radio" data-value="past" data-selected="n">
+              과거순
+            </div>
+            <div class="select-btn n order-radio" data-value="random" data-selected="n">
+              랜덤순
+            </div>
+          </div>
+        </div>
+    </div>
+    <footer id="start-search-by-this-order-btn" class="zp-main-color-footer-btn1">
+      <span class="footer-btn-txt-1">위 조건으로 검색하기</span>
+    </footer>
+</body>
+
+
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/hjm/search-filter.js"></script>
+<script type="text/javascript"/>
+
+
+</script>
+</html>

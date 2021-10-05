@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="format-detection" content="telephone=no">
+      <meta name="msapplication-tap-highlight" content="no">
+      <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+      <title>직풀::명문대생이 직접 풀어준다</title>
+
+      <!-- favicon -->
+      <link rel="icon" href="img/header/wv-125.png" sizes="128x128">
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/config.css" />
+      <link rel="stylesheet" href="css/basic/zp-basic.css" />
+      <link rel="stylesheet" href="css/zikpool_huni.css" />
+      <link rel="stylesheet" href="css/header_tabUI.css" />
+      <link rel="stylesheet" href="css/history-list.css" />
+
+
+      <style>
+
+      </style>
+    </head>
+
+    <body onload="init();">
+      <!-- 활동점수 내역 페이지 -->
+      <div class="slide_con" id="detail_point_page">
+        <div class="notice_con" style="padding:0;background:#fff;">
+
+          <div class="zp-basic-two-tab-container" style="margin-top:20px;">
+            <div class="two-tab" data-index="1">
+              <div class="title">
+                <span>활동 내역</span>
+              </div>
+              <div class="line"></div>
+            </div>
+
+            <div class="two-tab" data-index="2">
+              <div class="title" style="color:#c5c5c5;">
+                <span>급여 내역</span>
+              </div>
+              <div class="line" style="background:#fff"></div>
+            </div>
+          </div>
+
+
+          <div id="content1" class="history-list-container">
+            <div class="bin_page" id="bin_page1">
+              <img src="img/zikpool_logo_gray.png"/>
+              <span style="margin-top:10px;">활동내역이 없습니다.</span>
+            </div>
+            <!-- <div class="point_detail_con">
+              <div class="point_detail_val">
+                <span class="point_add_date">2018-06-10</span>
+                <br />
+                <span class="point_add_num">1,000 포인트 구매</span>
+                <div style="position: absolute;top: 20px;right: 10px;">
+                  <span style="border: 1px solid #008BE5;border-radius: 5px;color: #008BE5;padding: 3px 5px;">
+                    <i class="far fa-check-circle"> </i> 충전
+                  </span>
+                </div>
+              </div>
+            </div> -->
+          </div>
+
+          <div id="content2" class="history-list-container" hidden="true">
+            <div class="bin_page" id="bin_page2">
+              <img src="img/zikpool_logo_gray.png"/>
+              <span style="margin-top:10px;">급여내역이 없습니다.</span>
+            </div>
+            <!-- <div class="point_detail_con">
+              <div class="point_detail_val">
+                <div class="point_detail_info">
+                  <span class="point_add_date">2018-06-12 21:12:54</span>
+                  <br />
+                  <span class="point_use_title">중2 | 미적분학</span>
+                </div>
+                <div style="position: absolute;top: 20px;right: 10px;">
+                  <span class="point_add_num">800 포인트 사용</span>
+                </div>
+              </div>
+            </div> -->
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <!-- script Start -->
+      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+      <script type="text/javascript" src="js/config.js"></script>
+      <script type="text/javascript" src="js/ksh/zikpool_funtion_h.js"></script>
+      <script type="text/javascript" src="js/ksh/income_his.js"></script>
+
+      <script type="text/javascript">
+
+      </script>
+
+    </body>
+</html>

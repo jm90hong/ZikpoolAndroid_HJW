@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="format-detection" content="telephone=no">
+      <meta name="msapplication-tap-highlight" content="no">
+      <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+      <title>직풀::명문대생이 직접 풀어준다</title>
+
+      <!-- favicon -->
+      <link rel="icon" href="img/header/wv-125.png" sizes="128x128">
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <link rel="stylesheet" href="css/jquery-ui.min.css" />
+      <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+      <link rel="stylesheet" href="css/config.css" />
+      <link rel="stylesheet" href="css/basic/zp-basic.css" />
+      <!--<link rel="stylesheet" href="css/zikpool/add-question.css" />-->
+
+      <style type="text/css">
+        .rp-fill-label{
+            font-size:15px;
+            font-weight:700;
+            color:#484848;
+        }
+
+        textarea.rp-fill-textarea-type1{
+          width:100%;
+          height:220px;
+          border:1px solid #dedede;
+          background:#fff;
+          font-size:14px;
+          color:#222;
+          outline:none;
+          padding:3px 6px;
+          border-radius:8px;
+          margin-top:4px;
+          resize: none;
+        }
+
+        textarea.rp-fill-textarea-type1:focus {
+            border:1px solid #000000;
+        }
+      </style>
+    </head>
+
+    <body onload="init();">
+        <div class="zp1-slide-bar-container">
+          <hr>
+          <span class="zp1-slide-bar-tag" data-slide-idx="0" style="color:#222;font-weight:700;">유의사항</span>
+          <hr>
+          <span class="zp1-slide-bar-tag" data-slide-idx="1">신고사유</span>
+          <hr>
+        </div>
+
+        <div class="swiper-container zp1-swiper-container">
+           <!--Additional required wrapper -->
+          <div class="swiper-wrapper zp1-swiper-wrapper" style="width:100%;height:100%;">
+            <!-- Slides -->
+            <div class="swiper-slide zp1-swiper-slide" style="background:#f2f2f2;" data-slide-idx="0" data-slide-name="provision" align="center">
+
+                <div class="report-provison-cont" data-type="ans" style="width:100%;padding-top:0;display:none;">
+                  <!-- 추가할 내용 -->
+                  <div style="width:96%;padding:4%;border:1px solid #707070;border-radius:20px;background:#fff;">
+                    <font style="font-weight:700;color:#222;font-size:3.5vw;">답변신고 유의사항</font>
+                    <div style="width:100%;display:flex;margin-top:1.5%;font-size:3.3vw;color:#000;">
+                      <div class="bad-ans-ex-img-cont" style="flex:1;">
+                        <img src="img/bad-answer-exam/bad-ans-1.jpg" width="100%" style="object-fit:cover;" />
+                        <label>단답형</label>
+                      </div>
+                      <div class="bad-ans-ex-img-cont" style="flex:1;">
+                        <img src="img/bad-answer-exam/bad-ans-2.jpg" width="100%" style="object-fit:cover;"/>
+                        <label>날치기형</label>
+                      </div>
+                      <div class="bad-ans-ex-img-cont" style="flex:1;">
+                        <img src="img/bad-answer-exam/bad-ans-3.jpg" width="100%" style="object-fit:cover;"/>
+                        <label>해설지형</label>
+                      </div>
+
+                    </div>
+
+                    <div style="margin-top:3%;wdith:100%;color:#222;" align="left">
+                      <nav class="provision-nav">
+                        <font class="provision-number">[1] </font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content"> <font style="color:#de1a1a;">답변신고의 기본 근거는 선생님의 무성실한 답변 입니다.(질문과 관련없는 사진 포함)</font> 위의 신고 예시 사진과 유사하다고 판단이 되는 경우 진행하여 주십시오.</font>
+                        </div>
+                      </nav>
+                      <nav class="provision-nav">
+                        <font class="provision-number">[2] </font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content"> 신고된 답변은 직풀 답변관리팀으로 접수가 되며 <font style="color:#de1a1a;">관리팀에서 신고 승인/취소 여부를 결정</font>합니다.</font>
+                        </div>
+                      </nav>
+                      <nav class="provision-nav">
+                        <font class="provision-number">[3] </font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content"> 신고가 승인이 되면 답변을 한 선생님에게 <font style="color:#de1a1a;">패널티가 부여되며 해당 답변은 채택 과정에서 제외</font>됩니다. ( 만약 다른 정상적인 답변이 달린 경우 정상 답변이 자동 채택됨. )</font>
+                        </div>
+                      </nav>
+                      <nav class="provision-nav">
+                        <font class="provision-number">[4] </font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content"> 명백히 정상적으로 판단이 되는 답변을 신고한 경우 신고한 <font style="color:#de1a1a;">회원 본인에게 불이익</font>이 발생할 수 있습니다.</font>
+                        </div>
+                      </nav>
+                      <nav class="provision-nav">
+                        <font class="provision-number">[5] </font>
+                        <div class="provision-content-wrapper">
+                          <font class="provision-content"> 신고 사유 작성시 최대한 <font style="color:#de1a1a;">사실에 입각</font>하여 구체적으로 작성하여 주십시오.</font>
+                        </div>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="report-provison-cont" data-type="zc" style="width:100%;padding-top:2%;display:none;">
+                <!-- 추가할 내용 -->
+                <div style="width:96%;padding:4%;border:1px solid #707070;border-radius:20px;background:#fff;">
+                  <font style="font-weight:700;color:#222;font-size:3.5vw;">직풀신고 유의사항</font>
+                  <div style="margin-top:3%;wdith:100%;color:#222;" align="left">
+                    <nav class="provision-nav">
+                      <font class="provision-number">[1] </font>
+                      <div class="provision-content-wrapper">
+                        <font class="provision-content"> <font style="color:#de1a1a;">직풀신고의 기본 근거는 채팅 및 실시간 과외에서 선생님의 무성실한 태도 및 유해한 정보를 제공하는 경우 입니다.</font>(예> 질문과 관련 없는 대화, 오랜기간의 채팅 잠수 등)</font>
+                      </div>
+                    </nav>
+                    <nav class="provision-nav">
+                      <font class="provision-number">[2] </font>
+                      <div class="provision-content-wrapper">
+                        <font class="provision-content">
+                          답변을 과외 신청한 경우는 선생님은 학생으로부터 <font style="color:#de1a1a;">사진 답변을 기초로 실력을 검증</font>받은 것이라고 간주합니다.
+                          따라서 실시간 과외에서 선생님의 답변 설명이 학생의 기준치에 크게 미치지 않는 경우를 제외하고는 <font style="color:#de1a1a;">신고 대상이 될 수 없습니다.</font><br/>
+                          <div style="width:100%;margin-top:2%;font-style:italic;font-weight:700;">
+                          예> 선생님이 질문 및 답변에서 파생되는 질문이 아닌 다른 과목/단원의 내용에 대해 설명을 못했을 경우<br/>
+                          예> 선생님이 질문 및 답변에 대한 심화내용에 대하여 설명을 못했을 경우 ( 어느 문제에 대해서 갑자기 경시대회수준의 내용을 물어보는 경우 )<br/>
+                          예> 그 외 위와 유사한 상황
+                          </div>
+                        </font>
+                      </div>
+                    </nav>
+                    <nav class="provision-nav">
+                      <font class="provision-number">[3] </font>
+                      <div class="provision-content-wrapper">
+                        <font class="provision-content"> 신고된 답변은 직풀 답변관리팀으로 접수가 되며 <font style="color:#de1a1a;">관리팀에서 신고 승인/취소 여부를 결정</font>합니다.</font>
+                      </div>
+                    </nav>
+                    <nav class="provision-nav">
+                      <font class="provision-number">[4] </font>
+                      <div class="provision-content-wrapper">
+                        <font class="provision-content"> 신고가 승인이 되는 즉시 선생님에게는 <font style="color:#de1a1a;">패널티</font>가 부여되며 학생은 직풀 채팅의 직풀포인트만큼 <font style="color:#de1a1a;">환불</font>을 받게 됩니다.</font>
+                      </div>
+                    </nav>
+                    <nav class="provision-nav">
+                      <font class="provision-number">[5] </font>
+                      <div class="provision-content-wrapper">
+                        <font class="provision-content"> 신고 사유 작성시 최대한 <font style="color:#de1a1a;">사실에 입각</font>하여 구체적으로 작성하여 주십시오.</font>
+                      </div>
+                    </nav>
+                    <nav class="provision-nav">
+                      <font class="provision-number">[6] </font>
+                      <div class="provision-content-wrapper">
+                        <font class="provision-content">실시간 과외의 시스템 및 서버 오류는 일시정지 후 문의하기를 이용해 주십시오.</font>
+                      </div>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="swiper-slide zp1-swiper-slide" style="padding-bottom:30px;" data-slide-idx="1" data-slide-name="report-form" align="center">
+              <div style="width:87%;">
+                <div style="width:100%;margin-top:10px;text-align:left;display:flex;">
+                    <span class="rp-fill-label">
+                      <font style="color:#de1a1a;">*</font> 신고 사유
+                      <font id="warn-for-content" style="display:none;color:#de1a1a;font-size:10px;font-weight:500;"> 특수문자는 사용할 수 없습니다</font>
+                    </span>
+                  <span style="margin-left:auto;"><font id="len-of-content" style="color:#222;">0</font> / 300</span>
+                </div>
+                <textarea id="content" class="rp-fill-textarea-type1" placeholder="신고 사유를 상세히 적어주세요."></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <footer class="zp1-footer-btn-container">
+          <div class="footer-btn bgray next-slide-btn" data-type="first" >
+            <font>위 사항에 동의합니다.</font>
+          </div>
+
+          <div class="footer-btn" data-type="final" style="display:none;">
+            <div class="prev-slide-btn" style="flex:35;background:#404040;color:#fff;">
+                이전
+            </div>
+            <div id="final-report-btn" style="flex:65;background:#de1a1a;color:#fff;">
+                신고하기
+            </div>
+          </div>
+        </footer>
+
+
+
+
+      <div id="upload-loading-wall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;">
+        <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;width:100%;height:100%;">
+          <div id="loading-icon" class="zp-loader1 first-loading">Loading...</div>
+          <i id="complete-icon" class="far fa-check-circle" style="display:none;font-size:60px;color:#ffeb48;margin-bottom:15px;"></i>
+          <div id="loading-text-1" style="color:#fff;font-size:14px;font-weight:700;">
+            질문 등록 중 ...
+          </div>
+          <div id="loading-text-2" style="color:#fff;font-size:14px;font-weight:700;margin-top:6px;">
+
+        </div>
+        </div>
+      </div>
+
+      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/swiper.min.js"></script>
+      <script type="text/javascript" src="js/config.js"></script>
+      <script type="text/javascript" src="js/hjm/report-ans-or-zc.js"></script>
+    </body>
+</html>

@@ -1,0 +1,369 @@
+/*todo 메인페이지 상단 부모 컨데이너*/
+
+div.main-top-parent-container{
+    width:100%;
+    height:calc(100% - 57px);
+    background:#fff;
+}
+
+div.main-top-parent-container > div{
+    width:100%;
+    height:100%;
+}
+
+
+/*todo 메인페이지 하단 메뉴 네비게이션 바*/
+div.main-bottom-nav-container{
+    width:100%;
+    height:57px;
+    background:#fff;
+    position:fixed:
+    bottom:0;
+    left:0;
+    display:flex;
+    justify-content:space-between;
+    z-index:9999;
+}
+
+div.main-bottom-nav-container > div{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    flex-direction:column;
+}
+
+.one-mbn-btn-css > span:nth-child(1){
+    width:31px;
+    position:relative;
+}
+
+.one-mbn-btn-css > span:nth-child(1) > img{
+    width:100%
+}
+
+.one-mbn-btn-css > span:nth-child(2){
+    font-size:10px;
+    font-weight:500;
+    margin-top:2px
+}
+
+
+.one-mbn-btn.selected{
+    color:#ffbd35;
+}
+
+
+.one-mbn-btn.un-selected{
+    color:#aaa;
+}
+
+
+#go-to-add-question-icon-chk{
+    display:none;
+    background:#fff;
+}
+
+#go-to-add-question:active #go-to-add-question-icon-chk{
+    display:inline;
+}
+
+#go-to-add-question:active #go-to-add-question-btn-txt{
+    color:#ffbd35;
+}
+
+
+
+/*todo 메인페이지 자식 컨데이너 상단 네비게이션 바*/
+div.header-bar-in-main{
+    width:100%;
+    height:52px;
+    position:relative;
+    background:transparent;
+    /*border-bottom:1px solid #d4d4d4;
+    box-shadow: 0px 2px 3px 0px rgba(234,234,234,1);*/
+}
+
+div.header-bar-in-main > .h-bar-1{
+    position:absolute;
+    left:0;
+    display:flex;
+    height:100%;
+    width:35px;
+    align-items:center;
+}
+
+div.header-bar-in-main > .h-bar-2{
+    position:absolute;
+    left:35px;
+    display:flex;
+    height:100%;
+    width:calc(100vw - 160px);
+    align-items:center;
+}
+
+div.header-bar-in-main > .h-bar-3{
+    display:flex;
+    height:100%;
+    width:120px;
+    position:absolute;
+    right:0;
+    align-items:center;
+    flex-direction: row-reverse;
+}
+
+.main-top-child-container{
+    background:#ffffff;
+}
+
+.h-bar-search-wrapper{
+    height:32px;
+    width:100%;
+    background:transparent;
+    margin-left:10px;
+    display:inline-block;
+    position:relative;
+}
+
+.h-bar-search-wrapper > input{
+    width:100%;
+    height:100%;
+    font-weight:700;
+    font-size:16px;
+    background:#f2f2f2;
+    outline:none;
+    border-radius:5px;
+    padding-left:4px;
+    padding-right:4px;
+    border:none;
+}
+
+.h-bar-search-input{
+    height:32px;
+    font-weight:700;
+    font-size:16px;
+    color:#000;
+    outline:none;
+    margin-left:10px;
+    border:none;
+    width:calc(100vw - 150px);
+    background:#f2f2f2;
+    border-radius:5px;
+    padding-left:4px;
+    padding-right:4px;
+    display:none;
+}
+
+input.h-bar-search-input::placeholder{
+    font-size:14px;
+}
+
+.h-bar-search-wrapper > input::placeholder{
+    font-size:14px;
+}
+
+.main-question-list-container{
+    width:100%;
+    height:calc(100% - 52px);
+    position:absolute;
+    top:52px;
+}
+
+
+/*todo 질문 리스트 스타일*/
+.main-one-question-space{
+    margin-top:1.3vw;
+    padding:2.6% 1.6% 1.6% 1.6%;
+}
+
+.one-question-container{
+    width:100%;
+    height:auto;
+}
+
+.one-question-container > .oqc-1th{
+    width:100%;
+    height:17vh;
+    position:relative;
+}
+
+.one-question-container > .oqc-1th > img{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    object-fit:cover;
+    border-radius:5px;
+}
+.one-question-container > .oqc-1th > div.selected-bg{
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:100%;
+    border-radius:5px;
+    background:rgba(0,0,0,0.4);
+    position:absolute;top:0;left:0;
+    z-index:9998;
+}
+
+.one-question-container > .oqc-1th > span.answering-cont{
+    padding:1px 6px;
+    background:rgba(0,0,0,0.82);
+    color:#fff;
+    font-weight:700;
+    align-items:center;
+    border-radius:5px;
+    position:absolute;left:4px;bottom:1px;
+    z-index:9999;
+}
+
+.one-question-container > .oqc-1th > span.answering-cont > .on-air-icon{
+    background:red;
+    border-radius:50em;
+    margin-right:5px;
+}
+
+.one-question-container > .oqc-2th{
+   width:100%;
+   padding:0 2px;
+}
+
+.one-question-container > .oqc-2th > div:nth-child(1){
+    display:flex;
+    justify-content:space-between;
+    margin-top:2.5%;
+}
+
+.one-question-container > .oqc-2th .m-ql-state{
+   padding:1px 6px;
+   font-weight:700;
+   border-radius:5px;
+}
+
+.one-question-container > .oqc-2th .m-ql-state.waiting{
+   border:1px solid #307afa;
+   color:#307afa;
+}
+
+.one-question-container > .oqc-2th .m-ql-state.answered{
+   border:1px solid #fc9006;
+   color:#fc9006;
+}
+
+.one-question-container > .oqc-2th .m-ql-state.expired{
+   border:1px solid #de1a1a;
+   color:#de1a1a;
+}
+
+.one-question-container > .oqc-2th > div:nth-child(1) > .m-ql-point-cont{
+    color:#8c8c8c;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+}
+
+.m-ql-point-cont > .m-ql-point{
+    margin-left:0.7vw;
+}
+
+.one-question-container > .oqc-2th > div.m-ql-title-cont{
+    font-weight:700;
+    color:#222;
+    margin-top:2.8%;
+}
+
+div.m-ql-title-cont > .m-ql-subject{
+    color:#aaa;
+    margin-left:3px;
+}
+
+.one-question-container > .oqc-2th > div.m-ql-content{
+    font-weight:700;
+    color:#8c8c8c;
+    margin-top:1%;
+}
+
+
+
+
+.main-uploading-loader{
+    width:100%;
+    margin-top:1%;
+    text-align:center;
+    display:inline-block;
+}
+
+/*todo 나의 진행중*/
+.main-page-title{
+    width:100%;
+    height:48px;
+    font-size:18px;
+    font-weight:700;
+    color:#3e3a39;
+    padding-top:9px;
+    padding-left:9px;
+    font-family:ns;
+}
+
+.main-page-container{
+    width:100%;
+    height:calc(100% - 48px);
+}
+
+@media (max-width:768px){
+  .main-font-xs{
+     font-size:2.6vw;
+  }
+
+  .main-font-s{
+    font-size:2.9vw;
+  }
+
+  .main-font-l{
+    font-size:3.6vw;
+  }
+
+  .main-font-xl{
+    font-size:4.0vw;
+  }
+
+  .m-ql-selected-icon{
+    font-size:9vw;
+    color:#fad037;
+  }
+
+  .m-icon-size-1{
+    width:2.6vw;
+    height:2.6vw;
+  }
+}
+
+/*769px 이상*/
+@media (min-width:768px){
+  .main-font-xs{
+     font-size:1.9vw;
+  }
+  .main-font-s{
+     font-size:2.1vw;
+  }
+
+  .main-font-l{
+     font-size:2.8vw;
+  }
+
+  .main-font-xl{
+    font-size:3.2vw;
+  }
+
+  .m-ql-selected-icon{
+      font-size:6vw;
+      color:#fad037;
+  }
+
+  .m-icon-size-1{
+    width:1.9vw;
+    height:1.9vw;
+  }
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>직풀::명문대생이 직접 풀어준다</title>
+
+    <!-- favicon -->
+    <!--<link rel="icon" href="img/header/wv-125.png" sizes="128x128">-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="css/zikpool_huni.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/config.css" />
+    <link rel="stylesheet" href="css/basic/zp-basic.css" />
+    <link rel="stylesheet" type="text/css" href="css/zikpool/user-info.css" />
+
+    <style>
+    .swiper-scrollbar-drag{
+       background:#3e3a39;
+    }
+    </style>
+</head>
+
+<body onload="init();">
+<div style="width:100%;height:100%;padding-top:20px;">
+    <!--todo 유저 정보 컨테이너 -->
+    <div class="basic-user-info-container">
+        <div class="ui-img-cont">
+            <img id="ui-img" class="ui-img" src="img/profile/avatar_men.png"/>
+        </div>
+        <div class="ui-content-cont" align="center">
+            <div class="ui-name">
+                <span id="ui-nick" class="ui-nick">---</span>
+                <span class="ui-type">---</span>
+            </div>
+            <div id="ui-condition-mt" class="ui-prof-msg substring">
+                ---
+            </div>
+        </div>
+    </div>
+
+    <!--todo 스와이퍼 네비 태그 -->
+    <div class="ui-swiper-nav-container">
+        <span class="one-swiper-nav" data-index="0" style="color:#fad037;">프로필</span>
+        <span class="one-swiper-nav" data-index="1">질문</span>
+        <span class="one-swiper-nav" data-index="2">답변</span>
+        <span class="one-swiper-nav" data-index="3">후기</span>
+        <span class="one-swiper-nav" data-index="4">팔로우</span>
+    </div>
+
+
+
+    <!--todo 스와이퍼 컨테이너 -->
+    <div class="ui-all-swiper-container">
+        <div class="swiper-container my-swiper" style="width:100%;height:100%;">
+            <div class="swiper-wrapper" style="width:100%;height:100%;">
+                <!--todo 1. 유저정보-->
+                <div class="swiper-slide swp-user-info-cont" data-index="0">
+                    <div>
+                        <div class="ui-title-1">
+                            <span>기본정보</span>
+                        </div>
+                        <div style="border-bottom:1px solid #f2f2f2;">
+                            <div class="ui-basic-info-1 ">
+                                <div>
+                                    <span class="t">등급</span>
+                                    <span class="c ui-type">학생</span>
+                                </div>
+                                <div class="show-for-teacher" style="display:none;">
+                                    <span class="t">학교</span>
+                                    <span class="c">
+                                        <img src="img/icons/medal.png" style="width:15px;"/>
+                                        <span id="ui-uni">---</span>
+                                    </span>
+                                </div>
+                                <div class="show-for-teacher" style="display:none;">
+                                    <span class="t">전공</span>
+                                    <span class="c">
+                                        <img src="img/icons/medal.png" style="width:15px;"/>
+                                        <span id="ui-maj">---</span>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="t">총 질문</span>
+                                    <span class="c ui-que-cnt">0 개</span>
+                                </div>
+                                <div>
+                                    <span class="t">총 답변</span>
+                                    <span class="c ui-ans-cnt">0 개</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="ui-title-1">
+                            <span>자기소개</span>
+                            <i id="go-to-intro-edit-btn" class="far fa-edit my-icon" style="display:none;"></i>
+                        </div>
+                        <div style="border-bottom:1px solid #f2f2f2;">
+                            <div  id="self-intro" class="ui-content-1">
+                                작성된 내용이 없습니다.
+                            </div>
+                        </div>
+                        <div class="ui-title-1" style="margin-top:22px;">
+                            <span>경력사항</span>
+                            <i id="go-to-career-edit-btn" class="far fa-edit my-icon" style="display:none;"></i>
+                        </div>
+                        <div style="border-bottom:1px solid #f2f2f2;">
+                            <div id="career" class="ui-content-1" style="min-height:80px;">
+                                작성된 내용이 없습니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--todo 2. 질문리스트-->
+                <div class="swiper-slide ui-qa-container" data-index="1">
+                    <div id="ui-ql-list" class="ui-scroll-container" data-type="q">
+                        <div class="bin_page" data-type="q">
+                            <img src="img/zikpool_logo_gray.png"/>
+                            <span style="margin-top:10px;">리스트가 존재하지 않습니다.</span>
+                        </div>
+                        <!--<div class="ui-qa-list-box">-->
+                            <!--<img src="img/test-img/t1.jpg">-->
+                            <!--<div class="content-div">-->
+                                <!--<div class="substring-1">-->
+                                    <!--<span class="main-t">[미적분학학]</span>-->
+                                    <!--<span class="sub-t">안녕하세요 모르는 문제가 있는rkrkrkrkrkkrrkk123rkr</span>-->
+                                <!--</div>-->
+                                <!--<div class="p-c">-->
+                                    <!--<img class="pi" src="img/icons/zikpool_point_icon.png"/>-->
+                                    <!--<span class="p">1,000</span>-->
+                                <!--</div>-->
+                                <!--<div>-->
+                                    <!--<span class="d">2019-09-20</span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <!--todo 3. 답변리스트-->
+                <div class="swiper-slide" data-index="2">
+                    <div id="ui-al-list" class="ui-scroll-container" data-type="a">
+                        <div class="bin_page" data-type="a">
+                            <img src="img/zikpool_logo_gray.png"/>
+                            <span style="margin-top:10px;">리스트가 존재하지 않습니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <!--todo 4. 후기리스트-->
+                <div class="swiper-slide" data-index="3">
+                    <div id="ui-rl-list" class="ui-scroll-container" data-type="r">
+                        <div class="bin_page" data-type="r">
+                            <img src="img/zikpool_logo_gray.png"/>
+                            <span style="margin-top:10px;">리스트가 존재하지 않습니다.</span>
+                        </div>
+
+                        <!--<div class="ui-user-list-box">-->
+                            <!--<img src="img/profile/avatar_girl.png"/>-->
+                            <!--<div class="content-div">-->
+                                <!--<span class="t">수능대박122</span>-->
+                                <!--<span class="c substring-1">선생님 진짜 설명 감사드립니다^^</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                    </div>
+                </div>
+                <!--todo 5. 팔로우리스트-->
+                <div class="swiper-slide follow-container" data-index="4">
+                    <div class="tab">
+                        <span class="ui-fo-tab" data-index="0" data-click="fr">팔로워</span>
+                        <span class="ui-fo-tab" data-index="1" data-click="fi" style="color:#c5c5c5;margin-left:13px;">팔로잉</span>
+                    </div>
+                    <div class="wrapper">
+                        <div class="swiper-container sub-swiper-1">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide fo-container">
+                                    <div id="ui-fr-list" class="ui-scroll-container" data-type="fr">
+                                        <div class="bin_page" data-type="fr">
+                                            <img src="img/zikpool_logo_gray.png"/>
+                                            <span style="margin-top:10px;">팔로워가 존재하지 않습니다.</span>
+                                        </div>
+                                        <!--<div class="ui-follow-list-box">-->
+                                            <!--<img src="img/profile/avatar_girl.png"/>-->
+                                            <!--<div class="content-div">-->
+                                                <!--<span class="t">수능대박122</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    </div>
+                                </div>
+                                <div class="swiper-slide fo-container">
+                                    <div id="ui-fi-list" class="ui-scroll-container" data-type="fi">
+                                        <div class="bin_page" data-type="fi">
+                                            <img src="img/zikpool_logo_gray.png"/>
+                                            <span style="margin-top:10px;">팔로잉이 존재하지 않습니다.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="kakao-ch-btn" data-plus-friend-id="n" class="kakao-ch-btn">
+        <div>
+            <img class="k-ch" src="img/icons/kakao-ch-icon.png"/>
+            <img class="k-pl" src="img/icons/k-plus.png"/>
+            <span>상담하기</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- script Start -->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/ksh/user_info_h.js"></script>
+<script type="text/javascript" src="js/go-follow-loading.js"></script>
+
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>

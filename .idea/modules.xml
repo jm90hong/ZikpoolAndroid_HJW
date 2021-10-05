@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ZikpoolAndroid_HJW.iml" filepath="$PROJECT_DIR$/.idea/modules/ZikpoolAndroid_HJW.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ZikpoolAndroid_HJW.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ZikpoolAndroid_HJW.app.iml" />
+    </modules>
+  </component>
+</project>
