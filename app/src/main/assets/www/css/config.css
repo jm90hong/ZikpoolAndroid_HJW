@@ -15,6 +15,7 @@ src:url(../font/zikpool-font/NanumSquare.ttf) format('truetype');
 :root{
     --cr-main:#0186ff;
     --cr-main-dark1:#007DEE;
+    --cr-yellow:#ffeb48;
 }
 
 
