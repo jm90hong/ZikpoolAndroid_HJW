@@ -11,7 +11,6 @@
         android:background="#007DEE"
         android:theme="@style/ToolBarStyle_main_color"
         app:popupTheme="@style/ThemeOverlay.AppCompat">
-
         <TextView
             android:id="@+id/toobar_title"
             android:layout_width="wrap_content"
