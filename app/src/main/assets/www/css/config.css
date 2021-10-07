@@ -11,6 +11,13 @@ font-style:normal;
 src:url(../font/zikpool-font/NanumSquare.ttf) format('truetype');
 }
 
+
+:root{
+    --cr-main:#0186ff;
+    --cr-main-dark1:#007DEE;
+}
+
+
 html,body{
   font-family:ng;
   font-size:14px;
@@ -229,7 +236,7 @@ div.zikpool-popover-container > div > footer > div{
   border-top:4px solid rgba(48,122,250,0.14);
   border-right:4px solid rgba(48,122,250,0.14);
   border-bottom:4px solid rgba(48,122,250,0.14);
-  border-left:4px solid #fad037;
+  border-left:4px solid var(--cr-main-dark1);
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);

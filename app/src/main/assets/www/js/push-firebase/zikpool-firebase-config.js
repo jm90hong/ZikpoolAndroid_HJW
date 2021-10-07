@@ -121,19 +121,19 @@ ZP_FIREBASE.handlerMyDataChanged = function(){
                 //todo 질문에 답변 추가 (수신 = 학생)  add_answer 'aa-[question_idx]-[teacher_idx]
                 ZP_FIREBASE.myHandler.addAnswer(data);
             }else if(push_type=='sa'){
-                //todo 답변이 채택됨 (수신 = 선생님) select_answer 직풀 신청도 반응
+                //todo 답변이 채택됨 (수신 = 선생님) select_answer 마톡 신청도 반응
                 ZP_FIREBASE.myHandler.selectAnswer(data);
             }else if(push_type=='rz'){
-                //todo 직풀 신청 (수신 = 선생님) register_zikpool
+                //todo 마톡 신청 (수신 = 선생님) register_zikpool
                 ZP_FIREBASE.myHandler.registerZikpool(data);
             }else if(push_type_for_zc=='zc'){
                 //todo 모든 채팅 내용 리스너
                 ZP_FIREBASE.myHandler.zikpoolchat_receiveAMessage(data);
             }else if(push_type=='prz'){
-                //todo 직풀채팅 일시정지 및 해제 리스너
+                //todo 마톡채팅 일시정지 및 해제 리스너
                 ZP_FIREBASE.myHandler.pauseOrRunZikpool(data);
             }else if(push_type=='cz'){
-                //todo 직풀 완료 리스너
+                //todo 마톡 완료 리스너
                 ZP_FIREBASE.myHandler.completeZikpool(data);
             }else if(push_type=='rp'){
                 //todo 신고에 대한 리스너
@@ -276,7 +276,7 @@ ZP_FIREBASE.myHandler={
         var q_point=$data.split('-')[3];
         var parentClass = $('.my-answer-list-box[data-answer-idx="'+answer_idx+'"]');
         var answerHTMLStateClass,answerHTMLStateText,selectedHTMLIcon,myCompleteBtn;
-            //todo 답변을 채택만 한 경우(직풀 X)
+            //todo 답변을 채택만 한 경우(마톡 X)
             if(mo=='m'){
                 answerHTMLStateClass='complete-ans';
                 answerHTMLStateText='채택완료';
@@ -326,7 +326,7 @@ ZP_FIREBASE.myHandler={
             parentClass.hide().prependTo('#my-answer-in-progress-cont').fadeIn(400);
         }else if($mo=='m'){
             //todo 채택과 신청이 된 단 1명의 선생님.
-            //todo ajax에서 학생이 추가한 직풀 채팅 가지고 오기.
+            //todo ajax에서 학생이 추가한 마톡 채팅 가지고 오기.
             $.ajax({
                 url:super_url+'getOneZikpoolChat?chat_idx='+$chat_idx,
                 type:'get',
@@ -337,7 +337,7 @@ ZP_FIREBASE.myHandler={
                      //todo [STEP 2] firebase 에서 마지막 채팅내용 가지고 오기.
                      .then(()=>{ZP_FIREBASE.zikpoolchat_getLastestChatMsg(data.chat_idx)});
 
-                     //todo [STEP 3] '진행중 질문' 탭 에서 직풀 진행중 표시.
+                     //todo [STEP 3] '진행중 질문' 탭 에서 마톡 진행중 표시.
                      var parentClass = $('.my-answer-list-box[data-answer-idx="'+$answer_idx+'"]');
                      var answerHTMLStateClass,answerHTMLStateText,selectedHTMLIcon,myCompleteBtn;
                      answerHTMLStateClass='do-zikpool';
@@ -389,10 +389,10 @@ ZP_FIREBASE.myHandler={
         if(parseInt(fireConfig.currentChatIdx) > 0){
             window.android_header.onCompleteZikpool_in_ZC(chat_idx);
         }
-        //todo 자신의 수익 포인트 증가.(직풀 포인트에서 직풀 수수료 만큼 차감하고 선생님 수익 증가시키기)
+        //todo 자신의 수익 포인트 증가.(마톡 포인트에서 마톡 수수료 만큼 차감하고 선생님 수익 증가시키기)
         var myIncome = parseInt(z_point)*(1-zikpool.fee);
         ZikpoolPayment.sumIncome(parseInt(myIncome.toFixed()));
-        window.android_header.zikpoolToast('직풀채팅이 완료되었습니다.');
+        window.android_header.zikpoolToast('마톡채팅이 완료되었습니다.');
     },
 
     pauseOrRunZikpool:function($data){
@@ -427,7 +427,7 @@ ZP_FIREBASE.myHandler={
                    '<i class="fas fa-exclamation"></i>'+
                 '</div>'
             );
-            aClass.find('.my-state').attr('class','my-state orange').html('직풀신고심사중');
+            aClass.find('.my-state').attr('class','my-state orange').html('마톡신고심사중');
 
             //todo zikpoolChatActivuty 로 알림.
             if(parseInt(fireConfig.currentChatIdx) > 0){
@@ -437,7 +437,7 @@ ZP_FIREBASE.myHandler={
                  var objStr = JSON.stringify(obj);
                  window.android_header.changeStateInZC(chat_idx,objStr);
             }
-            window.android_header.zikpoolToast('나의 직풀채팅이 신고되었습니다.');
+            window.android_header.zikpoolToast('나의 마톡채팅이 신고되었습니다.');
         }
 
     },
@@ -449,7 +449,7 @@ ZP_FIREBASE.myHandler={
         var from = $data.split(firebase_chat_separator)[4]//from
         var date = $data.split(firebase_chat_separator)[5];//date ex> 2091-01-31 오후 13:00
 
-        //todo [STEP 1] 메인페이지의 '직풀채팅' 에 최신메세지 불러오기.
+        //todo [STEP 1] 메인페이지의 '마톡채팅' 에 최신메세지 불러오기.
         var parentClass = $('.my-zc-list-box[data-chat-idx="'+chat_idx+'"]');
         if(msg==START_ZIKPOOL_KEY.start || msg==START_ZIKPOOL_KEY.expired){
            parentClass.find('.msg').html('<div class="zc-msg-zikpool-start-flag">선생님이 과외를 개설했어요.</div>');
@@ -561,7 +561,7 @@ ZP_FIREBASE.selectAnswer = function($objstr,$question_idx){
 }
 
 
-//todo 직풀 신청. registerZikpool
+//todo 마톡 신청. registerZikpool
 ZP_FIREBASE.registerZikpool = function($teacherJsonStr,$selectedAnsObjStr){
     var $selectedAnsObj = JSON.parse($selectedAnsObjStr);
     var $teacherObj = JSON.parse($teacherJsonStr);
@@ -661,7 +661,7 @@ ZP_FIREBASE.registerZikpool = function($teacherJsonStr,$selectedAnsObjStr){
             }
             zp_image_sub.saveMemberBase64($partner_idx,$partner_img_url);
 
-            //todo [STEP 2] 직풀 포인트 local 차감 with 질문 보증금 제외 (학생 포인트 차감).
+            //todo [STEP 2] 마톡 포인트 local 차감 with 질문 보증금 제외 (학생 포인트 차감).
             var myPoint = 100 - parseInt($selectedAnsObj.z_point);
             ZikpoolPayment.sumPoint(myPoint);
 
@@ -675,7 +675,7 @@ ZP_FIREBASE.registerZikpool = function($teacherJsonStr,$selectedAnsObjStr){
     })
     .then(()=>{
         return new Promise(function(resolve,reject){
-            //todo 자신의 진행중 질문에서 직풀 진행중 표시.
+            //todo 자신의 진행중 질문에서 마톡 진행중 표시.
             var parentClass = $('.my-question-list-box[data-question-idx="'+$selectedAnsObj.question_idx+'"]');
             var questionHTMLStateClass,questionHTMLStateText,selectedHTMLIcon,myCompleteBtn;
             questionHTMLStateText='채팅진행중';
@@ -828,7 +828,7 @@ ZP_FIREBASE.deleteRealtimeQuestion=function($qidx){
 }
 
 
-//todo ============================= 직풀 채팅 파트 =================================
+//todo ============================= 마톡 채팅 파트 =================================
 
 //todo 마지막 메세지 서버에서 가져오기. 이건 서버에서 가져와야 함 (최종 메세지는 반드시 한개 이기 때문에.)
 ZP_FIREBASE.zikpoolchat_getLastestChatMsg = function($cidx){
@@ -860,7 +860,7 @@ ZP_FIREBASE.getCountOfZikpoolChatList = function($cidx){
         var counter = snapshot.val();
         window.android_header.triggerRecieveCntOfZikpoolChatList_inFirebase(counter,$cidx);
     }).catch(()=>{
-        //todo 학생 혹은 선생님 둘 중 한명이 직풀을 완료하여서 firebase에 없는 상황.-> DB에 있는 내용 불러옴
+        //todo 학생 혹은 선생님 둘 중 한명이 마톡을 완료하여서 firebase에 없는 상황.-> DB에 있는 내용 불러옴
         window.android_header.triggerRecieveCntOfZikpoolChatList_inFirebase('0',$cidx);
     })
 }
@@ -1073,7 +1073,7 @@ ZP_FIREBASE.getOmittedZikpoolChat = function($cidx,$index){
 }
 
 
-//todo 직풀 채팅 삭제.
+//todo 마톡 채팅 삭제.
 ZP_FIREBASE.zikpoolchat_deleteZikpoolChat = function($cidx){
     var cRef = fdb_chat.ref('zikpoolchat/'+$cidx);
     cRef.remove();
@@ -1149,7 +1149,7 @@ function registerZikpoolAjax($selectedAnsObj){
         success:function(chatcode){
             //todo 새로운 chat code를 부여 받는다.
             if(chatcode !='fail'){
-                //todo 직풀포인트 만큼 차감 html
+                //todo 마톡포인트 만큼 차감 html
                 resolve(chatcode);
             }else{
                 reject();
@@ -1164,7 +1164,7 @@ function registerZikpoolAjax($selectedAnsObj){
 };
 
 
-//todo 학생에게 만들어지는 직풀채팅.
+//todo 학생에게 만들어지는 마톡채팅.
 function makeMyZikpoolChatHtml($selectedAnsObj,$chatcode){
     return new Promise(function(resolve,reject){
         $('.there-is-not-anything-in-container[data-type="zc"]').css('display','none');
@@ -1230,7 +1230,7 @@ function makeMyZikpoolChatHtml($selectedAnsObj,$chatcode){
 };
 
 
-//todo 선생님에게 만들어지는 직풀채팅.
+//todo 선생님에게 만들어지는 마톡채팅.
 function getOneZikpoolChatFromData(data){
     return new Promise(function(resolve,reject){
         $('.there-is-not-anything-in-container[data-type="zc"]').css('display','none');

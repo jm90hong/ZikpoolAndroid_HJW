@@ -106,7 +106,7 @@
 .one-chat-msg-bubble .start-zikpool-msg > .sz-chat-title{
   width:100%;
   padding:2px 0px 2px 20px;
-  background:#fad037;
+  background:var(--cr-main-dark1);
   color:#3e3a39;
   font-weight:700;
   text-align:left;
@@ -312,7 +312,7 @@
      align-items:center;
      width:12%;
      height:inherit;
-     background:#fad037;
+     background:var(--cr-main-dark1);
   }
 
 

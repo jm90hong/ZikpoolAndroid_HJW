@@ -61,7 +61,7 @@ function init(){
         }
     });
 
-    // 직풀 설명서 상세보기 페이지로 이동 하기 함수 실행
+    // 마톡 설명서 상세보기 페이지로 이동 하기 함수 실행
     $(document).on('click', '.click-detail', function() {
         var $url = $(this).data("url");
         var $title = $(this).data("title");
@@ -69,7 +69,7 @@ function init(){
         window.android_guide.guideDetailGo($url, $title);
     });
 
-    // 직풀 설명서  리스트 Ajax 실행 함수(처음 데이터 유/무에 따른 페이지설정)
+    // 마톡 설명서  리스트 Ajax 실행 함수(처음 데이터 유/무에 따른 페이지설정)
     $.ajax({
          url : super_url+'guide_list',
          type : "get",
@@ -94,13 +94,13 @@ function init(){
 
 };
 
-// 직풀 설명서  리스트 Append 실행 함수
+// 마톡 설명서  리스트 Append 실행 함수
 function noticeListAppend(data){
     $.each(data, function(i, field){
         var sub_reg_date = field.reg_date.substring(0, 10);
 
         if(field.type == 'guideC'){
-            /*type guideC 일 때(직풀 공통 설명서)*/
+            /*type guideC 일 때(마톡 공통 설명서)*/
             $('.pushBoxContainer').append(
                 '<div class="pushBoxListCon click-detail" data-url="'+field.contents+'" data-title="'+field.title+'" data-type="'+field.type+'">'+
                     '<div class="pushBoxListImg" data-notice_idx="'+field.notice_idx+'">'+
@@ -118,7 +118,7 @@ function noticeListAppend(data){
             );
         }
         if(field.type == 'guideS'){
-            /*type guideS 일 때(직풀 학생 설명서)*/
+            /*type guideS 일 때(마톡 학생 설명서)*/
             $('.pushBoxContainer').append(
                 '<div class="pushBoxListCon click-detail" data-url="'+field.contents+'" data-title="'+field.title+'" data-type="'+field.type+'">'+
                     '<div class="pushBoxListImg" data-notice_idx="'+field.notice_idx+'">'+
@@ -136,7 +136,7 @@ function noticeListAppend(data){
             );
         }
         if(field.type == 'guideT'){
-            /*type guideT 일 때(직풀 선생님 설명서)*/
+            /*type guideT 일 때(마톡 선생님 설명서)*/
             $('.pushBoxContainer').append(
                 '<div class="pushBoxListCon click-detail" data-url="'+field.contents+'" data-title="'+field.title+'" data-type="'+field.type+'">'+
                     '<div class="pushBoxListImg" data-notice_idx="'+field.notice_idx+'">'+

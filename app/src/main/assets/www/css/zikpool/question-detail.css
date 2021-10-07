@@ -53,7 +53,7 @@ img.question-img{
 
 .other-info-tag{
   padding:3px 6px;
-  background:#fad037;
+  background:var(--cr-main-dark1);
   color:#222;
   font-size:12px;
   border-radius:4px;
@@ -127,7 +127,7 @@ img.qd-member-image{
     bottom:0;
     padding:3px 11px 3px 3px;
     background:#222;
-    color:#fad037;
+    color:var(--cr-main-dark1);
     font-weight:700;
     font-size:13px;
     border-radius:0 50em 50em 0;
@@ -202,7 +202,7 @@ img.teacher-image{
     align-items:center;
     background:rgba(0,0,0,0.66);
     flex-direction:column;
-    color:#fad037;
+    color:var(--cr-main-dark1);
     font-weight:700;
     font-size:5.5vw;
     pointer-events:none;
@@ -372,7 +372,7 @@ img.teacher-image{
     flex:45;
     align-items:center;
     justify-content:center;
-    background:#fad037;
+    background:var(--cr-main-dark1);
     border-radius:8px;
     color:#222;
     font-size:14px;

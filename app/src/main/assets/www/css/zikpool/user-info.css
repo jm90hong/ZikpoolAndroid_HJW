@@ -38,7 +38,7 @@
 .ui-content-cont > .ui-name > .ui-type{
     font-size:13px;
     margin-left:5px;
-    color:#fad037;
+    color:var(--cr-main-dark1);
     background:#3e3a39;
     padding:2px 8px;
     border-radius:5px;
@@ -317,7 +317,7 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#ffeb48;
+    background:var(--cr-main);
     border-radius:23px;
     box-shadow: 1px 1px 1px 0px rgba(204,204,204,1);
 

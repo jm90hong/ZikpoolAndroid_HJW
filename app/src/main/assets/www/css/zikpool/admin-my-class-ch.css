@@ -93,7 +93,7 @@
     right:14px;
     width:50px;
     height:50px;
-    background:#fad037;
+    background:var(--cr-main-dark1);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -108,7 +108,7 @@
 
 .copy-url-btn{
     padding:2px 8px;
-    background:#fad037;
+    background:var(--cr-main-dark1);
     color:#fff;
     border-radius:14px;
 }

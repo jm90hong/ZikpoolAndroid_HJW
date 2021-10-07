@@ -331,7 +331,7 @@ div.m-ql-title-cont > .m-ql-subject{
 
   .m-ql-selected-icon{
     font-size:9vw;
-    color:#fad037;
+    color:var(--cr-main-dark1);
   }
 
   .m-icon-size-1{
@@ -359,7 +359,7 @@ div.m-ql-title-cont > .m-ql-subject{
 
   .m-ql-selected-icon{
       font-size:6vw;
-      color:#fad037;
+      color:var(--cr-main-dark1);
   }
 
   .m-icon-size-1{

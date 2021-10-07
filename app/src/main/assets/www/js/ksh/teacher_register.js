@@ -41,16 +41,16 @@ function init(){
   f_storage = firebase.storage();
   f_storageRef = f_storage.ref();
 
-  //todo 가장먼저 직풀선생님 신청에 관한 내용 참고 하라고 알림창 띄우기.
+  //todo 가장먼저 마톡선생님 신청에 관한 내용 참고 하라고 알림창 띄우기.
   if(tr_obj.pageType=='normal'){
     zikpoolAlert({
         title:'신청하기 전에',
-        content:"직풀선생님은 대학교 재학 이상의<br/>학력을 가진 회원이 할 수 있습니다.<br/>신청하기 전에 반드시 아래의<br/>'직풀선생님 신청에 관하여'를 참고하시길 바랍니다."
+        content:"마톡선생님은 대학교 재학 이상의<br/>학력을 가진 회원이 할 수 있습니다.<br/>신청하기 전에 반드시 아래의<br/>'마톡선생님 신청에 관하여'를 참고하시길 바랍니다."
       });
   }else if(tr_obj.pageType=='edit'){
     zikpoolAlert({
-        title:'직풀 선생님 재신청',
-        content:'직풀운영팀에서 신청서를 검토한 결과 입력한 정보가<br/>'
+        title:'마톡 선생님 재신청',
+        content:'마톡운영팀에서 신청서를 검토한 결과 입력한 정보가<br/>'
                     +'미흡하다고 판단되어 다시 재신청을 요청드립니다.<br/>'
                     +'신청서의 내용을 올바르게 수정 후 다시 신청해주세요.<br/>'
                     +'<font style="font-size:13px;color:#008be5;">(※ 학생증사진은 다시 찍어주세요.)</font>'
@@ -58,8 +58,8 @@ function init(){
     getMemberTeacherRegister();
   }else if(tr_obj.pageType=='my_modify'){
     zikpoolAlert({
-            title:'직풀 선생님 정보 수정',
-            content:'선생님 정보 수정시 직풀운영팀에서<br/>확인 절차가 이루어집니다.<br/>'
+            title:'마톡 선생님 정보 수정',
+            content:'선생님 정보 수정시 마톡운영팀에서<br/>확인 절차가 이루어집니다.<br/>'
                     +'확인 절차는 영업일 기준 1 ~ 3일 정도 소요됩니다.<br/>'
                     +'<font style="font-size:13px;color:#008be5;">(※ 학생증사진은 다시 찍어주세요.)</font>'
     });
@@ -303,8 +303,8 @@ function init(){
         }
         if($chk){
             zikpoolConfirm({
-                title:'직풀 선생님 신청하기',
-                content:'직풀 선생님을 신청하시겠습니까?',
+                title:'마톡 선생님 신청하기',
+                content:'마톡 선생님을 신청하시겠습니까?',
                 confirm:function(){
                     //todo 사진 및 정보 서버에 업로드 하기.
                     //todo  신청서 업로드 중.. 창 보여주기.

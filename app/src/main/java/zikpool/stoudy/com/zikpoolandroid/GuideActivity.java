@@ -23,7 +23,7 @@ public class GuideActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         toolbar_title = (TextView) findViewById(R.id.toobar_title);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.zikpool_toolbar);
-        toolbar_title.setText("직풀 설명서");
+        toolbar_title.setText("마톡 설명서");
         toolbar_title.setTypeface(null, Typeface.BOLD);
         toolbar_title.setTextColor(Color.parseColor("#3e3a39"));
         setSupportActionBar(myToolbar);

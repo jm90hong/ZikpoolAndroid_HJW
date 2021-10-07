@@ -9,13 +9,13 @@
     align-items:center;
     font-weight:700;
     font-size:16px;
-    background:#fad037;
+    background:var(--cr-main-dark1);
     color:#fff;
 }
 
 
 .zp-main-color-footer-btn1.enable{
-    background:#fad037;
+    background:var(--cr-main-dark1);
     color:#fff;
     pointer-events:auto;
 }

@@ -194,7 +194,7 @@ function init1(){
           });
         }else if(iconMenu.hasClass('zik-not-clicked')){
           iconMenu.css('pointer-events','none');
-          iconMenu.css('background','#fad037');
+          iconMenu.css('background','var(--cr-main-dark1)');
           iconMenu.find('img').attr('src','img/room/menu-w.png');
           $("#menu-slide").show( "slide", 300,function(){
             iconMenu.removeClass('zik-not-clicked');
@@ -218,7 +218,7 @@ function init1(){
           });
         }else{
           iconFile.css('pointer-events','none');
-          iconFile.css('background','#fad037');
+          iconFile.css('background','var(--cr-main-dark1)');
           iconFile.find('img').attr('src','img/room/file-w.png');
           $("#file-slide").show("slide",{direction:'right'}, 300,function(){
             iconFile.removeClass('zik-not-clicked');
@@ -402,7 +402,7 @@ function processCanvasMode(_canvasMode){
 };
 
 function questionImgAuthController(){
-  $('.one-question-img:first').css('border','4px solid #fad037');
+  $('.one-question-img:first').css('border','4px solid var(--cr-main-dark1)');
   $('.one-question-img').not('.one-question-img:first').css('border','0px solid transparent');
   imgUrl = $('.one-question-img:first').data('img-url');
   backendQuestionImg.attr('src',imgUrl);
@@ -418,7 +418,7 @@ function questionImgAuthController(){
           questionCanvasBoardSection.css('display','flex');
         }
         whichImg=imgOrder;
-        $(this).css('border','4px solid #fad037');
+        $(this).css('border','4px solid var(--cr-main-dark1)');
         $('.one-question-img').not(this).css('border','0px solid transparent');
         imgUrl = $(this).data('img-url');
 
@@ -444,7 +444,7 @@ function changeImg_student(_order){
       whiteCanvasBoardSection.css('display','none');
       questionCanvasBoardSection.css('display','flex');
     }
-    $("img.one-question-img:eq("+_order+')').css('border','4px solid #fad037');
+    $("img.one-question-img:eq("+_order+')').css('border','4px solid var(--cr-main-dark1)');
     $('img.one-question-img').not("img.one-question-img:eq("+_order+')').css('border','0px solid transparent');
     imgUrl = $("img.one-question-img:eq("+_order+')').data('img-url');
     backendQuestionImg.attr('src',imgUrl);
@@ -561,7 +561,7 @@ function setTRCHtmlEvents(){
     $(document).on('click','.one-file-name',function(){
         var type = $(this).data('type');
         $('.one-file-name').css('color','#fff');
-        $(this).css('color','#fad037');
+        $(this).css('color','var(--cr-main-dark1)');
         $('.one-img-file-list').hide();
 
         if(type=='image'){
@@ -595,8 +595,8 @@ function setTRCHtmlEvents(){
             oneCanvasNodes.css('outline','0');
             oneCanvasPageNodes.css('background','rgba(0,0,0,0.55)');
             $this.css('outline-offset','-4px');
-            $this.css('outline','4px solid #fad037');
-            $this.siblings('.canvas-page-num').css('background','#fad037');
+            $this.css('outline','4px solid var(--cr-main-dark1)');
+            $this.siblings('.canvas-page-num').css('background','var(--cr-main-dark1)');
             var addr=type+'-'+index1+'-'+index2;
             if(receive!='receive'){
                 //todo webrtc 전송
@@ -631,8 +631,8 @@ function setTRCHtmlEvents(){
             oneImageDivNodes.find('.image-page-num').css('background','rgba(0,0,0,0.55)');
 
             $this.css('outline-offset','-4px');
-            $this.css('outline','4px solid #fad037');
-            $this.find('.image-page-num').css('background','#fad037');
+            $this.css('outline','4px solid var(--cr-main-dark1)');
+            $this.find('.image-page-num').css('background','var(--cr-main-dark1)');
 
             if(receive!='receive'){
                 var addr='image-'+index;

@@ -68,7 +68,7 @@ const ERROR={
 }
 
 const banWord={
-    word1:'직풀',
+    word1:'마톡',
     word2:'zikpool',
     word3:'스투디',
     word4:'stoudy',
@@ -247,7 +247,7 @@ const ZIKPOOL_SOCKET = {
   }
 }
 const START_ZIKPOOL_KEY={
-  start:'5EHHpBjOF0AeoCvAPKH8790-1', //todo 직풀 시작키
+  start:'5EHHpBjOF0AeoCvAPKH8790-1', //todo 마톡 시작키
   expired:'5EHHpBjOF0AeoCvAPKH8790-0'//todo 만료된 키
 }
 
@@ -376,7 +376,7 @@ Number.prototype.padLeft = function(base,chr){
                       '<div class="zikpoolConfirm-cancel-btn" style="background:#fff;color:#999;border-radius:0 0 0 15px ;">'+
                         '취소'+
                       '</div>'+
-                      '<div class="zikpoolConfirm-success-btn" style="background:#fff;color:#fad037;border-radius:0 0 15px 0;">'+
+                      '<div class="zikpoolConfirm-success-btn" style="background:#fff;color:var(--cr-main-dark1);border-radius:0 0 15px 0;">'+
                         '확인'+
                       '</div>'+
                     '</footer>'+
@@ -410,7 +410,7 @@ Number.prototype.padLeft = function(base,chr){
                       obj.content+
                     '</main>'+
                     '<footer>'+
-                      '<div class="zikpoolConfirm-success-btn" style="background:#fff;color:#fad037;border-radius:0 0 15px 15px;">'+
+                      '<div class="zikpoolConfirm-success-btn" style="background:#fff;color:var(--cr-main-dark1);border-radius:0 0 15px 15px;">'+
                         '확인'+
                       '</div>'+
                     '</footer>'+
@@ -615,7 +615,7 @@ function updateAllNumberInHeader(){
     }
 
 
-    //todo left menu 진행중 질문 및 직풀 카운트 업데이트.
+    //todo left menu 진행중 질문 및 마톡 카운트 업데이트.
     $('#left_cnt_qa_ing').html(qClass.length+aClass.length);
     $('#left_cnt_z_ing').html(zcClass.length);
 

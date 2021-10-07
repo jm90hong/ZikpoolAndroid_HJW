@@ -31,7 +31,7 @@ div.my-prof-top-container{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#fad037;
+    background:var(--cr-main-dark1);
 }
 
 .my-prof-condition-mt{

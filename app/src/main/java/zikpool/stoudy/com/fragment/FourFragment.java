@@ -92,7 +92,7 @@ public class FourFragment extends Fragment {
 //        });
 
 
-        //todo '직풀 회원가입' 버튼 클릭...
+        //todo '마톡 회원가입' 버튼 클릭...
         zikpoolLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,7 +107,7 @@ public class FourFragment extends Fragment {
 
 
 
-        //todo '직풀 바로가기' 버튼...
+        //todo '마톡 바로가기' 버튼...
         goWithoutLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

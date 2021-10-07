@@ -45,7 +45,7 @@ div.main-tab-notreadcnt{
 
 
 
-/*todo 직풀 채팅에 대한 css*/
+/*todo 마톡 채팅에 대한 css*/
 div.zikpool-chat-list-box{
 display:flex;
 margin-top:12px;
@@ -348,7 +348,7 @@ div.there-is-not-anything-in-container > img{
 
 
 
-/*todo 직풀 선생님 리스트*/
+/*todo 마톡 선생님 리스트*/
 .t4-teacher-list-container{
     width:100%;
     height:100%;

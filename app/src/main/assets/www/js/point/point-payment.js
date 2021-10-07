@@ -96,7 +96,7 @@ function setPointPaymentHtmlJs() {
         var bonus = parseInt(el.data('bonus'));
         var vat = vos*0.1;
         var $code= (1000000000+parseInt(ZP_MEMBER.member_idx)).toString(16);
-        var $buyerName = '직풀 회원('+$code+')';
+        var $buyerName = '마톡 회원('+$code+')';
         var $order={
             orderId:makeAndGetOrderId(ZP_MEMBER.member_idx),
             buyerIdx:ZP_MEMBER.member_idx,
@@ -178,7 +178,7 @@ var point_payment_handler={
     },
     onConfirm:function(){
         $('#loading-text-1').css('color','#fff').html(
-                                      '<div style="color:#ffeb48;font-size:16px;">결제 처리 중...</div>'+
+                                      '<div style="color:var(--cr-main);font-size:16px;">결제 처리 중...</div>'+
                                       '<div style="font-size:13px;">'+
                                           '<div>포인트가 충전되지 않는 경우</div>'+
                                           "<div>'1대1 문의하기'를 이용해주세요.</div>"+

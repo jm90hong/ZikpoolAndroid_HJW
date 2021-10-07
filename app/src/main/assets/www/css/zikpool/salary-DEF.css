@@ -1,7 +1,7 @@
 .sal-container{
     width:100%;
     height:calc(100% - 46px);
-    background:#fad037;
+    background:var(--cr-main-dark1);
     color:#222;
     padding:16.5% 5% 0% 5%;
     font-weight:700;
@@ -89,7 +89,7 @@ input::-webkit-input-placeholder {
 }
 
 .requirement-satisfied{
-    background:#fad037;
+    background:var(--cr-main-dark1);
     color:#fff;
     pointer-events:auto;
 }
@@ -122,7 +122,7 @@ input::-webkit-input-placeholder {
 #teacher-understand-btn{
     width:96px;
     height:38px;
-    background:#ffeb48;
+    background:var(--cr-main);
     border-radius:6px;
     color:#222;
     font-size:15px;

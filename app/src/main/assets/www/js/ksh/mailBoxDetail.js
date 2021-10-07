@@ -20,7 +20,7 @@ function init(){
                 $('#pushType').empty().append('서포트');
             }
             if(data.mail_type == 't'){
-                $('#pushType').attr('style', 'background-color: #FFEB48;color: #222;');
+                $('#pushType').attr('style', 'background-color: var(--cr-main);color: #222;');
                 $('#pushType').empty().append('선생님');
             }
             if(data.mail_type == 'r'){

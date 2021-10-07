@@ -1,5 +1,5 @@
 function init(){
-    // 직풀 설명서 하위 뷰
+    // 마톡 설명서 하위 뷰
     $('#guidebook_info').click(function(){
         window.android_information.guidebook_info_go();
     });

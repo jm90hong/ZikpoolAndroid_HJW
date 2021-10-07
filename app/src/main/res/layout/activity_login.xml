@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#fad037"
+    android:background="#007DEE"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -102,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:text="직풀 회원가입"
+            android:text="마톡 회원가입"
             android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -132,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:text="직풀 바로가기"
+            android:text="마톡 바로가기"
             android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold" />

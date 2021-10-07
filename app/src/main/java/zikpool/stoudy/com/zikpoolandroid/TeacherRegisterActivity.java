@@ -41,15 +41,15 @@ public class TeacherRegisterActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
-        String actionBarTagName="직풀선생님 신청";
+        String actionBarTagName="마톡선생님 신청";
         pageType = intent.getStringExtra("pageType");
 
         if(pageType.equals("normal")){
-            actionBarTagName="직풀선생님 신청";
+            actionBarTagName="마톡선생님 신청";
         }else if(pageType.equals("my_modify")){
-            actionBarTagName="직풀선생님 정보 수정";
+            actionBarTagName="마톡선생님 정보 수정";
         }else{
-            actionBarTagName="직풀선생님 재신청";
+            actionBarTagName="마톡선생님 재신청";
         }
 
 

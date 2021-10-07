@@ -117,7 +117,7 @@ function init2(){
             obj.salary_krw=$salary_krw;
             obj.requested_income=requestedIncome;
             zikpoolConfirm({
-                title:'직풀 급여 신청',
+                title:'마톡 급여 신청',
                 content:'<span style="display:flex;align-items:center;">'
                         +requestedIncome.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                         +' 점('+$salary_krw.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' 원) 을</span>'
@@ -219,7 +219,7 @@ function makeFinalMessageWind(){
     }else if(lastest_info.month<10){
        lastest_info.month='0'+lastest_info.month;
     };
-    var str2 = '<font style="color:#fad037;font-size:17px;">급여신청이 완료되었습니다.</font><br/>'+lastest_info.year+'년 '+lastest_info.month+'월'+' '+str1;
+    var str2 = '<font style="color:var(--cr-main-dark1);font-size:17px;">급여신청이 완료되었습니다.</font><br/>'+lastest_info.year+'년 '+lastest_info.month+'월'+' '+str1;
     $('#final-text-after-loading').html(str2);
     $('.first-loading').hide()
     $('.seccond-loading').show();

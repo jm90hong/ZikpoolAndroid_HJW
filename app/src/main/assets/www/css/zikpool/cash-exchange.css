@@ -46,7 +46,7 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#fad037;
+    background:var(--cr-main-dark1);
     color:#fff;
     font-weight:700;
     border-radius:7px;
@@ -76,7 +76,7 @@ input.cash-input{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#fad037;
+    background:var(--cr-main-dark1);
     color:#fff;
     font-size:16px;
     font-weight:700;

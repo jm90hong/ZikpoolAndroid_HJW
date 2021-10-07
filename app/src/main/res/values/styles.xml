@@ -9,10 +9,10 @@
     </style>
 
     <style name="AppTheme.StatusBar_main" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">#fad037</item>
-        <item name="colorPrimaryDark">#fad037</item>
-        <item name="colorAccent">#fad037</item>
-        <item name="android:statusBarColor">#fad037</item>
+        <item name="colorPrimary">#007DEE</item>
+        <item name="colorPrimaryDark">#007DEE</item>
+        <item name="colorAccent">#007DEE</item>
+        <item name="android:statusBarColor">#007DEE</item>
     </style>
 
 
@@ -39,7 +39,7 @@
     <style name="ToolBarStyle_main_color" parent="Theme.AppCompat.NoActionBar">
         <item name="android:textColorPrimary">#3e3a39</item>
         <item name="android:textColorSecondary">#3e3a39</item>
-        <item name="android:background">#fad037</item>
+        <item name="android:background">#007DEE</item>
         <item name="actionMenuTextColor">#3e3a39</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">12sp</item>

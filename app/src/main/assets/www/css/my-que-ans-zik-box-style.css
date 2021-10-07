@@ -89,7 +89,7 @@
 }
 
 .my-qa-box-container .info-1 > .my-state.complete-ans{
-   background:#fad037;
+   background:var(--cr-main-dark1);
    color:#222;
 }
 
@@ -221,7 +221,7 @@ div.my-q-not-read-cnt{
 }
 
 
-/*todo 직풀 채팅 박스 디자인*/
+/*todo 마톡 채팅 박스 디자인*/
 .my-zc-box-container{
   display:block;
   height:17.0vw;
@@ -330,7 +330,7 @@ div.zc-qa-link-icon{
     position:absolute;
     top:0;
     left:0;
-    border:1.4vw solid #fad037;
+    border:1.4vw solid var(--cr-main-dark1);
     background:transparent;
     z-index:9999;
 }
@@ -384,7 +384,7 @@ div.my-zc-not-read-cnt{
 }
 
 .my-black-back-wall.complete{
-    color:#fad037;
+    color:var(--cr-main-dark1);
 
 }
 

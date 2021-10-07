@@ -129,7 +129,7 @@ function my_point_charge_his_append(data){
                     '<span style="color:#999;">'+sub_reg_date+'</span>'+
                   '</div>'+
                   '<div class="history-list-content" style="text-align:right;">'+
-                    '<span style="font-szie:22px;font-weight:500;color:#fad037;">캐시</span>'+
+                    '<span style="font-szie:22px;font-weight:500;color:var(--cr-main-dark1);">캐시</span>'+
                   '</div>'+
                 '</div>'+
               '</div>'

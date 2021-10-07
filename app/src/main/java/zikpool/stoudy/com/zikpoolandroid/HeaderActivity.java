@@ -287,7 +287,7 @@ public class HeaderActivity extends AppCompatActivity
         //todo 부트페이 결제 초기화
         BootpayAnalytics.init(this, BOOTPAY_APPLICATION_ID);
 
-        //todo 첫 스타트에 직풀채팅 notification 제거.
+        //todo 첫 스타트에 마톡채팅 notification 제거.
         manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         manager.cancel(MyFirebaseMessagingService.ZIKPOOLCAHT_NOTI_ID);
 
@@ -405,7 +405,7 @@ public class HeaderActivity extends AppCompatActivity
                 }
             }).start();
         }else{
-            CustomDialog cd = new CustomDialog("finish",HeaderActivity.this,"정말 직풀을 종료하시겠습니까?","종료하기");
+            CustomDialog cd = new CustomDialog("finish",HeaderActivity.this,"정말 마톡을 종료하시겠습니까?","종료하기");
             cd.show();
         }
     }
@@ -1532,10 +1532,10 @@ public class HeaderActivity extends AppCompatActivity
             Bootpay.init(getFragmentManager())
                     .setApplicationId(BOOTPAY_APPLICATION_ID) // 해당 프로젝트(안드로이드)의 application id 값
                     .setPG(PG_COMPANY) // 결제할 PG 사
-                    .setUserName(buyerName) //직풀 멤버idx
+                    .setUserName(buyerName) //마톡 멤버idx
                     .setUserAddr(orderId)
                     .setUserPhone(tel)
-                    .setUserEmail(buyerId) //이메일 (직풀 멤버 id)
+                    .setUserEmail(buyerId) //이메일 (마톡 멤버 id)
                     .setMethod(paymentMethod) // 결제수단
                     .setName(productName) // 결제할 상품명
                     .setOrderId(orderId) //고유 주문번호로, 생성하신 값을 보내주셔야 합니다.

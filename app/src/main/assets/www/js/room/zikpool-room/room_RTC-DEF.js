@@ -432,7 +432,7 @@ function setMenuControllers(){
 }
 function handlePartnerOut(){
   $('#user-list-other').html('로그아웃...');
-  window,android_zikpoolroom.zikpoolToast('상대방이 직풀 과외방을 나갔습니다.');
+  window,android_zikpoolroom.zikpoolToast('상대방이 마톡 과외방을 나갔습니다.');
 };
 
 

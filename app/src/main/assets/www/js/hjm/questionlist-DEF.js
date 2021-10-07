@@ -188,7 +188,7 @@ function getQuestionListByOrderFromServer(){
      var realtimeStateHTML='';
 
      if(field.payment_state=='y' || field.payment_state=='f'){
-       selected_ny_html='<span class="ql-box-tag-span" style="background:rgba(34,34,34,0.85);color:#ffeb48;"><i class="far fa-check-circle"></i> 채택</span>';
+       selected_ny_html='<span class="ql-box-tag-span" style="background:rgba(34,34,34,0.85);color:var(--cr-main);"><i class="far fa-check-circle"></i> 채택</span>';
      }
 
      //todo 질문 유효기간 검사.
@@ -215,8 +215,8 @@ function getQuestionListByOrderFromServer(){
             '<div align="center" class="tab1-qimg-height" style="position:relative;background-color:#ccc;border-radius:15px;z-index:9998;">'+
               '<img style="border-radius:15px 15px 0 0;object-fit:cover;" width="100%" height="100%;" src="'+field.q_url+'" class="question-list-q-card" data-question-idx="'+field.question_idx+'"/>'+
               '<div class="question-info-container-for-teacher">'+
-                '<div>답변: <span class="realtime-sum-ans-cnt" data-question-idx="'+field.question_idx+'" style="color:#ffeb48;margin-left:4px;">'+field.sum_ans_cnt+'</span></div>'+
-                '<div><span class="realtime-writing-cnt" data-question-idx="'+field.question_idx+'" style="color:#ffeb48;"></span></div>'+
+                '<div>답변: <span class="realtime-sum-ans-cnt" data-question-idx="'+field.question_idx+'" style="color:var(--cr-main);margin-left:4px;">'+field.sum_ans_cnt+'</span></div>'+
+                '<div><span class="realtime-writing-cnt" data-question-idx="'+field.question_idx+'" style="color:var(--cr-main);"></span></div>'+
               '</div>'+
             '</div>'+
 

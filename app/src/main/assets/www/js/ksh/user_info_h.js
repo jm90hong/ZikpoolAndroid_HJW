@@ -48,14 +48,14 @@ function init(){
             $('.one-swiper-nav').on('click',function(){
                 var idx = $(this).data('index');
                 $('.one-swiper-nav').css('color','#3e3a39');
-                $(this).css('color','#fad037');
+                $(this).css('color','var(--cr-main-dark1)');
                 mySwiper.slideTo(idx,200,function(){});
             });
           },
           slideChange:function(){
             var idx = mySwiper.realIndex;
             $('.one-swiper-nav').css('color','#3e3a39');
-            $('.one-swiper-nav[data-index="'+idx+'"]').css('color','#fad037');
+            $('.one-swiper-nav[data-index="'+idx+'"]').css('color','var(--cr-main-dark1)');
           },
 
         }

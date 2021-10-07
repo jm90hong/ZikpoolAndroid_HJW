@@ -188,7 +188,7 @@ video{
     align-items:center;
     width:50%;
     height:100%;
-    background:#ffeb48;
+    background:var(--cr-main);
     border-radius:0 0 0 1.9vw;
   }
   div.room-confirm-no{
@@ -368,7 +368,7 @@ video{
      align-items:center;
      width:50%;
      height:100%;
-     background:#ffeb48;
+     background:var(--cr-main);
      border-radius:0 0 0 16px;
    }
    div.room-confirm-no{
@@ -388,7 +388,7 @@ video{
 
 /*public css*/
 .zik-clicked{
-  background-color:#fad037;
+  background-color:var(--cr-main-dark1);
 }
 .zik-clicked-red{
   background-color:black;
@@ -554,7 +554,7 @@ section.room-notice-header{
   align-items:center;
   width:100%;
   height:20%;
-  background:#fad037;
+  background:var(--cr-main-dark1);
   color:#3e3a39;
   border-top:1px solid #585858;
   border-left:1px solid #585858;
@@ -564,7 +564,7 @@ section.room-notice-header{
 section.room-notice-content{
   width:100%;
   height:60%;
-  background:#fad037;
+  background:var(--cr-main-dark1);
   padding:3%;
   border-left:1px solid #585858;
   border-right:1px solid #585858;
@@ -626,7 +626,7 @@ div#menu-slide-top-cont{
   padding-right:5%;
 }
 .user-list-div>span{
-  color:#fad037;
+  color:var(--cr-main-dark1);
   display:block;
 }
 div#menu-slide-bottom-cont{
@@ -1073,7 +1073,7 @@ border-radius:1em;
 
 .r-loading {
   border: 2px solid transparent;
-  border-color: transparent #fad037 transparent #fad037;
+  border-color: transparent var(--cr-main-dark1) transparent var(--cr-main-dark1);
   -moz-animation: rotate-loading 1.5s linear 0s infinite normal;
   -moz-transform-origin: 50% 50%;
   -o-animation: rotate-loading 1.5s linear 0s infinite normal;
@@ -1097,7 +1097,7 @@ border-radius:1em;
   -o-animation: loading-text-opacity 2s linear 0s infinite normal;
   -webkit-animation: loading-text-opacity 2s linear 0s infinite normal;
   animation: loading-text-opacity 2s linear 0s infinite normal;
-  color: #fad037;
+  color: var(--cr-main-dark1);
   font-family:ng;
   font-size: 13px;
   font-weight: bold;

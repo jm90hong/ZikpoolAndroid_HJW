@@ -501,7 +501,7 @@ function setImageToFileSlide($base64){
     var classLen =  $('.one-question-img-label').length;
     var num = classLen+1;
     var html = '<font class="one-question-img-label" data-label-order="'+num+'" style="width:100%;display:block;" >사진-'+num+'</font>'
-               +'<img class="one-question-img order'+num+'" data-img-order="'+num+'" style="border:4px solid #fad037"  src="'+$base64+'"/>';
+               +'<img class="one-question-img order'+num+'" data-img-order="'+num+'" style="border:4px solid var(--cr-main-dark1)"  src="'+$base64+'"/>';
     $('#file-slide').append(html);
     whichImg=num;
 
@@ -523,7 +523,7 @@ function startTimer(duration, display) {
           display.textContent = minutes + ":" + seconds;
           if (--timer < 0) {
               timer = 0;
-              //todo 오픈 직풀 강제 종료.
+              //todo 오픈 마톡 강제 종료.
                window.android_zikpoolroom.onTimeOver();
           }else if(timer < 120){
             display.style.color='#FF5733';

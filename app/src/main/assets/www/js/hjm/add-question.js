@@ -415,6 +415,6 @@ function handlerHideKeyboard(){
 function changeTextInLoadingWindow(){
     $('#loading-icon').hide();
     $('#complete-icon').show();
-    $('#loading-text-1').html('질문등록 완료').css('color','#fad037');
+    $('#loading-text-1').html('질문등록 완료').css('color','var(--cr-main-dark1)');
     $('#loading-text-2').html('선생님의 답변을 기다려주세요.');
 }

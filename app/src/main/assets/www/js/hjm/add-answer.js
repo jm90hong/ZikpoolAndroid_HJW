@@ -89,7 +89,7 @@ function init(){
       });
 
 
-      //todo 직풀 여부 라디오 박스.
+      //todo 마톡 여부 라디오 박스.
       $('.aa-available-zikpool-radio').on('click',function(){
         var type = $(this).attr('data-type');
         $('.aa-available-zikpool-radio').css('color','#aeaeae').css('background','#fff').css('border','1px solid #aeaeae');
@@ -276,7 +276,7 @@ function changeTextInLoadingWindow(){
 
     $('#loading-icon').hide();
     $('#complete-icon').show();
-    $('#loading-text-1').html('답변등록 완료').css('color','#fad037');
+    $('#loading-text-1').html('답변등록 완료').css('color','var(--cr-main-dark1)');
     $('#loading-text-2').html('등록한 답변을 확인해보세요.');
 }
 

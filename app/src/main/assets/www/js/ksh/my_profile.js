@@ -141,7 +141,7 @@ function getMyProfileData(){
   if(state=='n'){
     $('.tr-show-n').css('display','flex');
   }else if(state=='e'){
-    $('#my-tr-state').html('심사중').css('color','#fad037').show();
+    $('#my-tr-state').html('심사중').css('color','var(--cr-main-dark1)').show();
   }else if(state=='r'){
     $('.tr-show-r').css('display','flex');
     $('#my-tr-state').html('재신청').css('color','#ff4e39').show();
@@ -305,7 +305,7 @@ function updateImage_in_Fire_DB_STORE($member_idx,$img_url){
 
 
 function teacher_register_menu_change(){
-    $('#my-tr-state').html('심사중').css('color','#fad037').show();
+    $('#my-tr-state').html('심사중').css('color','var(--cr-main-dark1)').show();
     $('.tr-show-n').hide();
     $('.tr-show-r').hide();
 };

@@ -25,10 +25,10 @@ let questionBase64Image;
 let partnerBase64Image;
 
 const sz_prov_content ={
-    1:'선생님이 직풀 실시간 과외를 개설하였습니다.',
+    1:'선생님이 마톡 실시간 과외를 개설하였습니다.',
     2:'가능한 네트워크 환경이 좋은 WiFi 환경에서 과외를 이용하여 주십시오.',
     3:"'과외 참가하기' 및 '과외 완료하기' 버튼은 학생에게 제공되는 버튼입니다.",
-    4:'학생이 과외에 참가하여 과외 완료하면 모든 직풀채팅(과외) 과정은 종료가 됩니다.',
+    4:'학생이 과외에 참가하여 과외 완료하면 모든 마톡채팅(과외) 과정은 종료가 됩니다.',
     5:'실시간 과외 실행 중 문제가 발생하면 반드시 일시정지 후에 문의를 해주십시오.'
 }
 const sz_provision_content='<div>'+
@@ -160,7 +160,7 @@ function init(){
     }else{
         $("textarea#msg-input-edit-box").prop("readonly",true);
         $("textarea#msg-input-edit-box").on('click',function(){
-            window.android_zikpoolchat.zikpoolToast('신고/완료 된 직풀채팅에서 채팅이용은 불가능합니다.');
+            window.android_zikpoolchat.zikpoolToast('신고/완료 된 마톡채팅에서 채팅이용은 불가능합니다.');
         });
     }
 
@@ -283,17 +283,17 @@ function setUI(){
                     window.android_zikpoolchat.zikpoolToast('일시정지 해제 후에 신고를 진행하여 주십시오.');
                 }
             }else{
-                window.android_zikpoolchat.zikpoolToast('완료/환불된 직풀채팅의 선생님은 신고할 수 없습니다.');
+                window.android_zikpoolchat.zikpoolToast('완료/환불된 마톡채팅의 선생님은 신고할 수 없습니다.');
             }
         }else if(type=='complete-zikpool'){
             if(ThisChatObj.payment_state !='n' || ThisChatObj.report_state !='n'){
-                window.android_zikpoolchat.zikpoolToast('신고된 직풀채팅은 완료 할 수 없습니다.');
+                window.android_zikpoolchat.zikpoolToast('신고된 마톡채팅은 완료 할 수 없습니다.');
             }else{
                 window.android_zikpoolchat.popupWindow('on');
                 $('.zc-popup-window[data-type="'+type+'"]').show();
             }
         }else{
-            //todo start-zikpool(직풀시작) , pause(일시정지)
+            //todo start-zikpool(마톡시작) , pause(일시정지)
             if(ThisChatObj.report_state=='n'){
                 if(ThisChatObj.payment_state == 'n'){
                     window.android_zikpoolchat.popupWindow('on');
@@ -302,13 +302,13 @@ function setUI(){
                     window.android_zikpoolchat.zikpoolToast("이미 완료된 과외입니다.");
                 }
             }else{
-                window.android_zikpoolchat.zikpoolToast('신고된 직풀채팅에서는 이용 할 수 없습니다.');
+                window.android_zikpoolchat.zikpoolToast('신고된 마톡채팅에서는 이용 할 수 없습니다.');
             }
 
         }
     });
 
-    //todo 팝업 창에서 최종 버튼 누를때. > 직풀 시작하기, 일시정지 하기, 일시정지 해제하기, 직풀 완료하기
+    //todo 팝업 창에서 최종 버튼 누를때. > 마톡 시작하기, 일시정지 하기, 일시정지 해제하기, 마톡 완료하기
     $('.zc-final-btn').on('click',function(){
         var type= $(this).data('type');
         if(type=='pause'){
@@ -320,19 +320,19 @@ function setUI(){
         }else if(type=='run'){
             onFinalBtn.run();
         }else if(type=='start-zikpool' && ThisChatObj.my_job=='t'){
-            //todo 직풀 시작 버튼을 누를 때.
+            //todo 마톡 시작 버튼을 누를 때.
             writeMsgFromMe(START_ZIKPOOL_KEY.start);
             $('.zc-popup-window').hide();
             $('#option-btn').trigger('click');
 
-            //todo 직풀 시작 코드
+            //todo 마톡 시작 코드
             var roomUserNick;
             if(ThisChatObj.my_job=='s'){
               roomUserNick=ThisChatObj.student_nickname;
             }else{
               roomUserNick=ThisChatObj.teacher_nickname
             }
-            //todo 직풀 과외방 시작. ZikpoolRoomActivity호출
+            //todo 마톡 과외방 시작. ZikpoolRoomActivity호출
             var rroomid = ThisChatObj.chat_code;
             var ruserid = roomUserNick;
             var rauthority = ThisChatObj.my_job;
@@ -346,19 +346,19 @@ function setUI(){
         }else if(type=='complete-zikpool' && ThisChatObj.my_job=='s'){
             onFinalBtn.completeZikpool();
         }else{
-            window.android_zikpoolchat.zikpoolToast('직풀채팅에 다시 입장해주세요.');
+            window.android_zikpoolchat.zikpoolToast('마톡채팅에 다시 입장해주세요.');
         }
     });
 
 
-    //todo 직풀 시작 메세지 박스 에서 버튼 클릭 이벤트[학생에게 제공되는 버튼]
+    //todo 마톡 시작 메세지 박스 에서 버튼 클릭 이벤트[학생에게 제공되는 버튼]
     $(document).on('click', '.sz-final-btn-for-student', function(){
         var type = $(this).data('type');
         if(type=='enter-zikpool'){
-        //todo  직풀 참가하기
+        //todo  마톡 참가하기
             if(ThisChatObj.my_job=='s'){
                 if(ThisChatObj.payment_state =='n'){
-                    //todo [STEP 1] - chatidx의 room 값 알아오고 콜백으로 직풀 시작.
+                    //todo [STEP 1] - chatidx의 room 값 알아오고 콜백으로 마톡 시작.
                      window.android_zikpoolchat.getRoomValueOfTheChatAndJoinZikpool(ThisChatObj.chat_idx);
                 }else{
                     window.android_zikpoolchat.zikpoolToast("이미 완료된 과외입니다.");
@@ -367,7 +367,7 @@ function setUI(){
                 window.android_zikpoolchat.zikpoolToast("'과외 참가하기' 버튼은 학생에게 제공된 버튼 입니다.");
             }
         }else if(type=='complete-zikpool'){
-        //todo 직풀 완료하기.
+        //todo 마톡 완료하기.
         window.android_zikpoolchat.popupWindow('on');
         $('.zc-popup-window[data-type="complete-zikpool"]').show();
 
@@ -538,7 +538,7 @@ let handler={
     },
     getResultOfJoiningZikpool:function($room){
         if($room==1){
-            //todo 직풀 참가하기
+            //todo 마톡 참가하기
             var roomUserNick;
             if(ThisChatObj.my_job=='s'){
               roomUserNick=ThisChatObj.student_nickname;
@@ -546,7 +546,7 @@ let handler={
               roomUserNick=ThisChatObj.teacher_nickname
             }
 
-            //todo 직풀 과외방 시작. ZikpoolRoomActivity호출
+            //todo 마톡 과외방 시작. ZikpoolRoomActivity호출
             var rroomid = ThisChatObj.chat_code;
             var ruserid = roomUserNick;
             var rauthority = ThisChatObj.my_job;
@@ -558,7 +558,7 @@ let handler={
             window.android_zikpoolchat.goToZikpoolRoom(zs_url,ThisChatObj.chat_idx,ThisChatObj.my_job);
 
         }else{
-            //todo 선생님이 직풀을 시작하지 않음 -> 참가 불가.
+            //todo 선생님이 마톡을 시작하지 않음 -> 참가 불가.
             window.android_zikpoolchat.zikpoolToast('선생님이 과외를 시작하지 않았습니다.')
         }
     },
@@ -707,7 +707,7 @@ let onFinalBtn = {
     completeZikpool:function(){
     if(zc_check.reply){
         $('.zc-final-btn').data('type','disable');
-        $('#loading-text-1').css('color','#fff').html('직풀채팅(실시간 과외) 완료 처리중...');
+        $('#loading-text-1').css('color','#fff').html('마톡채팅(실시간 과외) 완료 처리중...');
         $('#upload-loading-wall').show();
         $.ajax({
             url:super_url+'completeZikpool',
@@ -723,11 +723,11 @@ let onFinalBtn = {
             success:function(msg){
                  //todo [STEP 1]  payment_state='y'
                  ThisChatObj.payment_state='y';
-                //todo [STEP 2] 직풀 방에서 완료 효과 주기 html.
+                //todo [STEP 2] 마톡 방에서 완료 효과 주기 html.
                 $('.sz-btn-space').html(myHtml.completed);
 
                 disableZikpoolChat();
-                //todo [STEP 3] 나의 직풀 채팅 리스트 완료 표시 업데이트. -> HeaderActivity 로 전달.
+                //todo [STEP 3] 나의 마톡 채팅 리스트 완료 표시 업데이트. -> HeaderActivity 로 전달.
                 window.android_zikpoolchat.completeZikpool(ThisChatObj.chat_idx,ThisChatObj.teacher_idx,ThisChatObj.z_point);
 
 
@@ -774,7 +774,7 @@ function untieChatObj(zc){
     }
 
 
-    //todo 결제가 완료된 직풀이면 완료 처리.
+    //todo 결제가 완료된 마톡이면 완료 처리.
     if(ThisChatObj.payment_state !='n'){
         zikpoolHtml=myHtml.completed;
     }
@@ -832,7 +832,7 @@ function untieChatObj(zc){
         )
     }
 
-    //todo 최신 직풀 참가하기 버튼을 제외하고 나머지는 전부 무효처리.
+    //todo 최신 마톡 참가하기 버튼을 제외하고 나머지는 전부 무효처리.
     $('.sz-btn-space').not(':last').html(myHtml.expired);
 
     if($('.one-chat-container-by-index[data-index='+zc.index+']').outerHeight() != undefined){
@@ -923,7 +923,7 @@ function appendNewOneChat(zc){
             )
         }
 
-        //todo 최신 직풀 참가하기 버튼을 제외하고 나머지는 전부 무효처리.
+        //todo 최신 마톡 참가하기 버튼을 제외하고 나머지는 전부 무효처리.
         $('.sz-btn-space').not(':last').html(myHtml.expired);
 
         //todo 하나의 메세지 버블 박스가 추가가 되면 display show();
@@ -946,11 +946,11 @@ function hideLoadingWind(){
 
 function changeTextInLoadingWindow($type){
     if($type=='pause'){
-        $('#loading-text-1').css('color','#ffeb48').html('일시정지 완료');
+        $('#loading-text-1').css('color','var(--cr-main)').html('일시정지 완료');
     }else if($type=='run'){
-        $('#loading-text-1').css('color','#ffeb48').html('일시정지 해제완료');
+        $('#loading-text-1').css('color','var(--cr-main)').html('일시정지 해제완료');
     }else if($type=='complete-zikpool'){
-        $('#loading-text-1').css('color','#ffeb48').html('직풀채팅이 완료 되었습니다.');
+        $('#loading-text-1').css('color','var(--cr-main)').html('마톡채팅이 완료 되었습니다.');
     }
 }
 
@@ -964,7 +964,7 @@ function leaveZikpoolChat(){
 function disableZikpoolChat(){
    $("textarea#msg-input-edit-box").prop("readonly",true);
    $("textarea#msg-input-edit-box").on('click',function(){
-       window.android_zikpoolchat.zikpoolToast('신고/완료 된 직풀채팅에서 채팅이용은 불가능합니다.');
+       window.android_zikpoolchat.zikpoolToast('신고/완료 된 마톡채팅에서 채팅이용은 불가능합니다.');
    });
 }
 

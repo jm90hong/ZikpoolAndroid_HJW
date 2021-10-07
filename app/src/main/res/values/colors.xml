@@ -4,9 +4,9 @@
     <color name="mainColor">#307afa</color>
     <color name="subColor_1">#3e3a39</color>
 
-    <color name="colorPrimary">#fad037</color>
-    <color name="colorPrimaryDark">#fad037</color>
-    <color name="colorAccent">#fad037</color>
+    <color name="colorPrimary">#007DEE</color>
+    <color name="colorPrimaryDark">#007DEE</color>
+    <color name="colorAccent">#007DEE</color>
 
     <color name="refresh_1">#307afa</color>
     <color name="refresh_2">#FFE400</color>

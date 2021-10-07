@@ -113,7 +113,7 @@ public class AddAnswerActivity extends AppCompatActivity
                                     LayoutInflater inflater = getLayoutInflater();
                                     View toastDesign = inflater.inflate(R.layout.zikpool_toast,(ViewGroup)findViewById(R.id.toast_design_root));
                                     TextView text = toastDesign.findViewById(R.id.TextView_toast_design);
-                                    text.setText("[직풀] 움직임이 없으면 1분 후에 자동 종료 됩니다.");
+                                    text.setText("[마톡] 움직임이 없으면 1분 후에 자동 종료 됩니다.");
                                     Toast toast = new Toast(getApplicationContext());
                                     toast.setGravity(Gravity.BOTTOM,0,40);
                                     toast.setDuration(Toast.LENGTH_LONG);

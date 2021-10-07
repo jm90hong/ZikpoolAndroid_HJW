@@ -8,7 +8,7 @@
         android:id="@+id/zikpool_toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#fad037"
+        android:background="#007DEE"
         android:theme="@style/ToolBarStyle_main_color"
         app:popupTheme="@style/ThemeOverlay.AppCompat">
 

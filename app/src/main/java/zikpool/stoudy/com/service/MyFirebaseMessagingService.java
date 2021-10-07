@@ -72,7 +72,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String content = params.get("content");
 
         //todo [정리]
-        //todo [1] 푸쉬로 오는 답변 달림, 답변 채택 및 직풀 관리자 메세지는 preference에 허용 조사 후에 notification을 작동 시킨다.
+        //todo [1] 푸쉬로 오는 답변 달림, 답변 채택 및 마톡 관리자 메세지는 preference에 허용 조사 후에 notification을 작동 시킨다.
         notificationFlag= setting.getBoolean(type,true);
 
         if (appState == 1) {
@@ -209,7 +209,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
             //todo [정리]
-            //todo [1] 푸쉬로 오는 답변 달림, 답변 채택 및 직풀 관리자 메세지는 preference에 허용 조사 후에 notification을 작동 시킨다.
+            //todo [1] 푸쉬로 오는 답변 달림, 답변 채택 및 마톡 관리자 메세지는 preference에 허용 조사 후에 notification을 작동 시킨다.
             notificationFlag= setting.getBoolean(type,true);
 
             //todo [2] 채팅일 경우 푸쉬로 오는 채팅 메세지는 android room에 저장시킨다. 무조건. 상대방이 보낸 메세지를 room에 저장 시킨다.

@@ -53,7 +53,7 @@ public class ReportAnsOrZCActivity extends AppCompatActivity {
         if(pageType.equals("ans")){
             actTitle="답변 신고하기";
         }else{
-            actTitle="직풀채팅(과외) 신고하기";
+            actTitle="마톡채팅(과외) 신고하기";
         }
 
         toolbar_title = (TextView) findViewById(R.id.toobar_title);

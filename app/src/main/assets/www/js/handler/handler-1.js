@@ -1,6 +1,6 @@
 let handler_1 ={
     changePauseStateOfZCList:function($chatIdx,$type,$partnerIdx,$job){
-        //todo 직풀 채팅에서 일시정지, 일시정지 해제 시에 호출 되는 핸들러 함수.
+        //todo 마톡 채팅에서 일시정지, 일시정지 해제 시에 호출 되는 핸들러 함수.
         var parentClass= $('.my-zc-list-box[data-chat-idx="'+$chatIdx+'"]');
         if($type=='pause'){
             if($job=='s'){
@@ -32,7 +32,7 @@ let handler_1 ={
         }
     },
     onChangePauseStateOfZCList:function($chatIdx,$type,$job){
-       //todo 직풀 채팅에서 일시정지, 일시정지 해제 시에 호출 되는 핸들러 함수.
+       //todo 마톡 채팅에서 일시정지, 일시정지 해제 시에 호출 되는 핸들러 함수.
        var parentClass= $('.my-zc-list-box[data-chat-idx="'+$chatIdx+'"]');
        if($type=='pause'){
            if($job=='s'){
@@ -57,7 +57,7 @@ let handler_1 ={
        }
     },
     onCompleteZikpool:function(chat_idx,teacher_idx,z_point){
-           //todo 직풀 리스트 완료 처리.
+           //todo 마톡 리스트 완료 처리.
            var parentClass=$('.my-zc-list-box[data-chat-idx="'+chat_idx+'"]');
            var zikpoolStateIcon = '<div class="my-black-back-wall mini complete">'+
                                     '<i class="far fa-check-circle"></i>'+
@@ -92,7 +92,7 @@ let handler_1 ={
             };
             ZP_FIREBASE.reportService('ans',$teacher_idx,obj);
         }else{
-            //todo 직풀이 신고 될때.
+            //todo 마톡이 신고 될때.
 
             //todo [STEP 1] 변수값 세팅.
             var $chat_idx = $ans_zc_idx;
@@ -103,8 +103,8 @@ let handler_1 ={
 
             zcClass.data('report-state','p');
 
-            //todo [STEP 2] 나의 질문 및 직풀 채팅 신고심사중 처리.
-            qClass.find('my-state').attr('class','my-state orange').html('직풀신고심사중');
+            //todo [STEP 2] 나의 질문 및 마톡 채팅 신고심사중 처리.
+            qClass.find('my-state').attr('class','my-state orange').html('마톡신고심사중');
             zcClass.find('.img-cont').append(
                     '<div class="my-black-back-wall mini" style="color:#ff9300;">'+
                        '<i class="fas fa-exclamation"></i>'+

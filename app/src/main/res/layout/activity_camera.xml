@@ -58,7 +58,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:textColor="#fad037"
+            android:textColor="#007DEE"
             android:text="내용(글자)이 잘 보이게 찍어주세요"/>
     </RelativeLayout>
 

@@ -24,7 +24,7 @@
 }
 
 .requirement-satisfied{
-    background:#fad037;
+    background:var(--cr-main-dark1);
     color:#fff;
     pointer-events:auto;
 }
@@ -33,7 +33,7 @@
 .sal-container > .top-wrapper{
     width:100%;
     padding:6vw 5vw 8vw 5vw;
-    background:#fad037;
+    background:var(--cr-main-dark1);
     border-radius:0 0 6vw 6vw;
 }
 
@@ -105,7 +105,7 @@ input.sal-input-style{
 #teacher-understand-btn{
     width:96px;
     height:38px;
-    background:#fad037;
+    background:var(--cr-main-dark1);
     border-radius:6px;
     color:#3e3a39;
     font-size:16px;

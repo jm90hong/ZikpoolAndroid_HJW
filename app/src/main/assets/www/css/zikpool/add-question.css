@@ -168,7 +168,7 @@ textarea.aq-fill-textarea-type1:focus {
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#fad037;
+    background:var(--cr-main-dark1);
     color:#fff;
 }
 .black-footer-btn{
