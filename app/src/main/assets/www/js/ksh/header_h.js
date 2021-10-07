@@ -30,14 +30,15 @@ function setHeaderHtmlJs() {
     //todo 하단 네비게이션 메뉴 클릭 이벤트
     $('.one-mbn-btn').on('click',function(){
         var $page = $(this).data('page');
-        //btn 색상 초기화
+        //todo btn 색상 초기화
         $('.one-mbn-btn').attr('class','one-mbn-btn-css one-mbn-btn un-selected');
-        //아이콘 이미지 초기화
+        //todo 아이콘 이미지 초기화
         $('.one-mbn-btn[data-page="p1"]').find('img').attr('src','img/main/bottom-nav/m-home.png');
         $('.one-mbn-btn[data-page="p2"]').find('img').attr('src','img/main/bottom-nav/m-myqa.png');
         $('.one-mbn-btn[data-page="p3"]').find('img').attr('src','img/main/bottom-nav/m-zc.png');
         $('.one-mbn-btn[data-page="p4"]').find('img').attr('src','img/main/bottom-nav/m-teachers.png');
 
+        //todo 선택된 것만 표시
         $(this).attr('class','one-mbn-btn-css one-mbn-btn selected');
         var $src;
 
@@ -117,6 +118,7 @@ function setHeaderHtmlJs() {
         $('#login-btn').click();
       }
     });
+
     //todo 구글 로그인.
     $('.start-google-login-btn').on('click',function(){
         window.android_header.startGoogleLoginInHaeder();
@@ -205,12 +207,12 @@ function setHeaderHtmlJs() {
 
 
 
-    // 로그아웃 localStorage 데이터값 삭제
+    // todo 로그아웃 localStorage 데이터값 삭제
     $('#logout-btn').click(function(){
         window.android_header.callDialogOfLogout();
     });
 
-    // 회원 프로필 정보 페이지
+    // todo 회원 프로필 정보 페이지
     $('.user-info-go-btn').click(function(){
        var url = "user_info.html?member_idx="+ZP_MEMBER.member_idx+"&nickname="+ZP_MEMBER.nickname;
        window.android_public.goToActivity('user_info',url);

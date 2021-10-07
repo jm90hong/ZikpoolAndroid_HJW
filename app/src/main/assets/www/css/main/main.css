@@ -51,7 +51,7 @@ div.main-bottom-nav-container > div{
 
 
 .one-mbn-btn.selected{
-    color:#ffbd35;
+    color:var(--cr-main);
 }
 
 

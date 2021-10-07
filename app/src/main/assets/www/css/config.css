@@ -18,6 +18,10 @@ src:url(../font/zikpool-font/NanumSquare.ttf) format('truetype');
 }
 
 
+.none{
+    display:none !important;
+}
+
 html,body{
   font-family:ng;
   font-size:14px;
