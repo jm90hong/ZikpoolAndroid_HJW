@@ -26,6 +26,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Logger;
 import com.google.firebase.database.ValueEventListener;
 
 import java.security.MessageDigest;
@@ -55,7 +56,6 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
-
         //        String str1 = getKeyHash(context);
 //        Log.d("key1422",str1);
 
@@ -76,130 +76,137 @@ public class SplashActivity extends AppCompatActivity {
 //        myVersionNameTxt = (TextView) findViewById(R.id.myVersionNameTxt);
 //        myVersionNameTxt.setText("v"+myVersionName);
 
-        database = FirebaseDatabase.getInstance();
-        database.goOnline();
-        final DatabaseReference myRef = database.getReference("app_server");
+        try{
+            database = FirebaseDatabase.getInstance();
+            database.goOnline();
+            final DatabaseReference myRef = database.getReference("app_server");
+            myRef.addValueEventListener(new ValueEventListener() {
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot){
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                Firebase_AppServer value = dataSnapshot.getValue(Firebase_AppServer.class);
-                final String newVersionName = (String) value.getApp_version().get("version_name");
-                final String newVersionRequired = (String) value.getApp_version().get("version_required");
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot){
 
-                String[] newVersionNameArr = newVersionName.split("\\.");
-                String[] myVersionNameArr = myVersionName.split("\\.");
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    Firebase_AppServer value = dataSnapshot.getValue(Firebase_AppServer.class);
+                    final String newVersionName = (String) value.getApp_version().get("version_name");
+                    final String newVersionRequired = (String) value.getApp_version().get("version_required");
+                    Log.d("logan1422","onDataChange is called! "+newVersionName);
+                    String[] newVersionNameArr = newVersionName.split("\\.");
+                    String[] myVersionNameArr = myVersionName.split("\\.");
 
-                setting = context.getSharedPreferences("setting", 0);
-                String checkedVersoinName = setting.getString("checked_version_name",myVersionName);
-                String[] checkedVersoinNameArr = checkedVersoinName.split("\\.");
+                    setting = context.getSharedPreferences("setting", 0);
+                    String checkedVersoinName = setting.getString("checked_version_name",myVersionName);
+                    String[] checkedVersoinNameArr = checkedVersoinName.split("\\.");
 
-                if((Long) value.getServer_power() == 3){
-                    //todo 서버 정상 작동
-                    //todo 필수 업데이트 인가?
-                    if(!myVersionNameArr[0].equals(newVersionNameArr[0]) || !myVersionNameArr[1].equals(newVersionNameArr[1])){
-                        //todo 필수 업데이트 맞음
-                        if(!SplashActivity.this.isFinishing()){
-                            String title = "새로운 버전(v"+newVersionName+")이 출시되었습니다.";
-                            AppUpdateForceDialog aufd = new AppUpdateForceDialog(SplashActivity.this,title);
-                            aufd.show();
-                        }
-                    }else if(!myVersionNameArr[2].equals(newVersionNameArr[2]) && !newVersionName.equals(checkedVersoinName)) {
-                        //todo 권장 업데이트 맞음
-                        String tmpMainTitle = "새로운 버전(v"+newVersionName+")이 출시 되었습니다.\n업데이트를 진행하시겠습니까?";
-                        String tmpSubTitle = "";
-                        ZikpoolDialogClass zdc = new ZikpoolDialogClass(SplashActivity.this,tmpMainTitle,tmpSubTitle,"업데이트"){
-                            @Override
-                            public void methodToCallback(){
-                                Intent intent = new Intent(Intent.ACTION_VIEW);
-                                intent.setData(Uri.parse(
-                                        ZikpoolConfig.APP_PLAY_STORE_DOWNLOAD_URL));
-                                intent.setPackage("com.android.vending");
-                                startActivity(intent);
-                                finish();
+                    if((Long) value.getServer_power() == 3){
+                        //todo 서버 정상 작동
+                        //todo 필수 업데이트 인가?
+                        if(!myVersionNameArr[0].equals(newVersionNameArr[0]) || !myVersionNameArr[1].equals(newVersionNameArr[1])){
+                            //todo 필수 업데이트 맞음
+                            if(!SplashActivity.this.isFinishing()){
+                                String title = "새로운 버전(v"+newVersionName+")이 출시되었습니다.";
+                                AppUpdateForceDialog aufd = new AppUpdateForceDialog(SplashActivity.this,title);
+                                aufd.show();
                             }
+                        }else if(!myVersionNameArr[2].equals(newVersionNameArr[2]) && !newVersionName.equals(checkedVersoinName)) {
+                            //todo 권장 업데이트 맞음
+                            String tmpMainTitle = "새로운 버전(v"+newVersionName+")이 출시 되었습니다.\n업데이트를 진행하시겠습니까?";
+                            String tmpSubTitle = "";
+                            ZikpoolDialogClass zdc = new ZikpoolDialogClass(SplashActivity.this,tmpMainTitle,tmpSubTitle,"업데이트"){
+                                @Override
+                                public void methodToCallback(){
+                                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                                    intent.setData(Uri.parse(
+                                            ZikpoolConfig.APP_PLAY_STORE_DOWNLOAD_URL));
+                                    intent.setPackage("com.android.vending");
+                                    startActivity(intent);
+                                    finish();
+                                }
 
-                            @Override
-                            public void methodToCancel(){
-                                editor = setting.edit();
-                                editor.putString("checked_version_name",newVersionName);
-                                editor.apply();
-                                //todo 취소 메인페이지 호출.
-                                new Handler().postDelayed(
-                                        new Runnable() {
-                                            public void run() {
-                                                setting = getSharedPreferences("setting",0);
-                                                Intent i;
-                                                if(setting.getBoolean("first_time",true)){
-                                                    i = new Intent(SplashActivity.this, IntroduceActivity.class);
-                                                }else{
-                                                    i = new Intent(SplashActivity.this, HeaderActivity.class);
-                                                    i.putExtra("login_type","normal");
+                                @Override
+                                public void methodToCancel(){
+                                    editor = setting.edit();
+                                    editor.putString("checked_version_name",newVersionName);
+                                    editor.apply();
+                                    //todo 취소 메인페이지 호출.
+                                    new Handler().postDelayed(
+                                            new Runnable() {
+                                                public void run() {
+                                                    setting = getSharedPreferences("setting",0);
+                                                    Intent i;
+                                                    if(setting.getBoolean("first_time",true)){
+                                                        i = new Intent(SplashActivity.this, IntroduceActivity.class);
+                                                    }else{
+                                                        i = new Intent(SplashActivity.this, HeaderActivity.class);
+                                                        i.putExtra("login_type","normal");
+                                                    }
+                                                    startActivity(i);
+                                                    finish();
                                                 }
-                                                startActivity(i);
-                                                finish();
-                                            }
-                                        },
-                                        230);
-                            }
-                        };
-                        zdc.show();
+                                            },
+                                            230);
+                                }
+                            };
+                            zdc.show();
 
+
+                        }else{
+                            Log.d("logan1422","onDataChange is called! "+newVersionName);
+                            //todo 메인페이지 호출.
+                            new Handler().postDelayed(
+                                    new Runnable() {
+                                        public void run() {
+                                            setting = getSharedPreferences("setting",0);
+                                            Intent i;
+                                            if(setting.getBoolean("first_time",true)){
+                                                i = new Intent(SplashActivity.this, IntroduceActivity.class);
+                                            }else{
+                                                i = new Intent(SplashActivity.this, HeaderActivity.class);
+                                                i.putExtra("login_type","normal");
+                                            }
+                                            startActivity(i);
+                                            finish();
+                                        }
+                                    },
+                                    630);
+                        }
 
                     }else{
-                        //todo 메인페이지 호출.
-                        new Handler().postDelayed(
-                                new Runnable() {
-                                    public void run() {
-                                        setting = getSharedPreferences("setting",0);
-                                        Intent i;
-                                        if(setting.getBoolean("first_time",true)){
-                                            i = new Intent(SplashActivity.this, IntroduceActivity.class);
-                                        }else{
-                                            i = new Intent(SplashActivity.this, HeaderActivity.class);
-                                            i.putExtra("login_type","normal");
-                                        }
-                                        startActivity(i);
-                                        finish();
-                                    }
-                                },
-                                630);
-                    }
-
-                }else{
-                    //todo 서버 꺼짐.
-                    if(!SplashActivity.this.isFinishing()){
-                        ServerPowerOffDialog spod = new ServerPowerOffDialog(SplashActivity.this);
-                        int LAYOUT_FLAG;
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-                        } else {
-                            LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_TOAST;
-                        }
-                        spod.getWindow().setType(LAYOUT_FLAG);// 어느 액티비에서나 다 볼 수 있도록 해야 함.
-
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            if(Settings.canDrawOverlays(context)){
-                                spod.show();
-                            }else{
-                                PermissionOverlay();
+                        //todo 서버 꺼짐.
+                        if(!SplashActivity.this.isFinishing()){
+                            ServerPowerOffDialog spod = new ServerPowerOffDialog(SplashActivity.this);
+                            int LAYOUT_FLAG;
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+                            } else {
+                                LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_TOAST;
                             }
+                            spod.getWindow().setType(LAYOUT_FLAG);// 어느 액티비에서나 다 볼 수 있도록 해야 함.
+
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                if(Settings.canDrawOverlays(context)){
+                                    spod.show();
+                                }else{
+                                    PermissionOverlay();
+                                }
+                            }
+
                         }
-
                     }
+                    myRef.removeEventListener(this);//database 리스너 해제
+
                 }
-                myRef.removeEventListener(this);//database 리스너 해제
 
-            }
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    Log.w("hjm1422", "Failed to read value.", error.toException());
+                }
+            });
+        }catch (Exception e){
+            Log.d("logan",e.toString());
+        }
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("hjm1422", "Failed to read value.", error.toException());
-            }
-        });
 
     }
 
@@ -244,5 +251,4 @@ public class SplashActivity extends AppCompatActivity {
         }
         return null;
     }
-
 }

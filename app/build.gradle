@@ -104,7 +104,7 @@ dependencies {
 
 
     //todo facebook SDK
-    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+    //implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
 }
 
 apply plugin:'com.google.gms.google-services'
