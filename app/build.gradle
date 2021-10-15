@@ -85,6 +85,7 @@ dependencies {
 
 
     //todo firebase
+
     implementation 'com.google.firebase:firebase-core:17.3.0'
     implementation 'com.firebaseui:firebase-ui-auth:4.0.0'
     implementation'com.google.firebase:firebase-auth:19.3.0'

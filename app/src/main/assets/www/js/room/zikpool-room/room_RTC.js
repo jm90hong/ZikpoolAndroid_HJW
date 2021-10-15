@@ -2,6 +2,7 @@ var socket;
 var socketAddr = 'http://www.zikpool.com:3100';
 var socketPath = '/zpsocroom';
 var options ={transports:["websocket"],forceNew: true,path:socketPath};
+
 //todo TURN 서버 추가.
 const configuration = {
    iceServers:[
@@ -9,9 +10,9 @@ const configuration = {
                  url:"stun:stun1.l.google.com:19302"
               },
               {
-                url: "turn:45.77.24.203",
-                username: "stoudy",
-                credential: "cla601ssturn"
+                url: "turn:13.124.42.34", //os aws 서버
+                username: "myId",
+                credential: "myPw"
               }
             ]
 };
