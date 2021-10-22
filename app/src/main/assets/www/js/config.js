@@ -44,7 +44,6 @@ const zikpool={
         addQuestion:{
                 minPoint:600,
                 maxPoint:1500
-
         },
         registerZikpool:{
                 minPoint:500,
@@ -64,8 +63,9 @@ const ERROR={
             return str;
         }
     }
-
 }
+
+
 
 const banWord={
     word1:'마톡',
@@ -123,7 +123,6 @@ let MY_ZIKPOOLCHAT_ARR=[];
 
 
 
-
 //todo 디바이스 정보 localStorage에 저장하기
 function setNewDeviceID() {
   return new Promise(function(resolve,reject) {
@@ -132,8 +131,9 @@ function setNewDeviceID() {
       //todo  디바이스 uuid만 사용함. 랜덤으로 생성 후 local storage에 저장한다.
       setZPLocal('ZP_DEVICE_deviceID', randomStr, ZP_DEVICE, 'deviceID');
       resolve();
-    });
+  });
 };
+
 
 function makeAndGetOrderId($member_idx){
       //todo order_id 만들기.
