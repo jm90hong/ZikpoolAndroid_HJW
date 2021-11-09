@@ -1,42 +1,33 @@
 {
   "project_info": {
-    "project_number": "623892431",
-    "firebase_url": "https://zikpool-dev.firebaseio.com",
-    "project_id": "zikpool-dev",
-    "storage_bucket": "zikpool-dev.appspot.com"
+    "project_number": "1095991595177",
+    "project_id": "agendiar-project-31073",
+    "storage_bucket": "agendiar-project-31073.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:623892431:android:0b1bec7c007ad609db24ba",
+        "mobilesdk_app_id": "1:1095991595177:android:8adb2b4da0acf85adcd9b8",
         "android_client_info": {
           "package_name": "com.agendiar.project.study"
         }
       },
       "oauth_client": [
         {
-          "client_id": "623892431-38uoi55c7r3957mis8ihvb7b6t0cmukb.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.agendiar.project.study",
-            "certificate_hash": "0a2408ff0fe0b6b38197029245018b651262bde2"
-          }
-        },
-        {
-          "client_id": "623892431-lma2tifau27eck58cohaqq5o3mkhq1r5.apps.googleusercontent.com",
+          "client_id": "1095991595177-060r1oefa4qur47braci8nke5gi57e8o.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDJ_xIxnGQrAMH6AjH7feVVL9LbiskI79k"
+          "current_key": "AIzaSyAqa3-mkJ-VTMJFpw9nGjJ9qdYgg0fMago"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "623892431-lma2tifau27eck58cohaqq5o3mkhq1r5.apps.googleusercontent.com",
+              "client_id": "1095991595177-060r1oefa4qur47braci8nke5gi57e8o.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

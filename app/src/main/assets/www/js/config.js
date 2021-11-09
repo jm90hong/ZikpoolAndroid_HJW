@@ -25,14 +25,15 @@ let app={
 //todo DEV
 //const super_url = 'http://13.125.23.255/zikpool_client/';
 const super_url = 'http://13.209.231.35:8080/zikpool_client/';
-const firebase_config = {
-        apiKey: "AIzaSyBzpzbTOdLzrXlGICAlEOTrmQPP2NmZA5w",
-        authDomain: "zikpool-dev.firebaseapp.com",
-        databaseURL: "https://zikpool-dev.firebaseio.com",
-        projectId: "zikpool-dev",
-        storageBucket: "zikpool-dev.appspot.com",
-        messagingSenderId: "623892431",
-        appId: "1:623892431:web:e46251a81d020716"
+const firebaseConfig = {
+  apiKey: "AIzaSyD68ruPKuhu4N102-W00wjUE-aRAe61sT0",
+  authDomain: "agendiar-project-31073.firebaseapp.com",
+  databaseURL: "https://agendiar-project-31073-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "agendiar-project-31073",
+  storageBucket: "agendiar-project-31073.appspot.com",
+  messagingSenderId: "1095991595177",
+  appId: "1:1095991595177:web:b64ada7c0ca14f4bdcd9b8",
+  measurementId: "G-S2VCVZH9Z9"
 };
 
 
@@ -203,6 +204,7 @@ function makeNumberCommma(num){
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+
 // 안쓰는 함수 인거 같음
 function setLocalStorage($key,$value,$param){
     window.localStorage.setItem($key,$value);
@@ -246,6 +248,7 @@ const ZIKPOOL_SOCKET = {
     room:':3100'
   }
 }
+
 const START_ZIKPOOL_KEY={
   start:'5EHHpBjOF0AeoCvAPKH8790-1', //todo 마톡 시작키
   expired:'5EHHpBjOF0AeoCvAPKH8790-0'//todo 만료된 키
@@ -313,7 +316,7 @@ ZP_FUNC={
 }
 
 
-//URL parameer 값가져오기
+//todo URL parameer 값가져오기
 function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -351,7 +354,7 @@ function checkStringSpecial(str,type){
 }
 
 
-// 채팅 날짜
+//todo 채팅 날짜
 Number.prototype.padLeft = function(base,chr){
    var  len = (String(base || 10).length - String(this).length)+1;
    return len > 0? new Array(len).join(chr || '0')+this : this;
