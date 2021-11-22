@@ -2,7 +2,7 @@ var my_oz_use;
 
 //init function
 function init(){
-    //todo 오픈 마톡 이용권 횟수 조정
+    //todo 오픈 수잘친 이용권 횟수 조정
     my_oz_use = getUrlParameter('oz_use');
     $('.oz-use-txt').html(my_oz_use);
 
@@ -13,7 +13,7 @@ function init(){
 
             window.android_openzikpool.startOpenZikpoolRoom(type,server);
         }else{
-            window.android_openzikpool.zikpoolToast(0,'오픈마톡 이용권이 부족합니다.\n5초 광고 시청 후 이용하여 주세요.');
+            window.android_openzikpool.zikpoolToast(0,'오픈수잘친 이용권이 부족합니다.\n5초 광고 시청 후 이용하여 주세요.');
         }
     });
 

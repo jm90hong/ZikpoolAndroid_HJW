@@ -91,7 +91,7 @@ public class ImageAndCropActivity extends Activity {
 
 
                 try {
-                    //마톡에는 파일 저장이 아니라 base64(String)로 출력하여 xwalkwebview 로 전달.
+                    //수잘친에는 파일 저장이 아니라 base64(String)로 출력하여 xwalkwebview 로 전달.
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     cropped.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();

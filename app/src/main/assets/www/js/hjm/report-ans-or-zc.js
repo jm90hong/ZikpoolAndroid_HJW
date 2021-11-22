@@ -20,7 +20,7 @@ function init(){
         var $w = $('.bad-ans-ex-img-cont > img').width();
         $('.bad-ans-ex-img-cont > img').height($w);
     }else if(rp_obj.page_type=='zc'){
-        //todo 마톡 신고하기.
+        //todo 수잘친 신고하기.
         $('.report-provison-cont[data-type="zc"]').show();
     }
 
@@ -102,7 +102,7 @@ function init(){
             if(rp_obj.page_type=='ans'){
                 $t='답변신고하기';
             }else{
-                $t='마톡신고하기';
+                $t='수잘친신고하기';
             }
             zikpoolConfirm({
                 title:$t,
@@ -140,8 +140,8 @@ function init(){
                         })
 
                     }else if(rp_obj.page_type=='zc'){
-                        //todo 마톡 신고하기.
-                        $('#loading-text-1').css('color','#fff').html('마톡신고 제출중 ...');
+                        //todo 수잘친 신고하기.
+                        $('#loading-text-1').css('color','#fff').html('수잘친신고 제출중 ...');
                         $('#upload-loading-wall').show();
                         console.log('chat :  '+rp_obj.question_idx+'  '+rp_obj.target_idx+'  '+$('#content').val());
                         $.ajax({

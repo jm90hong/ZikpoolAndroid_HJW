@@ -24,16 +24,16 @@ let app={
 
 //todo DEV
 //const super_url = 'http://13.125.23.255/zikpool_client/';
-const super_url = 'http://13.209.231.35:8080/zikpool_client/';
+const super_url = 'http://13.209.231.35/zikpool_client/';
 const firebaseConfig = {
-  apiKey: "AIzaSyD68ruPKuhu4N102-W00wjUE-aRAe61sT0",
-  authDomain: "agendiar-project-31073.firebaseapp.com",
-  databaseURL: "https://agendiar-project-31073-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "agendiar-project-31073",
-  storageBucket: "agendiar-project-31073.appspot.com",
-  messagingSenderId: "1095991595177",
-  appId: "1:1095991595177:web:b64ada7c0ca14f4bdcd9b8",
-  measurementId: "G-S2VCVZH9Z9"
+  apiKey: "AIzaSyAIP_v807Xm2MsaqyrG6OQMhsuXSPwDtD4",
+  authDomain: "study-27cb3.firebaseapp.com",
+  databaseURL: "https://study-27cb3-default-rtdb.firebaseio.com",
+  projectId: "study-27cb3",
+  storageBucket: "study-27cb3.appspot.com",
+  messagingSenderId: "471880357232",
+  appId: "1:471880357232:web:df38219f588a2b342bebb5",
+  measurementId: "G-QYKZMPJX4C"
 };
 
 
@@ -69,7 +69,7 @@ const ERROR={
 
 
 const banWord={
-    word1:'마톡',
+    word1:'수잘친',
     word2:'zikpool',
     word3:'스투디',
     word4:'stoudy',
@@ -237,8 +237,8 @@ const ZIKPOOL_RAND ={
 }
 
 const ZIKPOOL_SOCKET = {
-  addr1:'http://www.zikpool.com',
-  addr2:'http://www.zikpool.com',
+  addr1:'http://13.209.231.35',
+  addr2:'http://13.209.231.35',
   path:{
     push:'/zpsocpush',
     room:'/zpsocroom'
@@ -250,7 +250,7 @@ const ZIKPOOL_SOCKET = {
 }
 
 const START_ZIKPOOL_KEY={
-  start:'5EHHpBjOF0AeoCvAPKH8790-1', //todo 마톡 시작키
+  start:'5EHHpBjOF0AeoCvAPKH8790-1', //todo 수잘친 시작키
   expired:'5EHHpBjOF0AeoCvAPKH8790-0'//todo 만료된 키
 }
 
@@ -618,7 +618,7 @@ function updateAllNumberInHeader(){
     }
 
 
-    //todo left menu 진행중 질문 및 마톡 카운트 업데이트.
+    //todo left menu 진행중 질문 및 수잘친 카운트 업데이트.
     $('#left_cnt_qa_ing').html(qClass.length+aClass.length);
     $('#left_cnt_z_ing').html(zcClass.length);
 

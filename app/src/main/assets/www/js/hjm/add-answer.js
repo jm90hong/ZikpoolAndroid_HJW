@@ -89,7 +89,7 @@ function init(){
       });
 
 
-      //todo 마톡 여부 라디오 박스.
+      //todo 수잘친 여부 라디오 박스.
       $('.aa-available-zikpool-radio').on('click',function(){
         var type = $(this).attr('data-type');
         $('.aa-available-zikpool-radio').css('color','#aeaeae').css('background','#fff').css('border','1px solid #aeaeae');

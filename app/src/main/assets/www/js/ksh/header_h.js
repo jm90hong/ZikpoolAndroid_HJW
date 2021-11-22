@@ -53,7 +53,7 @@ function setHeaderHtmlJs() {
         }else if($page=='p4'){
             $src='img/main/bottom-nav/m-teachers-checked.png';
             window.android_header.setIsAbleRefresh('f');
-            //todo 최초에 한번 마톡 선생님에 진입 할때 리스트 호출.
+            //todo 최초에 한번 수잘친 선생님에 진입 할때 리스트 호출.
             if(tab4.isFirstEnter){
                 tab4.isFirstEnter=false;
                 ZP_FIREBASE.firestore.getTeacherList();
@@ -458,7 +458,7 @@ function doLoginProcess($mem){
                   $('.my-qa-in-progress').children().not('.there-is-not-anything-in-container').remove();
                   $('#my-zikpoolchat-in-progress-cont').children().not('.there-is-not-anything-in-container').remove();
 
-                  //todo 메뉴 슬라이드 진행중 질문 / 마톡 등 숫자정보 초기화 = 0
+                  //todo 메뉴 슬라이드 진행중 질문 / 수잘친 등 숫자정보 초기화 = 0
                   $('.main-left-menu-number-label').attr('data-value',0).html('0');
                   $('.main-tab-notreadcnt').data('not-read-cnt',0).html('0');
                   $('.main-tab-notreadcnt').removeClass('not-read-cnt-over-zero');

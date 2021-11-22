@@ -16,7 +16,7 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginBottom="40dp"
 
-        android:text="마톡을 종료 하시겠습니까?"
+        android:text="수잘친을 종료 하시겠습니까?"
         android:textColor="#222222"
         android:textSize="15dp"
         android:textStyle="bold" />

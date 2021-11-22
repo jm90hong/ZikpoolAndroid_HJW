@@ -56,7 +56,7 @@ public class OpenZikpoolActivity  extends AppCompatActivity implements RewardedV
         setContentView(R.layout.activity_main);
         toolbar_title = (TextView) findViewById(R.id.toobar_title);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.zikpool_toolbar);
-        toolbar_title.setText("오픈 마톡 시작하기");
+        toolbar_title.setText("오픈 수잘친 시작하기");
         toolbar_title.setTypeface(null, Typeface.BOLD);
         toolbar_title.setTextColor(Color.parseColor("#3e3a39"));
         setSupportActionBar(myToolbar);
@@ -111,7 +111,7 @@ public class OpenZikpoolActivity  extends AppCompatActivity implements RewardedV
 
                @Override
                public void onSuccess(KakaoLinkResponse result) {
-                   zikpoolToast(1,"메세지 전송 후 메세지 탬플릿 내부의 '오픈마톡 참가하기' 버튼을 클릭해주세요.");
+                   zikpoolToast(1,"메세지 전송 후 메세지 탬플릿 내부의 '오픈수잘친 참가하기' 버튼을 클릭해주세요.");
                    // 템플릿 밸리데이션과 쿼터 체크가 성공적으로 끝남.
                    // 톡에서 정상적으로 보내졌는지 보장은 할 수 없다. 전송 성공 유무는 서버콜백 기능을 이용하여야 한다.
                    new Thread(new Runnable() {
@@ -153,7 +153,7 @@ public class OpenZikpoolActivity  extends AppCompatActivity implements RewardedV
 //
 //               @Override
 //               public void onSuccess(KakaoLinkResponse result) {
-//                   zikpoolToast(1,"메세지 전송 후 메세지 탬플릿 내부의 '오픈마톡 참가하기' 버튼을 클릭해주세요.");
+//                   zikpoolToast(1,"메세지 전송 후 메세지 탬플릿 내부의 '오픈수잘친 참가하기' 버튼을 클릭해주세요.");
 //                   // 템플릿 밸리데이션과 쿼터 체크가 성공적으로 끝남.
 //                   // 톡에서 정상적으로 보내졌는지 보장은 할 수 없다. 전송 성공 유무는 서버콜백 기능을 이용하여야 한다.
 //                   new Thread(new Runnable() {

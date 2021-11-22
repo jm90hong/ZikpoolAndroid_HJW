@@ -171,7 +171,7 @@ function handlePartnerOut(){
   $('#user-list-other').html('로그아웃...');
   window.plugins.toast.showWithOptions(
     {
-      message: '상대방이 마톡방을 종료하였습니다.',
+      message: '상대방이 수잘친방을 종료하였습니다.',
       duration: "short", // which is 2000 ms. "long" is 4000. Or specify the nr of ms yourself.
       position: "bottom",
       addPixelsY: -40,

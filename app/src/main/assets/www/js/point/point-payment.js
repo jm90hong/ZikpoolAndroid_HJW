@@ -96,7 +96,7 @@ function setPointPaymentHtmlJs() {
         var bonus = parseInt(el.data('bonus'));
         var vat = vos*0.1;
         var $code= (1000000000+parseInt(ZP_MEMBER.member_idx)).toString(16);
-        var $buyerName = '마톡 회원('+$code+')';
+        var $buyerName = '수잘친 회원('+$code+')';
         var $order={
             orderId:makeAndGetOrderId(ZP_MEMBER.member_idx),
             buyerIdx:ZP_MEMBER.member_idx,

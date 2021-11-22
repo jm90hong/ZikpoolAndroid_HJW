@@ -211,9 +211,9 @@ public class TeacherClassRoomActivity extends AppCompatActivity implements Camer
         };
         @android.webkit.JavascriptInterface
         public void openZikpoolApp(){
-            String tmpMainTitle = "마톡앱을 방문하시겠어요?";
+            String tmpMainTitle = "수잘친앱을 방문하시겠어요?";
             String tmpSubTitle = "";
-            ZikpoolDialogClass zdc = new ZikpoolDialogClass(TeacherClassRoomActivity.this,tmpMainTitle,tmpSubTitle,"마톡로가기"){
+            ZikpoolDialogClass zdc = new ZikpoolDialogClass(TeacherClassRoomActivity.this,tmpMainTitle,tmpSubTitle,"수잘친로가기"){
                 @Override
                 public void methodToCallback(){
                     Intent i  = new Intent(TeacherClassRoomActivity.this, SplashActivity.class);

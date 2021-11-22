@@ -127,7 +127,7 @@ public class QuestionDetailActivity extends AppCompatActivity
                                                                     @Override
                                                                     public void run() {
                                                                         mXWalkView.loadUrl("javascript:hideLoadingWind()");
-                                                                        zikpoolToast("마톡채팅을 통해 수업을 하세요.");
+                                                                        zikpoolToast("수잘친채팅을 통해 수업을 하세요.");
                                                                         mXWalkView.resumeTimers();
                                                                         popupWind=false;
                                                                     }

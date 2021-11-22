@@ -117,7 +117,7 @@ function init2(){
             obj.salary_krw=$salary_krw;
             obj.requested_income=requestedIncome;
             zikpoolConfirm({
-                title:'마톡 급여 신청',
+                title:'수잘친 급여 신청',
                 content:'<span style="display:flex;align-items:center;">'
                         +requestedIncome.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                         +' 점('+$salary_krw.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' 원) 을</span>'

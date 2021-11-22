@@ -1,5 +1,5 @@
 function init(){
-    // 마톡 설명서 하위 뷰
+    // 수잘친 설명서 하위 뷰
     $('#guidebook_info').click(function(){
         window.android_information.guidebook_info_go();
     });

@@ -249,7 +249,7 @@ function init(){
 
 
     $('.final-btn-for-student').on('click',function(){
-        //todo .final-btn-for-student 는 '답변채택' , '마톡 신청' 에 적용. 신고하기는 별도의 Activity에서 구현.
+        //todo .final-btn-for-student 는 '답변채택' , '수잘친 신청' 에 적용. 신고하기는 별도의 Activity에서 구현.
        var type = $(this).data('type');
        if(type == 'select'){
             //todo 답변 채택 [code here]
@@ -261,7 +261,7 @@ function init(){
                window.android_questiondetail.zikpoolToast('올바른 형식의 후기가 아닙니다.')
             }
        }else if(type == 'register'){
-            //todo 마톡 신청 [code here] -> HeaderActivity 의 firebase 로 넘겨준다.
+            //todo 수잘친 신청 [code here] -> HeaderActivity 의 firebase 로 넘겨준다.
             $('.a-answer-btn').data('type','disable');
             startUploadingWindow('r');
             var $student_idx = ThisQuestionObj.student_idx;
@@ -616,7 +616,7 @@ function getAnswersFromData(data) {
                     $info.selected='다른 답변이 채택됨';
                 }
             }else{
-                //존재 안함 -> 모든 버튼 살려두기 마톡이 가능한 문제인 경우 display none
+                //존재 안함 -> 모든 버튼 살려두기 수잘친이 가능한 문제인 경우 display none
                 if(field.zikpool_ny=='n'){
                     style_rz=display_none;
                 }
@@ -628,10 +628,10 @@ function getAnswersFromData(data) {
 
 
 
-        //todo 답변이 마톡 가능한 경우...
+        //todo 답변이 수잘친 가능한 경우...
         if(field.zikpool_ny=='y'){
             $info.zikpool_ny='가능';
-            //todo 마톡 포인트는 질문한 학생과 답변한 선생님에게만 공개.
+            //todo 수잘친 포인트는 질문한 학생과 답변한 선생님에게만 공개.
             if(isThisQuestionMine || ZP_MEMBER.member_idx==field.ans_member_idx){
                 $info.z_point='<div>'+
                                 '<div class="one-ans-info-title">과외포인트</div>'+
@@ -654,12 +654,12 @@ function getAnswersFromData(data) {
                     $info.selected='채택완료(과외)';
                 };
                 var showDetailOfReplyBtn='';
-                if(field.reply != null && field.reply.length > 0 && field.reply !='[마톡] 자동채택된 답변입니다.'){
+                if(field.reply != null && field.reply.length > 0 && field.reply !='[수잘친] 자동채택된 답변입니다.'){
                     showDetailOfReplyBtn='<div class="show-reply-btn-cont">'+
                                             '<span class="show-detail-of-reply-btn">후기 자세히보기</span>'+
                                          '</div>';
                 }else{
-                    field.reply='[마톡] 자동처리된 답변입니다.';
+                    field.reply='[수잘친] 자동처리된 답변입니다.';
                 }
 
                 selAnsHTML='<div class="icon-in-answer-img-container" align="center">'+

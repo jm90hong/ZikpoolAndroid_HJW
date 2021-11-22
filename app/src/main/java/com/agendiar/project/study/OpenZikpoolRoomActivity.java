@@ -121,13 +121,13 @@ public class OpenZikpoolRoomActivity extends AppCompatActivity implements Camera
         };
         @android.webkit.JavascriptInterface
         public void leaveZikpoolRoom(){
-            CustomDialog cd = new CustomDialog("finish",OpenZikpoolRoomActivity.this,"오픈마톡을 종료하시겠습니까?","종료하기");
+            CustomDialog cd = new CustomDialog("finish",OpenZikpoolRoomActivity.this,"오픈수잘친을 종료하시겠습니까?","종료하기");
             cd.show();
         }
 
         @android.webkit.JavascriptInterface
         public void leaveZikpoolRoomWithDialog(){
-            CustomDialog cd = new CustomDialog("finish",OpenZikpoolRoomActivity.this,"오픈 마톡을 종료하시겠습니까?","종료하기");
+            CustomDialog cd = new CustomDialog("finish",OpenZikpoolRoomActivity.this,"오픈 수잘친을 종료하시겠습니까?","종료하기");
             cd.show();
         }
 
@@ -156,7 +156,7 @@ public class OpenZikpoolRoomActivity extends AppCompatActivity implements Camera
 
         @android.webkit.JavascriptInterface
         public void onTimeOver(){
-            zikpoolToast(0,"이용가능한 시간이 초과하였습니다. 오픈 마톡을 종료합니다.");
+            zikpoolToast(0,"이용가능한 시간이 초과하였습니다. 오픈 수잘친을 종료합니다.");
             finish();
         }
 
@@ -186,9 +186,9 @@ public class OpenZikpoolRoomActivity extends AppCompatActivity implements Camera
         };
         @android.webkit.JavascriptInterface
         public void openZikpoolApp(){
-            String tmpMainTitle = "마톡앱을 방문하시겠어요?";
+            String tmpMainTitle = "수잘친앱을 방문하시겠어요?";
             String tmpSubTitle = "";
-            ZikpoolDialogClass zdc = new ZikpoolDialogClass(OpenZikpoolRoomActivity.this,tmpMainTitle,tmpSubTitle,"마톡로가기"){
+            ZikpoolDialogClass zdc = new ZikpoolDialogClass(OpenZikpoolRoomActivity.this,tmpMainTitle,tmpSubTitle,"수잘친로가기"){
                 @Override
                 public void methodToCallback(){
                     Intent i  = new Intent(OpenZikpoolRoomActivity.this, SplashActivity.class);
@@ -246,7 +246,7 @@ public class OpenZikpoolRoomActivity extends AppCompatActivity implements Camera
 
     @Override
     public void onBackPressed() {
-        CustomDialog cd = new CustomDialog("finish",OpenZikpoolRoomActivity.this,"오픈마톡을 종료하시겠습니까?","종료하기");
+        CustomDialog cd = new CustomDialog("finish",OpenZikpoolRoomActivity.this,"오픈수잘친을 종료하시겠습니까?","종료하기");
         cd.show();
     }
 }

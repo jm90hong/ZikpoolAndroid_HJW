@@ -523,7 +523,7 @@ function startTimer(duration, display) {
           display.textContent = minutes + ":" + seconds;
           if (--timer < 0) {
               timer = 0;
-              //todo 오픈 마톡 강제 종료.
+              //todo 오픈 수잘친 강제 종료.
                window.android_zikpoolroom.onTimeOver();
           }else if(timer < 120){
             display.style.color='#FF5733';

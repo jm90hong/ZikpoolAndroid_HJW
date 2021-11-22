@@ -18,7 +18,7 @@ public class ZikpoolConfig {
     public static String APP_PLAY_STORE_DOWNLOAD_URL = "https://play.google.com/store/apps/details?id=zikpool.stoudy.com.zikpoolandroid&hl=ko";
 
 
-    //todo 마톡 url
+    //todo 수잘친 url
     public static String ZIKPOOL_CLIENT_URL_HTTP_DEV="http://13.125.23.255/zikpool_client/";
     public static String ZIKPOOL_CLIENT_URL_HTTPS_PRO="https://www.zikpool.com/zikpool_client/";
 

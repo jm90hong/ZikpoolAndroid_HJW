@@ -50,14 +50,14 @@ function readyMyQAinProgress() {
     $('.my-qa-sel-btn[data-type="mya"]').trigger('click');
   }
 
-  //todo 진행중 답변에서 마톡 연습
+  //todo 진행중 답변에서 수잘친 연습
   $(document).on('click','.practice-zikpool-my-btn',function(){
     var parentClass = $(this).closest('.my-answer-list-box');
     var qi = parentClass.data('question-idx');
     var ai = parentClass.data('answer-idx');
     var si = parentClass.data('member-idx');
     var ti = ZP_MEMBER.member_idx;
-    //todo 위 3개의 값으로 zikpoolconfirm 호출 후 마톡연습 시작.
+    //todo 위 3개의 값으로 zikpoolconfirm 호출 후 수잘친연습 시작.
     zikpoolConfirm({
             title:'실시간 과외 연습',
             content:'과외 연습을 통해 미리 수업을 준비해보세요.</br>마이크,스피커 기능은 작동하지 않습니다.',
@@ -159,7 +159,7 @@ function readyMyQAinProgress() {
         q_point:q_point
     }
     if(payment_state=='r'){
-        //todo 환불인 경우(마톡은 하지 않음.)
+        //todo 환불인 경우(수잘친은 하지 않음.)
         zikpoolConfirm({
             title:'질문 포인트 환불',
             content:'유효기간이 지난 질문에 대한<br/>정상적인 답변이 없습니다.<br/>'+obj.q_point+' 질문포인트를 환불 합니다.',
@@ -172,13 +172,13 @@ function readyMyQAinProgress() {
     }else{
         var zcClass = $('.my-zc-list-box[data-question-idx="'+question_idx+'"]');
         if(zcClass.length > 0){
-            //todo 마톡 채팅이 존재함.
+            //todo 수잘친 채팅이 존재함.
             var zc_payment_state = zcClass.data('payment-state');
             if(zc_payment_state=='r'){
-                //todo 마톡이 환불인 경우.
+                //todo 수잘친이 환불인 경우.
                 zikpoolConfirm({
-                    title:'마톡(실시간과외) 포인트 환불',
-                    content:'해당 마톡채팅에 대한 선생님 신고가 처리되었습니다.<br/>'+obj.q_point+' 마톡포인트를 환불 합니다.',
+                    title:'수잘친(실시간과외) 포인트 환불',
+                    content:'해당 수잘친채팅에 대한 선생님 신고가 처리되었습니다.<br/>'+obj.q_point+' 수잘친포인트를 환불 합니다.',
                     confirm:function(){
                         obj.chat_idx=zcClass.data('chat-idx');
                         obj.z_point=zcClass.data('z-point');
@@ -186,10 +186,10 @@ function readyMyQAinProgress() {
                     }
                 });
             }else{
-                //todo 마톡 완료
+                //todo 수잘친 완료
                 zikpoolConfirm({
-                    title:'마톡채팅 완료하기',
-                    content:'마톡채팅(질문포함) 을 완료하시겠습니까? <br/>(프로필에서 확인 가능)',
+                    title:'수잘친채팅 완료하기',
+                    content:'수잘친채팅(질문포함) 을 완료하시겠습니까? <br/>(프로필에서 확인 가능)',
                     confirm:function(){
                         var obj = {
                             member_job:'s',
@@ -204,7 +204,7 @@ function readyMyQAinProgress() {
 
             }
         }else{
-            //todo 마톡 채팅이 없음 -> 질문 완료
+            //todo 수잘친 채팅이 없음 -> 질문 완료
             zikpoolConfirm({
                 title:'질문 완료하기',
                 content:'질문을 완료하시겠습니까? <br/>(프로필에서 확인 가능)',
@@ -230,15 +230,15 @@ function readyMyQAinProgress() {
     var zcClass = $('.my-zc-list-box[data-answer-idx="'+answer_idx+'"]');
 
     if(zcClass.length > 0){
-        //todo 마톡 채팅이 존재함.
+        //todo 수잘친 채팅이 존재함.
         var zc_report_state = zcClass.data('report-state');
         var $t,$c;
         if(zc_report_state !='y'){
-            $t='마톡채팅 완료하기';
-            $c='마톡채팅(답변포함) 을 완료하시겠습니까?<br/>(프로필에서 확인 가능)';
+            $t='수잘친채팅 완료하기';
+            $c='수잘친채팅(답변포함) 을 완료하시겠습니까?<br/>(프로필에서 확인 가능)';
         }else{
-            $t='마톡채팅 완료하기(신고)';
-            $c='마톡채팅(답변포함) 을 완료하시겠습니까?<br/>(프로필에서 확인 가능)';
+            $t='수잘친채팅 완료하기(신고)';
+            $c='수잘친채팅(답변포함) 을 완료하시겠습니까?<br/>(프로필에서 확인 가능)';
         }
 
         zikpoolConfirm({
@@ -470,7 +470,7 @@ function receiveQuestionAnsweredObjFromChild($objJson) {
 
 
 
-//todo 학생이 마톡 채팅을 완료하였을때 콜백 함수.(Activity 에서 호출)
+//todo 학생이 수잘친 채팅을 완료하였을때 콜백 함수.(Activity 에서 호출)
 function callbackWhenStudentCompleteZikpoolChat($question_idx,$teacher_idx,$answer_idx){
     var newstate='zikpool-3';
     var stateHTML='<span class="complete-my-qa-css complete-my-question-btn" data-type="perfect" data-question-idx="'+$question_idx+'"><i class="far fa-check-circle"></i>완료하기</span>'
@@ -481,7 +481,7 @@ function callbackWhenStudentCompleteZikpoolChat($question_idx,$teacher_idx,$answ
     $('.zikpool-chat-list-box[data-question-idx="'+$question_idx+'"]').data('zikpool-chat-nyc','c');
 
     //자기 채팅 리스트의 메세지 내용 바꾸기.
-    var msg ='<div class="zc-msg-zikpool-chat-complete-flag">완료된 마톡 채팅입니다.</div>';
+    var msg ='<div class="zc-msg-zikpool-chat-complete-flag">완료된 수잘친 채팅입니다.</div>';
     $('.zikpool-chat-list-box[data-question-idx="'+$question_idx+'"]').find('.zikpool-chat-msg-content').html(msg);
 
     //선생님에게 firebaase 로 알림.
@@ -643,7 +643,7 @@ function removeCompletedQuestion($question_idx){
         qClass.remove();
         //todo 안드로이드 Room에서 질문 사진 삭제.
         window.android_header.deleteQuestionImageInRoom($question_idx);
-        //todo 마톡 채팅 존재 여부 확인 후 같이 삭제. 해당 질문에 마톡채팅이 존재하면 마톡채팅도 삭제함.
+        //todo 수잘친 채팅 존재 여부 확인 후 같이 삭제. 해당 질문에 수잘친채팅이 존재하면 수잘친채팅도 삭제함.
         checkZikpoolChatAndDeleteAll('q',$question_idx);
         //todo left menu 카운트 업데이트 및 공백 아이콘 체크.
         updateAllNumberInHeader();
@@ -662,7 +662,7 @@ function removeCompletedAnswer($answer_idx){
         aClass.remove();
         //todo 안드로이드 Room에서 질문 사진 삭제.
         window.android_header.deleteQuestionImageInRoom(question_idx);
-        //todo 마톡 채팅 존재 여부 확인 후 같이 삭제. 해당 답변과 관련된 마톡채팅이 존재하면 삭제.
+        //todo 수잘친 채팅 존재 여부 확인 후 같이 삭제. 해당 답변과 관련된 수잘친채팅이 존재하면 삭제.
         checkZikpoolChatAndDeleteAll('a',$answer_idx);
         //todo left menu 카운트 업데이트 및 공백 아이콘 체크.
         updateAllNumberInHeader();
@@ -702,7 +702,7 @@ function checkZikpoolChatAndDeleteAll($type,$idx){
         zcClass.remove();
         var otherZcClass = $('.my-zc-list-box').filter('[data-student-idx="'+chk_mem_idx+'"],[data-teacher-idx="'+chk_mem_idx+'"]');
         if(otherZcClass.length == 0){
-            //todo 삭제하려고 하는 회원이미지를 사용하는 마톡 채팅이 없음. -> 안드로이드 Room 에서 회원이미지 삭제.
+            //todo 삭제하려고 하는 회원이미지를 사용하는 수잘친 채팅이 없음. -> 안드로이드 Room 에서 회원이미지 삭제.
             window.android_header.deleteMemberImageInRoom(chk_mem_idx);
         }
     }

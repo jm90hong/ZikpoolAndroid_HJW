@@ -123,7 +123,7 @@ function handlerAlreadyLoginCheck(){
           $('.my-qa-in-progress').children().not('.there-is-not-anything-in-container').empty();
           $('#my-zikpoolchat-in-progress-cont').children().not('.there-is-not-anything-in-container').empty();
 
-          //todo 메뉴 슬라이드 진행중 질문 / 마톡 등 숫자정보 초기화 = 0
+          //todo 메뉴 슬라이드 진행중 질문 / 수잘친 등 숫자정보 초기화 = 0
           $('.main-left-menu-number-label').attr('data-value',0).html('0');
 
           $('.main-tab-notreadcnt').data('not-read-cnt',0).html('0');
@@ -336,7 +336,7 @@ function getMyQuestionFromServer(){
     error : function(request) {
       zikpoolWarn({
         title:'서버 에러',
-        content:'11현재 서버와 연결이 원활 하지 않습니다.</br>마톡 1:1문의 사항에 알려주시길 바랍니다.'
+        content:'11현재 서버와 연결이 원활 하지 않습니다.</br>수잘친 1:1문의 사항에 알려주시길 바랍니다.'
       });
       reject();
     }
@@ -387,12 +387,12 @@ function getMyQuestionfromData(data){
             // todo 사진풀이만 채택
             questionHTMLStateText='채택완료';
         }else if(field.zikpool_chat_nyc=='y'){
-            //todo 마톡 진행중 -> 질문을 완료 시키면 안됨.
+            //todo 수잘친 진행중 -> 질문을 완료 시키면 안됨.
             questionHTMLStateClass='do-zikpool';
             questionHTMLStateText='채팅진행중';
             myBtn1='';
         }else{
-            // todo 마톡까지 채택 완료 zikpool_chat_nyc='c'
+            // todo 수잘친까지 채택 완료 zikpool_chat_nyc='c'
             questionHTMLStateText='과외완료';
         }
 
@@ -485,7 +485,7 @@ function getMyQuestionfromData(data){
        myQuestionImgObj[field.question_idx]['q_url']=field.q_url;
        myQuestionImgObj[field.question_idx]['chk']=0;
 
-    //todo 모든 질문,답변,마톡채팅 개수 업데이트.
+    //todo 모든 질문,답변,수잘친채팅 개수 업데이트.
     updateAllNumberInHeader();
 
     //todo 문제 유효기간 체크.
@@ -625,12 +625,12 @@ function getMyAnswerFromData(data){
 
 
     if(field.zikpool_chat_nyc=='y' && field.ans_selected_ny=='y'){
-        //todo 나의 답변 마톡 진행중
+        //todo 나의 답변 수잘친 진행중
         answerHTMLStateClass='do-zikpool';
         answerHTMLStateText='채팅진행중';
         myBtn1='';
     }else if(field.zikpool_chat_nyc=='c' && field.ans_selected_ny=='y'){
-        //todo 나의 답변 마톡 완료
+        //todo 나의 답변 수잘친 완료
         answerHTMLStateClass='complete-ans';
         answerHTMLStateText='과외완료';
         myBtn1=MAIN_HTML.myABtn.complete;
@@ -639,7 +639,7 @@ function getMyAnswerFromData(data){
         answerHTMLStateText='과외신고';
     }
 
-    //todo 마톡 가능 여부
+    //todo 수잘친 가능 여부
     if(field.zikpool_ny=='y' && field.zikpool_chat_nyc !='c'){
         if(field.zikpool_chat_nyc =='n'){
 //            if(field.ans_selected_ny=='n'){
@@ -709,7 +709,7 @@ function getMyAnswerFromData(data){
         '</div>'
     )
 
-    //todo 모든 질문,답변,마톡채팅 개수 업데이트.
+    //todo 모든 질문,답변,수잘친채팅 개수 업데이트.
     updateAllNumberInHeader();
 
     //todo 문제 유효기간 체크.
@@ -786,8 +786,8 @@ function getMyZikpoolChatFromData(data) {
     }
 
     if(field.report_state=='p'){
-        //todo 마톡 신고 심사중.
-        //나의 마톡 채팅에 표시.
+        //todo 수잘친 신고 심사중.
+        //나의 수잘친 채팅에 표시.
         zikpoolStateIcon='<div class="my-black-back-wall mini" style="color:#ff9300;">'+
                               '<i class="fas fa-exclamation"></i>'+
                            '</div>';
@@ -795,7 +795,7 @@ function getMyZikpoolChatFromData(data) {
         //나의 질문 답변에 표시
         htmlFunc.changeStateTagWithZC('report_p',field.question_idx,field.answer_idx);
     }else if(field.report_state=='y' && field.payment_state=='r'){
-        //todo 마톡 신고 처리완료. report_state='y' 와 payment_state=='r' 은 종속관계
+        //todo 수잘친 신고 처리완료. report_state='y' 와 payment_state=='r' 은 종속관계
 
         zikpoolStateIcon='<div class="my-black-back-wall mini" style="color:red;">'+
                               '<i class="fas fa-exclamation"></i>'+
@@ -868,28 +868,28 @@ function getMyZikpoolChatFromData(data) {
     //todo 읽지 않은 개수 불러오기.
     ZP_FIREBASE.zikpoolchat_getNotReadCntInitial(field.chat_idx,ZP_MEMBER.member_idx);
 
-    //todo 모든 질문,답변,마톡채팅 개수 업데이트.
+    //todo 모든 질문,답변,수잘친채팅 개수 업데이트.
     updateAllNumberInHeader();
 
     var nowMS = Date.now();
-    //todo 마톡채팅 유효기간 체크.
+    //todo 수잘친채팅 유효기간 체크.
     var $zikpoolDate = new Date(field.reg_date);
     var zikpoolDateMS = $zikpoolDate.getTime();
 
 
 
-    //todo 만료된 마톡채팅에서 환불되는 경우는 없음.
+    //todo 만료된 수잘친채팅에서 환불되는 경우는 없음.
     if(field.payment_state=='n' && field.report_state=='n' && field.pause_state != 'y'){
         if(field.pause_state=='n'){
             if(nowMS - zikpoolDateMS >= getValidityDaysOfService('zikpool')){
-                //todo 마톡채팅 처리. -> 자동결제
+                //todo 수잘친채팅 처리. -> 자동결제
                 onExpired.processExpiredZikpoolChat(field);
             }
         }else if(field.pause_state=='r'){
             var $runDate = new Date(field.run_date);
             var runDateMS = $runDate.getTime();
             if(nowMS - runDateMS >= getValidityDaysOfService('run')){
-                //todo 마톡채팅 처리. -> 자동결제처리
+                //todo 수잘친채팅 처리. -> 자동결제처리
                 onExpired.processExpiredZikpoolChat(field);
             }
 
@@ -912,7 +912,7 @@ function getMyZikpoolChatFromData(data) {
         $('#main-data-loading-wall').delay(500).hide(0);
     }
 
-    //todo 마톡채팅 상대방 이미지 (base64) 세팅.
+    //todo 수잘친채팅 상대방 이미지 (base64) 세팅.
     window.android_header.insertBase64ToHtml('member',JSON.stringify(Object.keys(myMemberImgObj)));
 };
 
@@ -1035,7 +1035,7 @@ var onExpired ={
             },
             success:function($zc){
                 if($zc.result_msg=='force'){
-                    //todo [STEP 1] 마톡채팅,질문,답변 클래스 객체 정의
+                    //todo [STEP 1] 수잘친채팅,질문,답변 클래스 객체 정의
                     var qClass = $('.my-question-list-box[data-question-idx="'+$zc.question_idx+'"]');
                     var aClass = $('.my-answer-list-box[data-answer-idx="'+$zc.answer_idx+'"]');
                     var zClass = $('.my-zc-list-box[data-chat-idx="'+$zc.chat_idx+'"]');
@@ -1050,7 +1050,7 @@ var onExpired ={
                     var qBtnSpace = qClass.find('.btn-space.space-1');
                     var aBtnSpace = aClass.find('.btn-space.space-1');
 
-                    //todo 마톡채팅 완료처리
+                    //todo 수잘친채팅 완료처리
                     zImgCont.append(
                         '<div class="my-black-back-wall mini complete">'+
                            '<i class="far fa-check-circle"></i>'+
@@ -1059,12 +1059,12 @@ var onExpired ={
 
                     zClass.data('payment-state','f');
 
-                    //todo 질문 마톡 완료 처리.
+                    //todo 질문 수잘친 완료 처리.
                     qStateTag.attr('class','my-state complete-ans').html('과외완료');
                     qBtnSpace.html(
                         MAIN_HTML.myQBtn.complete
                     );
-                    //todo 답변 마톡 완료 처리
+                    //todo 답변 수잘친 완료 처리
                     aStateTag.attr('class','my-state complete-ans').html('과외완료');
                     aBtnSpace.html(
                         MAIN_HTML.myABtn.complete

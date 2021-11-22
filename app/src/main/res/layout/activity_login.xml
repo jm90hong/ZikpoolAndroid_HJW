@@ -102,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:text="마톡 회원가입"
+            android:text="수잘친 회원가입"
             android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -132,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:text="마톡 바로가기"
+            android:text="수잘친 바로가기"
             android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold" />

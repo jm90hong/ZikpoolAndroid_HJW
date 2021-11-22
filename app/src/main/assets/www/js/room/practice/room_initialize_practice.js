@@ -555,7 +555,7 @@ function getAndSetQuestionImagesFromServer($qi){
            error : function(request) {
               zikpoolWarn({
                title:'서버 에러',
-               content:'9898현재 서버와 연결이 원활 하지 않습니다.</br>마톡 1:1문의 사항에 알려주시길 바랍니다.'
+               content:'9898현재 서버와 연결이 원활 하지 않습니다.</br>수잘친 1:1문의 사항에 알려주시길 바랍니다.'
              });
              reject();
            }
@@ -580,7 +580,7 @@ function getAndSetAnswerImagesFromServer($ai){
            error : function(request) {
               zikpoolWarn({
                title:'서버 에러',
-               content:'876현재 서버와 연결이 원활 하지 않습니다.</br>마톡 1:1문의 사항에 알려주시길 바랍니다.'
+               content:'876현재 서버와 연결이 원활 하지 않습니다.</br>수잘친 1:1문의 사항에 알려주시길 바랍니다.'
              });
              reject();
            }

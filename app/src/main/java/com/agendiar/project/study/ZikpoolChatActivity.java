@@ -172,7 +172,7 @@ public class ZikpoolChatActivity extends AppCompatActivity
     }
 
 
-    //todo header page에서 가져온 해당 마톡채팅 총 대화개수와 chat_idx
+    //todo header page에서 가져온 해당 수잘친채팅 총 대화개수와 chat_idx
     @Override
     public void onRecieveCntOfZikpoolChatList_inFirebase(String cntStr,String chatIdxStr) {
         //todo 여기서 Room에서 cnt가지고 오고,firebase cnt 가지고 옴.
@@ -427,7 +427,7 @@ public class ZikpoolChatActivity extends AppCompatActivity
 
 
 
-        //todo 마톡 방에 입장.
+        //todo 수잘친 방에 입장.
         @android.webkit.JavascriptInterface
         public void goToZikpoolRoom(String url,String chatIdxStr,String authority){
             int isCameraPermitted= ContextCompat.checkSelfPermission(mContext, android.Manifest.permission.CAMERA);
@@ -538,11 +538,11 @@ public class ZikpoolChatActivity extends AppCompatActivity
                                                                         public void run() {
                                                                             mXWalkView.loadUrl("javascript:hideLoadingWind()");
                                                                             if(type.equals("pause")){
-                                                                                zikpoolToast("마톡채팅이 일시정지 되었습니다.");
+                                                                                zikpoolToast("수잘친채팅이 일시정지 되었습니다.");
                                                                             }else if(type.equals("run")){
-                                                                                zikpoolToast("마톡채팅이 일시정지가 해제되었습니다.");
+                                                                                zikpoolToast("수잘친채팅이 일시정지가 해제되었습니다.");
                                                                             }else if(type.equals("complete-zikpool")){
-                                                                                zikpoolToast("마톡채팅이 완료되었습니다.");
+                                                                                zikpoolToast("수잘친채팅이 완료되었습니다.");
                                                                             }
                                                                             mXWalkView.resumeTimers();
                                                                             popupWind=false;
@@ -661,9 +661,9 @@ public class ZikpoolChatActivity extends AppCompatActivity
     @Override
     protected void onPause() {
         super.onPause();
-        //todo HeaderPage에 새로 들어온 마톡 채팅 insert 동작 호출.
+        //todo HeaderPage에 새로 들어온 수잘친 채팅 insert 동작 호출.
         //HeaderPageModel.getInstance().triggerParent_insertTempZikpoolChatList();
-        //todo 마톡 채팅 finish(), pageConfig에서 chatFlag=false my & socket io disconnect();
+        //todo 수잘친 채팅 finish(), pageConfig에서 chatFlag=false my & socket io disconnect();
         if(isStartZikpool){
 
         }
@@ -729,7 +729,7 @@ public class ZikpoolChatActivity extends AppCompatActivity
         }
 
         if(paymentState.equals("y") || paymentState.equals("f")){
-            //마톡완료
+            //수잘친완료
             chat_state_textview.setVisibility(View.VISIBLE);
             chat_state_textview.setTextColor(Color.parseColor("#222222"));
             chat_state_textview.setText("완료됨");
