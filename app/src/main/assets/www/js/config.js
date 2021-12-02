@@ -24,18 +24,28 @@ let app={
 
 //todo DEV
 //const super_url = 'http://13.125.23.255/zikpool_client/';
-const super_url = 'http://13.209.231.35/zikpool_client/';
-const firebaseConfig = {
-  apiKey: "AIzaSyAIP_v807Xm2MsaqyrG6OQMhsuXSPwDtD4",
-  authDomain: "study-27cb3.firebaseapp.com",
-  databaseURL: "https://study-27cb3-default-rtdb.firebaseio.com",
-  projectId: "study-27cb3",
-  storageBucket: "study-27cb3.appspot.com",
-  messagingSenderId: "471880357232",
-  appId: "1:471880357232:web:df38219f588a2b342bebb5",
-  measurementId: "G-QYKZMPJX4C"
-};
+const super_url = 'http://13.209.231.35:8080/zikpool_client/';
+//const firebase_config = {
+//  apiKey: "AIzaSyAIP_v807Xm2MsaqyrG6OQMhsuXSPwDtD4",
+//  authDomain: "study-27cb3.firebaseapp.com",
+//  databaseURL: "https://study-27cb3-default-rtdb.firebaseio.com",
+//  projectId: "study-27cb3",
+//  storageBucket: "study-27cb3.appspot.com",
+//  messagingSenderId: "471880357232",
+//  appId: "1:471880357232:web:df38219f588a2b342bebb5",
+//  measurementId: "G-QYKZMPJX4C"
+//};
 
+
+const firebase_config = {
+  apiKey: "AIzaSyCnzMaakPZYxfeL0DxxgSB3S0azYPMWACg",
+  authDomain: "zikpool-stoudy509.firebaseapp.com",
+  databaseURL: "https://zikpool-stoudy509.firebaseio.com",
+  projectId: "zikpool-stoudy509",
+  storageBucket: "zikpool-stoudy509.appspot.com",
+  messagingSenderId: "381001270792",
+  appId: "1:381001270792:web:c519ed09da3e172b7933bd"
+};
 
 
 const zikpool={

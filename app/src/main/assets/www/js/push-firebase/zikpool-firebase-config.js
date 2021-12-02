@@ -41,13 +41,14 @@ ZP_FIREBASE.firebase = function(){
   return new Promise(function(resolve,reject) {
       //todo 기본 member database
       firebase.initializeApp(firebase_config);
+      alert('1');
       fdb = firebase.database();
       if(app.mode=='pro'){
-        var app_chat = firebase.initializeApp({databaseURL:'https://study-chat-01.firebaseio.com/'}, "app_chat");
-        var app_realtime = firebase.initializeApp({databaseURL:'https://study-27cb3-default-rtdb.firebaseio.com/'}, "app_realtime");
+        var app_chat = firebase.initializeApp({databaseURL:'https://zikpool-stoudy509-chat509.firebaseio.com/'}, "app_chat");
+        var app_realtime = firebase.initializeApp({databaseURL:'https://zikpool-stoudy509-realtime509.firebaseio.com/'}, "app_realtime");
       }else if(app.mode=='dev'){
-        var app_chat = firebase.initializeApp({databaseURL:'https://study-chat-01.firebaseio.com/'}, "app_chat");
-        var app_realtime = firebase.initializeApp({databaseURL:'https://study-27cb3-default-rtdb.firebaseio.com/'}, "app_realtime");
+        var app_chat = firebase.initializeApp({databaseURL:'https://zikpool-stoudy509-chat509.firebaseio.com/'}, "app_chat");
+        var app_realtime = firebase.initializeApp({databaseURL:'https://zikpool-stoudy509-realtime509.firebaseio.com/'}, "app_realtime");
       }
 
       fdb_chat = app_chat.database();
