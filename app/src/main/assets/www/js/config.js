@@ -63,7 +63,6 @@ const zikpool={
     },
 }
 
-
 const ERROR={
     ajax:{
         getTitle:function(){
@@ -75,8 +74,6 @@ const ERROR={
         }
     }
 }
-
-
 
 const banWord={
     word1:'수잘친',
