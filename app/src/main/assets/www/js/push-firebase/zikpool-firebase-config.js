@@ -41,7 +41,6 @@ ZP_FIREBASE.firebase = function(){
   return new Promise(function(resolve,reject) {
       //todo 기본 member database
       firebase.initializeApp(firebase_config);
-      alert('1');
       fdb = firebase.database();
       if(app.mode=='pro'){
         var app_chat = firebase.initializeApp({databaseURL:'https://zikpool-stoudy509-chat509.firebaseio.com/'}, "app_chat");
@@ -70,6 +69,7 @@ ZP_FIREBASE.checkAppVersionAndServer=function(){
         var app_version = app_server.app_version;
         var server_power = app_server.server_power;
         var popup = app_server.popup;
+        popup.url='https://lh3.googleusercontent.com/proxy/t9Wz1f5G4lWQ4YqeXVRquvahmen3jmoO8czFfSk0XwLKQNB_FCVS2yrD7u-bl_60jnrxNclSt29gaDncz3CTVMpHgUWZoX0RiJBFJg06Jdx_kY2-lx6SkqV9WgRS3cuF6bWbN4yBWmiqHOHpJ3PCl9QATQ';
         app.popup.idx = popup.idx;
 
         //todo 가장 첫 앱 실행인지 조사. server_power=3 (정상)

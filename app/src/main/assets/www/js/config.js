@@ -78,10 +78,11 @@ const ERROR={
 
 const banWord={
     word1:'수잘친',
-    word2:'zikpool',
-    word3:'스투디',
-    word4:'stoudy',
+    word2:'agendiar',
+    word3:'아젠디아르',
+    word4:'agendiar1',
 }
+
 
 var newWindow;
 function finish(){
