@@ -75,6 +75,7 @@ const ERROR={
     }
 }
 
+
 const banWord={
     word1:'수잘친',
     word2:'zikpool',
