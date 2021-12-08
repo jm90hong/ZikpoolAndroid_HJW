@@ -15,16 +15,16 @@ android {
         applicationId "com.agendiar.project.study"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 91
+        versionCode 92
         versionName "2.0.0.3"
         multiDexEnabled true
         ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+
     buildTypes {
 //        debug {
-
 //            // 프로가드 활성화
 //            minifyEnabled false
 //
@@ -94,7 +94,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-flags:17.0.0'
     implementation 'com.google.android.gms:play-services-ads:19.0.1'
 
-
+    
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'android.arch.persistence.room:runtime:1.1.1'
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"

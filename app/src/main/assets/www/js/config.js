@@ -42,7 +42,7 @@ const firebase_config = {
   authDomain: "zikpool-stoudy509.firebaseapp.com",
   databaseURL: "https://zikpool-stoudy509.firebaseio.com",
   projectId: "zikpool-stoudy509",
-  storageBucket: "zikpool-stoudy509.appspot.com",
+  storageBucket: "zikpool-stoudy509",//zikpool-stoudy509.appspot.com
   messagingSenderId: "381001270792",
   appId: "1:381001270792:web:c519ed09da3e172b7933bd"
 };
