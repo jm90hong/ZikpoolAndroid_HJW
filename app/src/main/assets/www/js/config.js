@@ -37,6 +37,8 @@ const super_url = 'http://13.209.231.35:8080/zikpool_client/';
 //};
 
 
+
+//todo zp 파베 서버
 const firebase_config = {
   apiKey: "AIzaSyCnzMaakPZYxfeL0DxxgSB3S0azYPMWACg",
   authDomain: "zikpool-stoudy509.firebaseapp.com",
