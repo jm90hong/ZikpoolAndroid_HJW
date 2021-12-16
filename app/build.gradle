@@ -15,7 +15,7 @@ android {
         applicationId "com.agendiar.project.study"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 92
+        versionCode 93
         versionName "2.0.0.3"
         multiDexEnabled true
         ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
