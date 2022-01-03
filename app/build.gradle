@@ -3,10 +3,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         release {
-            keyAlias 'zikpool'
-            keyPassword 'dkwjTl!ghl40wjqtlwnqTj!'
-            storeFile file('C:/Users/user/Desktop/android_key_file/zikpool.jks')
-            storePassword 'dkwjTl!ghl40wjqtlwnqTj!'
+            keyAlias 'study'
+            keyPassword 'skdlrkfk1!'
+            storeFile file('C:/Users/jm90h/study.jks')
+            storePassword 'skdlrkfk1!'
         }
     }
     compileSdkVersion 30
@@ -15,7 +15,7 @@ android {
         applicationId "com.agendiar.project.study"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 93
+        versionCode 95
         versionName "2.0.0.3"
         multiDexEnabled true
         ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'

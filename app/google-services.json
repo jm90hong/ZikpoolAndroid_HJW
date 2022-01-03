@@ -1,88 +1,71 @@
 {
   "project_info": {
-    "project_number": "381001270792",
-    "firebase_url": "https://zikpool-stoudy509.firebaseio.com",
-    "project_id": "zikpool-stoudy509",
-    "storage_bucket": "zikpool-stoudy509.appspot.com"
+    "project_number": "471880357232",
+    "firebase_url": "https://study-27cb3-default-rtdb.firebaseio.com",
+    "project_id": "study-27cb3",
+    "storage_bucket": "study-27cb3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:381001270792:android:dcd37df3a8ebda87",
+        "mobilesdk_app_id": "1:471880357232:android:0806459fd6ec83152bebb5",
         "android_client_info": {
-          "package_name": "zikpool.stoudy.com.zikpoolandroid"
+          "package_name": "com.agendiar.project.study"
         }
       },
       "oauth_client": [
         {
-          "client_id": "381001270792-1sjj8dp002pau0srgqhagdccadq1po3q.apps.googleusercontent.com",
+          "client_id": "471880357232-d8n5pcsgf1n337fjoj958247t2fpclc1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "zikpool.stoudy.com.zikpoolandroid",
-            "certificate_hash": "d2c5fc303f394a3c4484a2e9c4751eb1ef80c47a"
+            "package_name": "com.agendiar.project.study",
+            "certificate_hash": "6b9d3d9d7d36104d9a23916bc8fadd38f47f9928"
           }
         },
         {
-          "client_id": "381001270792-33rtc0p0gum8u3jo5skdiorj9v84j42i.apps.googleusercontent.com",
+          "client_id": "471880357232-h4tmccp4ap7s6ome3pnn2cdt9vdcc3qn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "zikpool.stoudy.com.zikpoolandroid",
-            "certificate_hash": "32df26fb14fc2f0a7de1a90e1df85451fae51e9c"
+            "package_name": "com.agendiar.project.study",
+            "certificate_hash": "47d3bc83d84a81541eb6e7eb0690acbdce33602d"
           }
         },
         {
-          "client_id": "381001270792-4s1p35f50cbqsev0m23m37fl4caipslj.apps.googleusercontent.com",
+          "client_id": "471880357232-hpf5mu4c44lfjks0ivg78vnir0d0atj0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "zikpool.stoudy.com.zikpoolandroid",
-            "certificate_hash": "524be285ca33a7a67ee5c1041d11cde7bd70d87b"
+            "package_name": "com.agendiar.project.study",
+            "certificate_hash": "c78e55a4bbfec6ee3c457e8fa37258cfa23c4773"
           }
         },
         {
-          "client_id": "381001270792-9bde3hg73dqeqs22t9vqp7u3hkfg5on5.apps.googleusercontent.com",
+          "client_id": "471880357232-oo4kluf3cr7lkil550hqjnodfos4b9bm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "zikpool.stoudy.com.zikpoolandroid",
-            "certificate_hash": "d630177bddf1b4c0a1fe06c6e1aeb71299f162d6"
+            "package_name": "com.agendiar.project.study",
+            "certificate_hash": "261375cb48358297daf39b66430c163c534c7961"
           }
         },
         {
-          "client_id": "381001270792-gc4mudhhcc7hfobf9o0e9dadmtnjn7it.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "zikpool.stoudy.com.zikpoolandroid",
-            "certificate_hash": "0a2408ff0fe0b6b38197029245018b651262bde2"
-          }
-        },
-        {
-          "client_id": "381001270792-qmqb9ctfl210dl86qdiicp7g6cm42nk9.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "zikpool.stoudy.com.zikpoolandroid",
-            "certificate_hash": "090734565b3a8178fabd265b4854fbd78b0924d3"
-          }
-        },
-        {
-          "client_id": "381001270792-2kkt8ai33idelarnoftlmjubsaqmpb3m.apps.googleusercontent.com",
+          "client_id": "471880357232-dh44qv0rscuqlrgos5lk712l9c3hn8tf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCaM_CJ0yJQqzgVHmPXmBBvMyVOb-FImpw"
+          "current_key": "AIzaSyCM66MrOiBHooq4ULucmPDDsx9yannjFHo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "381001270792-2kkt8ai33idelarnoftlmjubsaqmpb3m.apps.googleusercontent.com",
+              "client_id": "471880357232-dh44qv0rscuqlrgos5lk712l9c3hn8tf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
         }
-      },
-      "admob_app_id": "ca-app-pub-8533573452821472~4066711364"
+      }
     }
   ],
   "configuration_version": "1"
